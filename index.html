@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Omni by V | Curated Luxury Jewelry</title>
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0B1528',         // Deep Obsidian Navy Blue
+              navyLight: '#1E2D4A',    // Soft Navy Accent
+              gold: '#C5A850',         // Burnished Warm Gold
+              goldHover: '#DFBE5D',    // Radiant Gold Hover
+              silver: '#E5E7EB',       // Polished Platinum Silver
+              platinum: '#64748B',     // Cool Silver Gray
+              bgLight: '#FAF9F6'       // Luxury Light Alabaster/Ivory Background
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Premium custom light scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #FAF9F6;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #C5A850;
+      border-radius: 10px;
+    }
+    @keyframes goldenGlow {
+      0%, 100% { filter: drop-shadow(0 0 4px rgba(197, 168, 80, 0.2)); }
+      50% { filter: drop-shadow(0 0 12px rgba(197, 168, 80, 0.5)); }
+    }
+    .gold-glow {
+      animation: goldenGlow 4s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="bg-[#FAF9F6] text-stone-800 font-sans flex flex-col min-h-screen selection:bg-[#C5A850]/20 selection:text-brand-navy">
+
+  <!-- Elegant Toast Alert System -->
+  <div id="toast" class="fixed top-5 right-5 z-50 hidden flex items-center px-5 py-4 rounded-xl shadow-2xl transition-all duration-300 transform border border-brand-gold/30 bg-white text-brand-navy">
+    <div class="flex items-center gap-2">
+      <span id="toast-icon" class="text-brand-gold">✨</span>
+      <span id="toast-message" class="text-sm font-semibold tracking-wide mr-2"></span>
+    </div>
+    <button onclick="hideToast()" class="text-stone-400 hover:text-stone-900 font-bold ml-4 text-xs">✕</button>
+  </div>
+
+  <!-- Custom Confirmation Dialog Modal -->
+  <div id="confirm-modal" class="fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white max-w-sm w-full rounded-2xl border border-stone-200 p-6 text-center shadow-2xl">
+      <div class="w-12 h-12 bg-red-50 text-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+        </svg>
+      </div>
+      <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Are you sure?</h3>
+      <p id="confirm-text" class="text-xs text-stone-500 mb-6">This action cannot be undone.</p>
+      <div class="flex gap-3 justify-center">
+        <button id="confirm-cancel-btn" class="px-4 py-2 bg-stone-100 hover:bg-stone-200 rounded-lg text-xs font-semibold text-stone-600 transition-colors">Cancel</button>
+        <button id="confirm-ok-btn" class="px-4 py-2 bg-red-600 hover:bg-red-700 rounded-lg text-xs font-semibold text-white transition-colors">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <header class="border-b border-stone-200/80 sticky top-0 bg-[#FAF9F6]/95 backdrop-blur-md z-40 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo Container -->
+      <div class="flex items-center gap-3 cursor-pointer" onclick="switchView('store')">
+        <div class="relative w-12 h-12 rounded-full border border-brand-gold/30 bg-white overflow-hidden flex items-center justify-center shadow-sm">
+          <!-- Referencing the exact image name verbatim -->
+          <img 
+            id="brand-logo"
+            src="omnibyv logo.png" 
+            alt="Omni by V Logo" 
+            class="w-full h-full object-cover gold-glow"
+            onerror="this.style.display='none'; document.getElementById('logo-fallback').classList.remove('hidden')"
+          />
+          <div id="logo-fallback" class="hidden text-brand-gold text-lg font-bold font-serif">O</div>
+        </div>
+        <div>
+          <h1 class="font-serif tracking-[0.25em] text-lg sm:text-xl font-bold text-brand-navy uppercase flex items-center gap-1">
+            Omni <span class="text-brand-gold font-light lowercase font-sans text-xs sm:text-sm">by V</span>
+          </h1>
+          <p class="text-[9px] tracking-[0.35em] uppercase text-stone-500 -mt-1 font-bold">Fine Jewelry Studio</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <button id="portal-btn" onclick="togglePortalView()" class="flex items-center gap-2 px-4 py-2 border border-brand-navy/20 hover:border-brand-gold rounded-full text-[11px] font-bold uppercase tracking-wider text-brand-navy hover:text-brand-gold hover:bg-brand-navy/5 transition-all duration-300">
+          Owner Portal
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="storefront-view" class="flex-grow">
+    <!-- Luxury Brand Hero Banner with Soft Gradient Light Theme -->
+    <section class="relative overflow-hidden bg-gradient-to-b from-stone-100 to-[#FAF9F6] py-20 px-4 sm:px-6 lg:px-8 text-center border-b border-stone-200/50">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-gold/5 via-transparent to-transparent pointer-events-none"></div>
+      
+      <div class="max-w-3xl mx-auto relative z-10">
+        <div class="w-16 h-8 mx-auto mb-6 opacity-90 flex justify-center items-center">
+          <svg class="w-10 h-10 text-brand-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 8.25V6a2.25 2.25 0 00-2.25-2.25H6A2.25 2.25 0 003.75 6v8.25A2.25 2.25 0 006 16.5h2.25m8.25-8.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-5.25A2.25 2.25 0 0110.5 18v-2.25m6-6H12A2.25 2.25 0 009.75 12v5.25c0 .414.336.75.75.75h5.25a.75.75 0 00.75-.75V12a.75.75 0 00-.75-.75z" />
+          </svg>
+        </div>
+        <span class="text-brand-gold font-serif text-xs tracking-[0.4em] uppercase block mb-3">Anti-Tarnish • Waterproof • Modern</span>
+        <h2 class="text-3xl sm:text-5xl font-serif font-light tracking-wide text-brand-navy mb-4 leading-tight">
+          Where Infinite Artistry Meets Precious Elements
+        </h2>
+        <div class="w-20 h-[1px] bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto my-6"></div>
+        <p class="text-stone-600 text-xs sm:text-sm leading-relaxed tracking-wider max-w-xl mx-auto font-light">
+          Welcome to Omni by V. Discover custom curated pieces fashioned from ethical gemstones, 18k yellow gold, and pristine platinum silver.
+        </p>
+      </div>
+    </section>
+
+    <!-- Catalog Filter & Cards Grid -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between border-b border-stone-200 pb-6 gap-4">
+        <div>
+          <h3 class="font-serif text-2xl text-brand-navy font-medium tracking-wide">The Signature Collection</h3>
+          <p class="text-stone-500 text-xs mt-1">Filter by category to explore our workspace creations.</p>
+        </div>
+        
+        <div class="flex flex-wrap gap-2" id="filter-tabs"></div>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-10" id="jewelry-grid"></div>
+    </section>
+  </main>
+
+  <!-- Admin Login View -->
+  <main id="admin-login-view" class="flex-grow hidden py-16 px-4">
+    <div class="max-w-md mx-auto bg-white border border-stone-200 p-8 rounded-2xl shadow-xl">
+      <div class="text-center mb-6">
+        <span class="bg-brand-gold/10 p-3.5 rounded-full inline-block text-brand-gold mb-4">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0V10.5m-3.25 3h15c1.242 0 2.25 1.008 2.25 2.25v3a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25v-3a2.25 2.25 0 01-2.25-2.25z" />
+          </svg>
+        </span>
+        <h3 class="font-serif text-2xl font-bold text-brand-navy tracking-wide">Owner Workspace</h3>
+        <p class="text-stone-500 text-xs mt-1">Authorize access to modify products, edit prices, or update photos.</p>
+      </div>
+
+      <form onsubmit="handleAdminLogin(event)" class="space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-stone-600 mb-1.5">Enter Passcode</label>
+          <input 
+            type="password" 
+            id="admin-passcode"
+            placeholder="••••"
+            class="w-full bg-stone-50 border border-stone-200 focus:border-brand-gold px-4 py-3 rounded-xl focus:outline-none text-center font-semibold text-lg tracking-widest text-brand-navy"
+          />
+          <p id="login-error" class="text-red-500 text-xs mt-2 hidden text-center font-medium"></p>
+        </div>
+        <button type="submit" class="w-full py-3 bg-brand-navy hover:bg-brand-navyLight text-white font-bold uppercase tracking-wider text-xs rounded-xl transition-all duration-300 shadow-md">
+          Unlock Catalog Manager
+        </button>
+      </form>
+      
+      <div class="mt-6 pt-5 border-t border-stone-150 text-center">
+        <p class="text-xs text-stone-500">Hint: Default passcode is <span class="font-mono font-bold text-brand-gold">1234</span> or <span class="font-mono font-bold text-brand-gold">sparkle</span></p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Admin Manager View -->
+  <main id="admin-manager-view" class="flex-grow hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between border-b border-stone-200 pb-6 mb-8 gap-4">
+      <div>
+        <span class="text-[10px] bg-brand-gold/10 text-brand-gold border border-brand-gold/30 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Authorized Store Owner Mode</span>
+        <h2 class="font-serif text-3xl font-medium text-brand-navy mt-2 tracking-wide">Omni Catalog Manager</h2>
+        <p class="text-stone-500 text-xs mt-1">Super simple interface designed for quick and easy use.</p>
+      </div>
+      <div class="flex gap-2">
+        <button onclick="resetAdminForm()" class="px-4 py-2 border border-stone-200 text-stone-600 text-xs font-bold rounded-lg hover:bg-stone-50 transition-colors">
+          Clear Form
+        </button>
+        <button onclick="logoutAdmin()" class="px-4 py-2 bg-red-50 hover:bg-red-100 border border-red-200 text-red-700 text-xs font-bold rounded-lg transition-colors">
+          Exit Admin Mode
+        </button>
+      </div>
+    </div>
+
+    <!-- Two Column Form & Catalog Workspace -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+      
+      <!-- Left Column: Add / Edit form -->
+      <div class="lg:col-span-5 bg-white border border-stone-200 p-6 sm:p-8 rounded-2xl shadow-sm h-fit">
+        <h3 id="form-title" class="font-serif text-xl font-semibold text-brand-navy mb-6 pb-2 border-b border-stone-100">
+          Add New Jewelry Piece
+        </h3>
+
+        <form onsubmit="handleSaveProduct(event)" class="space-y-5">
+          <div>
+            <label class="block text-xs font-semibold tracking-wider uppercase text-stone-600 mb-1.5">Piece Name *</label>
+            <input type="text" id="form-name" required placeholder="e.g. Platinum Infinity Diamond Band" class="w-full bg-stone-50 border border-stone-200 focus:border-brand-gold px-4 py-2.5 rounded-xl text-xs text-brand-navy placeholder-stone-400 focus:outline-none" />
+          </div>
+
+          <div class="grid grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs font-semibold tracking-wider uppercase text-stone-600 mb-1.5">Category *</label>
+              <select id="form-category" class="w-full bg-stone-50 border border-stone-200 focus:border-brand-gold px-3 py-2.5 rounded-xl text-xs text-brand-navy focus:outline-none">
+                <option>Rings</option>
+                <option>Necklaces</option>
+                <option>Earrings</option>
+                <option>Bracelets</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-semibold tracking-wider uppercase text-stone-600 mb-1.5">Price ($ USD) *</label>
+              <input type="number" id="form-price" required placeholder="e.g. 1850" class="w-full bg-stone-50 border border-stone-200 focus:border-brand-gold px-4 py-2.5 rounded-xl text-xs text-brand-navy placeholder-stone-400 focus:outline-none" />
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-semibold tracking-wider uppercase text-stone-600 mb-1.5">Description *</label>
+            <textarea id="form-desc" rows="3" required placeholder="Describe precious cuts, platinum, white/yellow gold karat, or gemstone weight..." class="w-full bg-stone-50 border border-stone-200 focus:border-brand-gold px-4 py-2.5 rounded-xl text-xs text-brand-navy placeholder-stone-400 focus:outline-none"></textarea>
+          </div>
+
+          <!-- AI Jewelry Photo Studio -->
+          <div class="bg-brand-gold/5 border border-brand-gold/15 p-4 rounded-xl space-y-3">
+            <div class="flex items-center justify-between">
+              <label class="block text-xs font-bold tracking-wider uppercase text-brand-gold flex items-center gap-1.5">
+                ✨ AI Jewelry Photo Creator
+              </label>
+              <span class="text-[9px] text-brand-gold bg-brand-gold/10 px-2 py-0.5 rounded-full font-bold">GEMINI POWERED</span>
+            </div>
+            <p class="text-[11px] text-stone-500 leading-normal">
+              No photos handy? Type a description below to generate professional studio-lit showroom imagery.
+            </p>
+            <div class="flex gap-2">
+              <input type="text" id="ai-prompt" placeholder="e.g. Gold diamond ring on white velvet background" class="flex-grow bg-white border border-stone-200 focus:border-brand-gold px-3 py-2 rounded-lg text-xs text-brand-navy placeholder-stone-400 focus:outline-none" />
+              <button type="button" id="ai-btn" onclick="handleGenerateAIImage()" class="bg-brand-gold hover:bg-brand-goldHover text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors shrink-0">
+                Generate
+              </button>
+            </div>
+          </div>
+
+          <!-- Photo Selection and Direct Upload -->
+          <div class="space-y-2">
+            <label class="block text-xs font-semibold tracking-wider uppercase text-stone-600">Product Photo Selection *</label>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <!-- Upload Box -->
+              <div class="relative border-2 border-dashed border-stone-200 rounded-xl p-4 hover:border-brand-gold transition-colors bg-stone-50 flex flex-col items-center justify-center cursor-pointer text-center group" onclick="document.getElementById('file-upload-input').click()">
+                <input type="file" id="file-upload-input" accept="image/*" class="hidden" onchange="handleFileUpload(event)" />
+                <svg class="w-6 h-6 text-stone-400 group-hover:text-brand-gold mb-2 transition-colors" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 16.5V9.75m0 0l3 3m-3-3l-3 3M6.75 19.5a4.5 4.5 0 01-1.41-8.775 5.25 5.25 0 0110.233-2.33 3 3 0 013.758 3.848A3.752 3.752 0 0118 19.5H6.75z" />
+                </svg>
+                <span class="text-xs font-bold text-stone-600 group-hover:text-brand-navy transition-colors">Upload Image File</span>
+                <span class="text-[10px] text-stone-400 mt-1">PNG, JPG (under 1.2MB)</span>
+              </div>
+              
+              <!-- Alternative Link Input & Thumbnail Preview -->
+              <div class="flex flex-col justify-between">
+                <input type="text" id="form-image" placeholder="Or paste web image link" class="w-full bg-stone-50 border border-stone-200 focus:border-brand-gold px-3 py-2 rounded-lg text-xs text-brand-navy placeholder-stone-400 focus:outline-none" oninput="handleUrlInput(this.value)" />
+                
+                <div id="image-preview-container" class="mt-2 hidden relative w-20 h-20 rounded-lg overflow-hidden border border-stone-200 bg-stone-50 shadow-inner self-center sm:self-start">
+                  <img id="image-preview" class="w-full h-full object-cover" src="" />
+                  <button type="button" onclick="clearSelectedImage()" class="absolute top-1 right-1 bg-stone-900/80 hover:bg-stone-900 text-white rounded-full w-4 h-4 flex items-center justify-center text-[10px] transition-colors">✕</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-2 pt-4 border-t border-stone-150">
+            <button type="submit" class="flex-grow py-3 bg-brand-navy hover:bg-brand-navyLight text-white font-bold uppercase text-xs tracking-wider rounded-xl transition-all duration-300 shadow-sm">
+              Publish to Catalog
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Live Catalog List -->
+      <div class="lg:col-span-7 bg-white border border-stone-200 p-6 rounded-2xl shadow-sm">
+        <h3 class="font-serif text-xl font-semibold text-brand-navy mb-4 pb-2 border-b border-stone-100">
+          Live Store Catalog
+        </h3>
+        <div class="space-y-4 max-h-[720px] overflow-y-auto pr-2" id="admin-catalog-list"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Product Inquiry Modal -->
+  <div id="inquiry-modal" class="fixed inset-0 bg-stone-900/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-[#FAF9F6] max-w-4xl w-full rounded-2xl shadow-2xl border border-stone-200 overflow-hidden flex flex-col md:flex-row relative">
+      <button onclick="closeInquiryModal()" class="absolute top-4 right-4 bg-white/80 hover:bg-white text-stone-800 font-bold p-2.5 rounded-full shadow-md z-10 transition-colors text-xs">✕</button>
+
+      <!-- Design Display Panel -->
+      <div class="w-full md:w-1/2 bg-stone-100 flex items-center justify-center relative min-h-[250px] md:min-h-full">
+        <img id="modal-img" class="w-full h-full object-cover aspect-square md:aspect-auto md:h-[500px]" src="" />
+        <span id="modal-cat" class="absolute top-4 left-4 bg-brand-navy text-white text-[10px] font-bold tracking-widest uppercase px-4 py-1.5 rounded-full"></span>
+      </div>
+
+      <!-- Consultation Request Portal -->
+      <div class="w-full md:w-1/2 p-8 flex flex-col justify-between max-h-[500px] overflow-y-auto text-brand-navy">
+        <div>
+          <h3 id="modal-name" class="font-serif text-2xl sm:text-3xl font-bold text-brand-navy tracking-wide"></h3>
+          <p id="modal-price" class="font-serif font-bold text-xl text-brand-gold mt-2"></p>
+          <div class="w-12 h-[1px] bg-stone-200 my-4"></div>
+          <p id="modal-desc" class="text-stone-600 text-xs sm:text-sm leading-relaxed mb-6"></p>
+        </div>
+
+        <div class="bg-white border border-stone-200 p-4 rounded-xl shadow-sm">
+          <form id="inquiry-form" onsubmit="handleInquirySubmit(event)" class="space-y-3">
+            <h4 class="text-xs font-bold uppercase tracking-wider text-brand-navy">Request Private Consultation</h4>
+            <div class="grid grid-cols-2 gap-2">
+              <input type="text" id="inq-name" required placeholder="Your Name" class="bg-stone-50 border border-stone-200 focus:border-brand-gold px-3 py-2 text-xs rounded-lg text-brand-navy focus:outline-none" />
+              <input type="email" id="inq-email" required placeholder="Email Address" class="bg-stone-50 border border-stone-200 focus:border-brand-gold px-3 py-2 text-xs rounded-lg text-brand-navy focus:outline-none" />
+            </div>
+            <textarea id="inq-msg" rows="2" required class="w-full bg-stone-50 border border-stone-200 focus:border-brand-gold px-3 py-2 text-xs rounded-lg text-brand-navy focus:outline-none"></textarea>
+            <button type="submit" class="w-full py-2.5 bg-brand-navy hover:bg-brand-navyLight text-white text-xs font-bold uppercase tracking-wider rounded-lg transition-colors">
+              Send Message &amp; Schedule
+            </button>
+          </form>
+          <div id="inquiry-success" class="text-center py-6 hidden">
+            <span class="text-3xl">✨</span>
+            <h4 class="font-serif font-bold text-brand-gold text-sm mt-2">Inquiry Successfully Transmitted!</h4>
+            <p class="text-stone-500 text-[11px] mt-1">A design curator from Omni by V will reach out shortly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-stone-900 text-stone-300 py-12 px-4 sm:px-6 lg:px-8 border-t border-brand-gold/10 mt-auto">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div>
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-full border border-brand-gold/30 bg-white overflow-hidden flex items-center justify-center shadow-sm">
+            <!-- Referencing the exact image name verbatim -->
+            <img src="omnibyv logo.png" alt="Omni by V Logo" class="w-full h-full object-cover" onerror="this.style.display='none'" />
+          </div>
+          <h4 class="font-serif text-lg text-white font-medium uppercase tracking-[0.2em]">Omni <span class="text-brand-gold font-light lowercase font-sans text-sm">by V</span></h4>
+        </div>
+        <p class="text-xs leading-relaxed max-w-sm text-stone-400">
+          A bespoke studio combining rich Navy depth, premium 18k yellow Gold, and polished Platinum Silver. Uncompromising elegance crafted on your own terms.
+        </p>
+      </div>
+      <div>
+        <h4 class="font-serif text-xs text-brand-gold font-bold uppercase tracking-[0.2em] mb-4">Hours &amp; Contact</h4>
+        <ul class="text-xs space-y-2.5 text-stone-400">
+          <li>📍 Private Studio Location, West Haven, CT</li>
+          <li>📞 (908) 342-8089</li>
+          <li>✉️ vibhutiraval94@gmail.com</li>
+          <li class="pt-2 text-[10px] text-stone-500">Appointments Scheduled on Private Inquiry</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-serif text-xs text-brand-gold font-bold uppercase tracking-[0.2em] mb-4">Internal Directory</h4>
+        <p class="text-xs leading-relaxed mb-4 text-stone-400">If you are the brand director, authenticate using the passcode to update listings immediately.</p>
+        <button onclick="switchView('admin')" class="px-4 py-2 bg-stone-850 hover:bg-stone-800 text-brand-gold text-[11px] font-bold uppercase tracking-wider rounded-lg border border-brand-gold/10 hover:border-brand-gold/40 transition-all duration-300">
+          Enter Catalog Workspace
+        </button>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto mt-8 pt-8 border-t border-stone-800 text-center text-[9px] tracking-[0.3em] text-stone-500 uppercase">
+      &copy; 2026 Omni by V. Designed in Navy, Gold &amp; Silver.
+    </div>
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js';
+    import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js';
+    import { getFirestore, collection, doc, setDoc, deleteDoc, updateDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js';
+
+    // Global variables initialized or provided by the Cloudflare hosting env
+    const firebaseConfig = typeof __firebase_config !== 'undefined' 
+      ? JSON.parse(__firebase_config) 
+      : { apiKey: "", authDomain: "", projectId: "", storageBucket: "", messagingSenderId: "", appId: "" };
+
+    // Premium default products that automatically seed if Firestore is empty
+    const DEFAULT_CATALOG = [
+      { 
+        name: "Omni Golden Infinity Ring", 
+        category: "Rings", 
+        price: 2850, 
+        description: "A signature piece featuring intertwined yellow gold and silver infinity twists, capturing perfect structural balance.", 
+        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80" 
+      },
+      { 
+        name: "Liquid Platinum Cascade Pendant", 
+        category: "Necklaces", 
+        price: 3200, 
+        description: "A gorgeous modern drop necklace crafted in platinum silver with layered gold dust halos.", 
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" 
+      },
+      { 
+        name: "Classic Aureate Drop Earrings", 
+        category: "Earrings", 
+        price: 1650, 
+        description: "Lightweight, polished 18k yellow gold structured drops paired with silver backing pins.", 
+        image: "https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=600&q=80" 
+      },
+      { 
+        name: "Signature Polished Cuff", 
+        category: "Bracelets", 
+        price: 4500, 
+        description: "Heavy minimalist cuff showcasing platinum finish on structural gold core geometry.", 
+        image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=600&q=80" 
+      }
+    ];
+
+    // Local application state
+    let catalog = [];
+    let currentCategory = 'All';
+    let editingProductId = null;
+    let currentView = 'store';
+    let isAdmin = false;
+    let db = null;
+    let auth = null;
+    const appId = typeof __app_id !== 'undefined' ? __app_id : 'omni-by-v-jewelry';
+
+    // Safety check: Make sure initializeApp doesn't throw on empty keys
+    let firebaseReady = false;
+    if (firebaseConfig && firebaseConfig.apiKey && firebaseConfig.apiKey.trim() !== "") {
+      try {
+        const app = initializeApp(firebaseConfig);
+        auth = getAuth(app);
+        db = getFirestore(app);
+        firebaseReady = true;
+      } catch (err) {
+        console.warn("Could not load Firebase. Falling back to offline client portfolio storage.");
+      }
+    }
+
+    // Direct Upload Handler
+    window.handleFileUpload = function(e) {
+      const file = e.target.files[0];
+      if (!file) return;
+
+      // Ensure file remains highly lightweight for simple database payloads
+      if (file.size > 1.2 * 1024 * 1024) {
+        showToast("Please upload an image under 1.2MB for catalog speed.", "error");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const base64String = event.target.result;
+        document.getElementById('form-image').value = base64String;
+        
+        const preview = document.getElementById('image-preview');
+        preview.src = base64String;
+        document.getElementById('image-preview-container').classList.remove('hidden');
+        showToast("Photo processed successfully!");
+      };
+      reader.readAsDataURL(file);
+    };
+
+    window.handleUrlInput = function(value) {
+      const preview = document.getElementById('image-preview');
+      if (value.trim()) {
+        preview.src = value;
+        document.getElementById('image-preview-container').classList.remove('hidden');
+      } else {
+        document.getElementById('image-preview-container').classList.add('hidden');
+      }
+    };
+
+    window.clearSelectedImage = function() {
+      document.getElementById('form-image').value = '';
+      document.getElementById('file-upload-input').value = '';
+      document.getElementById('image-preview-container').classList.add('hidden');
+    };
+
+    // Database syncing logic
+    async function seedDefaults() {
+      if (!firebaseReady) return;
+      const catalogRef = collection(db, 'artifacts', appId, 'public', 'data', 'jewelry_catalog');
+      for (const item of DEFAULT_CATALOG) {
+        await setDoc(doc(catalogRef), item);
+      }
+    }
+
+    async function startCatalogListener() {
+      if (!firebaseReady) {
+        // Run with local mockup defaults safely
+        catalog = [...DEFAULT_CATALOG];
+        renderStorefront();
+        renderAdminCatalog();
+        return;
+      }
+
+      const catalogRef = collection(db, 'artifacts', appId, 'public', 'data', 'jewelry_catalog');
+      onSnapshot(catalogRef, (snapshot) => {
+        catalog = [];
+        snapshot.forEach(doc => {
+          catalog.push({ id: doc.id, ...doc.data() });
+        });
+        if (catalog.length === 0) {
+          seedDefaults();
+        } else {
+          renderStorefront();
+          renderAdminCatalog();
+        }
+      }, (error) => {
+        showToast("Serving local offline portfolio.", "error");
+        catalog = [...DEFAULT_CATALOG];
+        renderStorefront();
+      });
+    }
+
+    if (firebaseReady) {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          startCatalogListener();
+        }
+      });
+
+      async function initAuth() {
+        try {
+          if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+            await signInWithCustomToken(auth, __initial_auth_token);
+          } else {
+            await signInAnonymously(auth);
+          }
+        } catch (e) {
+          catalog = [...DEFAULT_CATALOG];
+          renderStorefront();
+        }
+      }
+      initAuth();
+    } else {
+      // Offline fallback start
+      catalog = [...DEFAULT_CATALOG];
+      renderStorefront();
+      renderAdminCatalog();
+    }
+
+    function renderStorefront() {
+      const grid = document.getElementById('jewelry-grid');
+      grid.innerHTML = '';
+      
+      const filtered = currentCategory === 'All' ? catalog : catalog.filter(i => i.category === currentCategory);
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `
+          <div class="col-span-full text-center py-20 bg-white rounded-2xl border border-dashed border-stone-200 shadow-sm">
+            <p class="text-stone-500 font-serif text-lg">No collection pieces ready</p>
+            <p class="text-stone-400 text-xs mt-1">Check back later or contact private consultation directory.</p>
+          </div>
+        `;
+        return;
+      }
+
+      filtered.forEach(p => {
+        const item = document.createElement('div');
+        item.className = "group flex flex-col bg-white border border-stone-200/60 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:border-brand-gold/30 transition-all duration-300 cursor-pointer";
+        item.onclick = () => openInquiryModal(p);
+        item.innerHTML = `
+          <div class="aspect-[4/5] bg-stone-50 overflow-hidden relative border-b border-stone-100">
+            <img src="${p.image}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80'" />
+            <span class="absolute top-3 left-3 bg-[#FAF9F6]/90 backdrop-blur-sm text-brand-navy text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border border-stone-200">${p.category}</span>
+          </div>
+          <div class="p-5 flex-grow flex flex-col justify-between">
+            <div>
+              <h4 class="font-serif text-lg text-brand-navy font-semibold tracking-wide group-hover:text-brand-gold transition-colors duration-300">${p.name}</h4>
+              <p class="text-stone-500 text-xs mt-2 line-clamp-2 leading-relaxed">${p.description}</p>
+            </div>
+            <div class="mt-4 pt-4 border-t border-stone-100 flex items-center justify-between">
+              <span class="font-serif font-bold text-brand-navy text-base">$${Number(p.price).toLocaleString()}</span>
+              <span class="text-xs font-bold uppercase tracking-wider text-brand-gold group-hover:underline">Inquire &rarr;</span>
+            </div>
+          </div>
+        `;
+        grid.appendChild(item);
+      });
+
+      // Render category buttons dynamically
+      const tabs = document.getElementById('filter-tabs');
+      tabs.innerHTML = '';
+      ["All", "Rings", "Necklaces", "Earrings", "Bracelets"].forEach(cat => {
+        const btn = document.createElement('button');
+        btn.className = `px-4 py-2 rounded-full text-[11px] font-bold tracking-wider uppercase transition-all duration-300 ${currentCategory === cat ? 'bg-brand-navy text-white shadow-md' : 'bg-white text-stone-600 hover:bg-stone-50 border border-stone-200'}`;
+        btn.innerText = cat;
+        btn.onclick = (e) => {
+          e.stopPropagation();
+          currentCategory = cat;
+          renderStorefront();
+        };
+        tabs.appendChild(btn);
+      });
+    }
+
+    function renderAdminCatalog() {
+      const list = document.getElementById('admin-catalog-list');
+      list.innerHTML = '';
+
+      catalog.forEach(p => {
+        const div = document.createElement('div');
+        div.className = `flex gap-4 p-4 rounded-xl border transition-all duration-300 ${editingProductId === p.id ? 'border-brand-gold bg-brand-gold/5' : 'border-stone-100 bg-white'}`;
+        div.innerHTML = `
+          <img src="${p.image}" class="w-16 h-16 object-cover rounded-lg border border-stone-200 bg-stone-50 shrink-0" onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80'" />
+          <div class="flex-grow min-w-0">
+            <div class="flex justify-between items-start">
+              <div>
+                <h4 class="font-serif font-bold text-brand-navy text-sm sm:text-base truncate">${p.name}</h4>
+                <span class="inline-block text-[10px] bg-stone-100 text-stone-600 px-2 py-0.5 rounded-full font-bold uppercase mt-0.5 border border-stone-200">${p.category}</span>
+              </div>
+              <span class="font-serif text-brand-gold font-bold text-sm sm:text-base ml-2 shrink-0">$${Number(p.price).toLocaleString()}</span>
+            </div>
+            <p class="text-stone-500 text-xs line-clamp-1 mt-1">${p.description}</p>
+            <div class="flex gap-4 mt-3 pt-2 border-t border-stone-100/50">
+              <button onclick="window.editProductById('${p.id}')" type="button" class="text-xs font-bold text-brand-navy hover:text-brand-gold transition-colors">✏️ Edit Details</button>
+              <button onclick="window.deleteProductById('${p.id}')" type="button" class="text-xs font-bold text-red-500 hover:text-red-700 ml-auto transition-colors">🗑️ Delete</button>
+            </div>
+          </div>
+        `;
+        list.appendChild(div);
+      });
+    }
+
+    window.switchView = function(view) {
+      currentView = view;
+      document.getElementById('storefront-view').classList.add('hidden');
+      document.getElementById('admin-login-view').classList.add('hidden');
+      document.getElementById('admin-manager-view').classList.add('hidden');
+
+      if (view === 'store') {
+        document.getElementById('storefront-view').classList.remove('hidden');
+        document.getElementById('portal-btn').innerText = isAdmin ? 'Owner Panel' : 'Owner Portal';
+      } else if (view === 'admin') {
+        if (isAdmin) {
+          document.getElementById('admin-manager-view').classList.remove('hidden');
+        } else {
+          document.getElementById('admin-login-view').classList.remove('hidden');
+        }
+      }
+    };
+
+    window.togglePortalView = function() {
+      if (currentView === 'store') {
+        window.switchView('admin');
+      } else {
+        window.switchView('store');
+      }
+    };
+
+    window.handleAdminLogin = function(e) {
+      e.preventDefault();
+      const code = document.getElementById('admin-passcode').value;
+      if (code === '1234' || code.toLowerCase() === 'sparkle') {
+        isAdmin = true;
+        document.getElementById('login-error').classList.add('hidden');
+        document.getElementById('portal-btn').innerText = 'Owner Panel';
+        window.switchView('admin');
+        showToast("Access Unlocked. Welcome!", "success");
+      } else {
+        const error = document.getElementById('login-error');
+        error.innerText = "Incorrect passcode. Use '1234' or 'sparkle'.";
+        error.classList.remove('hidden');
+      }
+    };
+
+    window.logoutAdmin = function() {
+      isAdmin = false;
+      document.getElementById('admin-passcode').value = '';
+      window.switchView('store');
+      showToast("Signed out successfully.", "success");
+    };
+
+    window.editProductById = function(id) {
+      const prod = catalog.find(p => p.id === id);
+      if (!prod) return;
+      editingProductId = id;
+      document.getElementById('form-title').innerText = `Edit: ${prod.name}`;
+      document.getElementById('form-name').value = prod.name;
+      document.getElementById('form-category').value = prod.category;
+      document.getElementById('form-price').value = prod.price;
+      document.getElementById('form-desc').value = prod.description;
+      document.getElementById('form-image').value = prod.image;
+      
+      const preview = document.getElementById('image-preview');
+      preview.src = prod.image;
+      document.getElementById('image-preview-container').classList.remove('hidden');
+      renderAdminCatalog();
+    };
+
+    // Safe custom modal triggers (Replaces native browser alert and confirms)
+    window.deleteProductById = function(id) {
+      const prod = catalog.find(p => p.id === id);
+      if (!prod) return;
+
+      showConfirm(`Remove "${prod.name}" from public studio listings?`, async () => {
+        try {
+          if (firebaseReady) {
+            await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'jewelry_catalog', id));
+          } else {
+            catalog = catalog.filter(p => p.id !== id);
+            renderStorefront();
+            renderAdminCatalog();
+          }
+          showToast("Piece deleted from catalog.");
+          resetAdminForm();
+        } catch (err) {
+          showToast("Error removing piece.", "error");
+        }
+      });
+    };
+
+    window.resetAdminForm = function() {
+      editingProductId = null;
+      document.getElementById('form-title').innerText = "Add New Jewelry Piece";
+      document.getElementById('form-name').value = '';
+      document.getElementById('form-category').value = 'Rings';
+      document.getElementById('form-price').value = '';
+      document.getElementById('form-desc').value = '';
+      window.clearSelectedImage();
+      document.getElementById('ai-prompt').value = '';
+      renderAdminCatalog();
+    };
+
+    window.handleSaveProduct = async function(e) {
+      e.preventDefault();
+      const name = document.getElementById('form-name').value;
+      const category = document.getElementById('form-category').value;
+      const price = parseFloat(document.getElementById('form-price').value);
+      const description = document.getElementById('form-desc').value;
+      const image = document.getElementById('form-image').value || "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=600&q=80";
+
+      if (isNaN(price) || price <= 0) {
+        showToast("Please enter a valid price coordinate.", "error");
+        return;
+      }
+
+      const pData = { name, category, price, description, image };
+
+      try {
+        if (firebaseReady) {
+          const catalogRef = collection(db, 'artifacts', appId, 'public', 'data', 'jewelry_catalog');
+          if (editingProductId) {
+            await updateDoc(doc(catalogRef, editingProductId), pData);
+            showToast("Piece updated successfully!");
+          } else {
+            await setDoc(doc(catalogRef), pData);
+            showToast("New design published successfully!");
+          }
+        } else {
+          // Local offline mode mutations
+          if (editingProductId) {
+            catalog = catalog.map(p => p.id === editingProductId ? { id: editingProductId, ...pData } : p);
+          } else {
+            catalog.push({ id: Date.now().toString(), ...pData });
+          }
+          renderStorefront();
+          renderAdminCatalog();
+          showToast("New design published to browser session!");
+        }
+        window.resetAdminForm();
+      } catch (err) {
+        showToast("Could not save to Cloud database.", "error");
+      }
+    };
+
+    // AI Showroom Designer Studio Generator
+    window.handleGenerateAIImage = async function() {
+      const promptInput = document.getElementById('ai-prompt').value;
+      if (!promptInput.trim()) {
+        showToast("Write your vision first!", "error");
+        return;
+      }
+
+      const btn = document.getElementById('ai-btn');
+      btn.disabled = true;
+      btn.innerText = "Styling...";
+
+      const apiKey = ""; // Empty string for environment deployment
+      const promptText = `Professional premium luxury studio photography of fine jewelry: ${promptInput}. Soft warm alabaster velvet backdrop, gold and silver shadows, high focus.`;
+
+      let attempts = 5;
+      let delay = 1000;
+      let success = false;
+
+      while (attempts > 0 && !success) {
+        try {
+          const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/imagen-4.0-generate-001:predict?key=${apiKey}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              instances: { prompt: promptText },
+              parameters: { sampleCount: 1 }
+            })
+          });
+
+          if (!res.ok) throw new Error();
+
+          const data = await res.json();
+          const base64 = data.predictions?.[0]?.bytesBase64Encoded;
+          if (base64) {
+            const dataUrl = `data:image/png;base64,${base64}`;
+            document.getElementById('form-image').value = dataUrl;
+            document.getElementById('image-preview').src = dataUrl;
+            document.getElementById('image-preview-container').classList.remove('hidden');
+            showToast("Bespoke AI Showroom Photo Created!", "success");
+            success = true;
+          } else {
+            throw new Error();
+          }
+        } catch (e) {
+          attempts--;
+          if (attempts === 0) {
+            showToast("Unable to reach AI studio. Enter a link manually above.", "error");
+          } else {
+            await new Promise(r => setTimeout(r, delay));
+            delay *= 2;
+          }
+        }
+      }
+      btn.disabled = false;
+      btn.innerText = "Generate";
+    };
+
+    // Custom Dialogue Logic (Replaces window.confirm)
+    let onConfirmSuccess = null;
+    function showConfirm(text, callback) {
+      document.getElementById('confirm-text').innerText = text;
+      document.getElementById('confirm-modal').classList.remove('hidden');
+      onConfirmSuccess = callback;
+    }
+
+    document.getElementById('confirm-cancel-btn').onclick = function() {
+      document.getElementById('confirm-modal').classList.add('hidden');
+      onConfirmSuccess = null;
+    };
+
+    document.getElementById('confirm-ok-btn').onclick = function() {
+      document.getElementById('confirm-modal').classList.add('hidden');
+      if (onConfirmSuccess) onConfirmSuccess();
+      onConfirmSuccess = null;
+    };
+
+    // Client Inquiry Portal
+    window.openInquiryModal = function(product) {
+      document.getElementById('modal-img').src = product.image;
+      document.getElementById('modal-cat').innerText = product.category;
+      document.getElementById('modal-name').innerText = product.name;
+      document.getElementById('modal-price').innerText = `$${Number(product.price).toLocaleString()}`;
+      document.getElementById('modal-desc').innerText = product.description;
+      document.getElementById('inq-msg').value = `Hi, I am interested in scheduling a consultation for the ${product.name} ($${Number(product.price).toLocaleString()}). Please let me know your soonest private appointment slots.`;
+      
+      document.getElementById('inquiry-form').classList.remove('hidden');
+      document.getElementById('inquiry-success').classList.add('hidden');
+      document.getElementById('inquiry-modal').classList.remove('hidden');
+    };
+
+    window.closeInquiryModal = function() {
+      document.getElementById('inquiry-modal').classList.add('hidden');
+    };
+
+    window.handleInquirySubmit = function(e) {
+      e.preventDefault();
+      document.getElementById('inquiry-form').classList.add('hidden');
+      document.getElementById('inquiry-success').classList.remove('hidden');
+      showToast("Consultation Request Logged!", "success");
+      setTimeout(() => {
+        window.closeInquiryModal();
+      }, 3000);
+    };
+
+    // Toast logic
+    window.showToast = function(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      const msg = document.getElementById('toast-message');
+      const icon = document.getElementById('toast-icon');
+      msg.innerText = message;
+      
+      if (type === 'error') {
+        toast.className = "fixed top-5 right-5 z-50 flex items-center px-5 py-4 rounded-xl shadow-2xl transition-all duration-300 transform bg-red-50 text-red-800 border border-red-200";
+        icon.innerText = "⚠️";
+      } else {
+        toast.className = "fixed top-5 right-5 z-50 flex items-center px-5 py-4 rounded-xl shadow-2xl transition-all duration-300 transform bg-white text-brand-navy border border-brand-gold/20";
+        icon.innerText = "✨";
+      }
+      
+      toast.classList.remove('hidden');
+      
+      setTimeout(() => {
+        window.hideToast();
+      }, 4000);
+    };
+
+    window.hideToast = function() {
+      document.getElementById('toast').classList.add('hidden');
+    };
+  </script>
+</body>
+</html>

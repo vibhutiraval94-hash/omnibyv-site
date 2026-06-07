@@ -1,0 +1,20 @@
+backend:
+  name: github
+  repo: your-github-username/your-repo-name # We will link this to your GitHub repository
+  branch: main
+
+media_folder: "public/images" # Where product images will be saved
+public_folder: "/images"
+
+collections:
+  - name: "jewelry"
+    label: "Jewelry Catalog"
+    folder: "public/data/jewelry"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Product Name", name: "title", widget: "string" }
+      - { label: "Price", name: "price", widget: "string" }
+      - { label: "Description", name: "body", widget: "markdown" }
+      - { label: "Product Image", name: "image", widget: "image" }
+      - { label: "Status", name: "status", widget: "select", options: ["In Stock", "Low Stock", "Out of Stock"] }
