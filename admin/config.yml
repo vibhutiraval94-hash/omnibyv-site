@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: your-github-username/your-repo-name # We will link this to your GitHub repository
+  repo: vibhutiraval94-hash/omnibyv-site # We will link this to your GitHub repository
   branch: main
 
 media_folder: "public/images" # Where product images will be saved
