@@ -1,9 +1,11 @@
 backend:
   name: github
-  repo: vibhutiraval94-hash/omnibyv-site # We will link this to your GitHub repository
+  repo: vibhutiraval94-hash/omnibyv-site
   branch: main
+  auth_type: implicit # This forces a clean GitHub login popup instead of freezing
+  app_id: 
 
-media_folder: "public/images" # Where product images will be saved
+media_folder: "public/images"
 public_folder: "/images"
 
 collections:
