@@ -3,7 +3,7 @@ backend:
   repo: vibhutiraval94-hash/omnibyv-site
   branch: main
   auth_type: implicit # This forces a clean GitHub login popup instead of freezing
-  app_id: 
+  app_id: Ov23li4je5hNQOXQpc47
 
 media_folder: "public/images"
 public_folder: "/images"
