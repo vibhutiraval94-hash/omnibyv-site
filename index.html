@@ -44,7 +44,9 @@
 </head>
 <body class="bg-brand-canvas text-stone-800 font-sans min-h-screen flex flex-col antialiased selection:bg-brand-gold/20">
 
-  
+  <div class="bg-brand-obsidian text-white text-[11px] font-medium tracking-[0.2em] text-center py-2.5 uppercase border-b border-brand-gold/20">
+    ✨ Free Premium Luxury Shipping On Orders Above $75
+  </div>
 
   <header class="sticky top-0 z-40 glass-nav border-b border-stone-200/60 transition-all duration-300">
     <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -71,16 +73,15 @@
     </div>
   </header>
 
-  <section class="relative bg-brand-obsidian text-white py-32 px-6 overflow-hidden border-b border-brand-gold/30 bg-cover bg-center bg-no-repeat" 
-         style="background-image: linear-gradient(rgba(12, 15, 18, 0.75), rgba(12, 15, 18, 0.75)), url('https://i.etsystatic.com/62681372/r/ishbcb/edea52/7947227607/ishbcb_1120x840.7947227607_65lu58ov.jpg');">
-  <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.15),transparent_60%)]"></div>
-  <div class="max-w-5xl mx-auto text-center relative z-10 space-y-6">
-    <span class="text-brand-gold text-[11px] font-semibold tracking-[0.3em] uppercase block">Boutique Lookbook Exclusives</span>
-    <h1 class="font-serif text-4xl md:text-6xl font-light tracking-wide leading-tight">Elevate Every Layer With Statement Artistry</h1>
-    <p class="text-stone-300 font-light max-w-xl mx-auto text-sm md:text-base leading-relaxed">Hand-selected luxury collections sourced dynamically to celebrate precision, brilliance, and timeless elegance.</p>
-    <div class="w-12 h-[1px] bg-brand-gold mx-auto mt-4"></div>
-  </div>
-</section>
+  <section class="relative bg-brand-obsidian text-white py-24 px-6 overflow-hidden border-b border-brand-gold/30">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(212,175,55,0.12),transparent_60%)]"></div>
+    <div class="max-w-5xl mx-auto text-center relative z-10 space-y-6">
+      <span class="text-brand-gold text-[11px] font-semibold tracking-[0.3em] uppercase block">Boutique Lookbook Exclusives</span>
+      <h1 class="font-serif text-4xl md:text-6xl font-light tracking-wide leading-tight">Elevate Every Layer With Statement Artistry</h1>
+      <p class="text-stone-400 font-light max-w-xl mx-auto text-sm md:text-base leading-relaxed">Hand-selected luxury collections sourced dynamically to celebrate precision, brilliance, and timeless elegance.</p>
+      <div class="w-12 h-[1px] bg-brand-gold mx-auto mt-4"></div>
+    </div>
+  </section>
 
   <main class="flex-grow max-w-7xl mx-auto px-6 py-16 w-full">
     
@@ -140,6 +141,36 @@
     </div>
   </div>
 
+  <div id="fallback-modal" class="fixed inset-0 z-50 invisible flex items-center justify-center p-4">
+    <div onclick="toggleFallbackModal(false)" class="absolute inset-0 bg-brand-obsidian/60 backdrop-blur-md transition-opacity opacity-0" id="modal-backdrop"></div>
+    <div class="relative w-full max-w-xl bg-white rounded-2xl p-6 md:p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-stone-100" id="modal-content">
+      <button onclick="toggleFallbackModal(false)" class="absolute top-5 right-5 text-stone-400 hover:text-brand-obsidian transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <div class="space-y-4 text-center">
+        <span class="text-brand-gold text-[10px] font-bold tracking-[0.25em] uppercase block">Boutique Desk Concierge</span>
+        <h3 class="font-serif text-2xl font-bold text-brand-obsidian uppercase tracking-wide">Complete Your Reservation</h3>
+        <p class="text-stone-500 text-xs md:text-sm max-w-md mx-auto leading-relaxed">It looks like a native email client isn't configured on this browser. Copy the curated details below and send them to your personal concierge agent.</p>
+      </div>
+      <div class="mt-6 space-y-4">
+        <div>
+          <label class="block text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-1.5">Intake Brand Email Address</label>
+          <div class="flex gap-2">
+            <input type="text" readonly value="vibhuti@omnibyv.com" id="fallback-email-input" class="w-full bg-stone-50 border border-stone-200 text-brand-obsidian font-semibold rounded-lg px-4 py-2.5 text-sm outline-none">
+            <button onclick="copyFallbackText('fallback-email-input')" class="bg-brand-obsidian text-white hover:bg-brand-gold px-4 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase transition-colors whitespace-nowrap">Copy Email</button>
+          </div>
+        </div>
+        <div>
+          <label class="block text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-1.5">Your Curated Inventory List</label>
+          <div class="relative">
+            <textarea readonly id="fallback-body-textarea" rows="7" class="w-full bg-stone-50 border border-stone-200 font-mono text-[11px] leading-relaxed p-4 rounded-xl text-stone-700 outline-none resize-none"></textarea>
+            <button onclick="copyFallbackText('fallback-body-textarea')" class="absolute bottom-3 right-3 bg-white border border-stone-200 text-brand-obsidian hover:bg-stone-50 shadow-sm px-3 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-wider transition-colors">Copy List</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <footer class="bg-brand-obsidian text-stone-400 text-xs py-12 px-6 border-t border-brand-gold/20">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="text-center md:text-left">
@@ -167,7 +198,6 @@
         const response = await fetch(GOOGLE_SHEET_API);
         const fetchedData = await response.json();
         
-        // Clean and validate incoming column variables gracefully
         localProductsDataset = fetchedData.map(item => ({
           name: item.name || 'Untitled Premium Piece',
           price: parseFloat(item.price) || 0,
@@ -194,7 +224,6 @@
       
       gridContainer.innerHTML = "";
 
-      // Smart Parsing Engine: Matches active category views cleanly ignoring case and extra whitespace
       const filteredData = localProductsDataset.filter(item => {
         if (activeCategoryView === "All") return true;
         return item.category.toLowerCase() === activeCategoryView.toLowerCase();
@@ -208,7 +237,6 @@
 
       emptyStateBlock.classList.add('hidden');
       
-      // Map across dynamic dataset entries to render beautiful luxury aesthetic elements
       filteredData.forEach((product, idx) => {
         const productCardHtml = `
           <div class="group flex flex-col relative space-y-3 opacity-0 animate-fade-in" style="animation-delay: ${idx * 75}ms; animation-fill-mode: forwards;">
@@ -243,7 +271,6 @@
     function switchCategory(targetCategory) {
       activeCategoryView = targetCategory;
 
-      // Reset desktop tab UI selections 
       document.querySelectorAll('.nav-tab').forEach(tab => {
         tab.classList.remove('text-brand-gold', 'border-b-2', 'border-brand-gold');
         if(tab.textContent.replace(' Pieces', '').trim() === targetCategory || (targetCategory === 'All' && tab.textContent.includes('All'))) {
@@ -251,7 +278,6 @@
         }
       });
 
-      // Reset mobile tab UI selections
       document.querySelectorAll('.mobile-tab').forEach(tab => {
         tab.className = "mobile-tab px-4 py-2 rounded-full whitespace-nowrap text-[11px] font-semibold tracking-wider uppercase bg-white border border-stone-200 text-stone-600";
         if(tab.textContent === targetCategory || (targetCategory === 'All' && tab.textContent === 'All')) {
@@ -279,6 +305,42 @@
         drawer.classList.add('translate-x-full');
         setTimeout(() => overlay.classList.add('invisible'), 300);
       }
+    }
+
+    // Fallback Overlay Display Controls
+    function toggleFallbackModal(openState) {
+      const overlay = document.getElementById('fallback-modal');
+      const backdrop = document.getElementById('modal-backdrop');
+      const content = document.getElementById('modal-content');
+
+      if (openState) {
+        overlay.classList.remove('invisible');
+        setTimeout(() => {
+          backdrop.classList.add('opacity-100');
+          content.classList.remove('scale-95', 'opacity-0');
+        }, 10);
+      } else {
+        backdrop.classList.remove('opacity-100');
+        content.classList.add('scale-95', 'opacity-0');
+        setTimeout(() => overlay.classList.add('invisible'), 300);
+      }
+    }
+
+    // Clipboard Copy Assistant
+    function copyFallbackText(elementId) {
+      const inputElement = document.getElementById(elementId);
+      inputElement.select();
+      inputElement.setSelectionRange(0, 99999); // Mobile compliance support
+      navigator.clipboard.writeText(inputElement.value);
+      
+      const copyButton = event.target;
+      const initialText = copyButton.textContent;
+      copyButton.textContent = "Copied!";
+      copyButton.classList.replace('bg-brand-obsidian', 'bg-emerald-600');
+      setTimeout(() => {
+        copyButton.textContent = initialText;
+        copyButton.classList.replace('bg-emerald-600', 'bg-brand-obsidian');
+      }, 1500);
     }
 
     // Reactive Cart Actions Pipeline Implementation
@@ -352,14 +414,13 @@
       }
     }
 
-    // Programmatic Mailto Link Compilation Engine
+    // Smart Dual-Action Mail Intent Trigger
     function sendEmailReservationRequest() {
       if (activeCartInventory.length === 0) {
         alert("Your portfolio selection is currently empty!");
         return;
       }
 
-      // Update this email string to your active luxury brand intake inbox address
       const businessEmail = "vibhuti@omnibyv.com"; 
       const subjectLine = "New Omni By V Inventory Reservation Request";
       
@@ -382,8 +443,23 @@
       emailBodyText += `----------------------------------------\n\n`;
       emailBodyText += `Please contact me using this email address to finalize payment instructions via Bank of America secure invoice and arrange secure delivery details.\n\nThank you!`;
 
+      // Assign details to hidden modal layout layers immediately as data backup
+      document.getElementById('fallback-body-textarea').value = emailBodyText;
+
       const mailtoUriLink = `mailto:${businessEmail}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(emailBodyText)}`;
+      
+      // Smart Timeout Trigger Hook: Opens the modal window only if the browser fails to open an app within 500ms
+      let appSwitchConfirmed = false;
+      window.addEventListener('blur', () => appSwitchConfirmed = true);
+      
       window.location.href = mailtoUriLink;
+      
+      setTimeout(() => {
+        if (!appSwitchConfirmed) {
+          toggleCartDrawer(false);
+          toggleFallbackModal(true);
+        }
+      }, 500);
     }
 
     // Add extra custom utility stylesheet styles to document dynamically
@@ -399,7 +475,6 @@
     `;
     document.head.appendChild(stylingInjection);
 
-    // Boot execution thread up automatically on load
     window.addEventListener('DOMContentLoaded', loadBoutiqueStorefront);
   </script>
 </body>
