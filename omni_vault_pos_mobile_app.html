@@ -44,6 +44,30 @@
 </head>
 <body class="bg-vault-charcoal text-stone-200 font-sans min-h-screen flex flex-col antialiased selection:bg-vault-gold/20 pb-20">
 
+  <!-- Secure Lock Screen Overlay -->
+  <div id="lock-screen" class="fixed inset-0 z-50 bg-vault-charcoal flex flex-col items-center justify-center p-6 transition-all duration-500">
+    <div class="w-full max-w-sm space-y-8 text-center">
+      <div class="mx-auto w-16 h-16 bg-vault-card border border-vault-gold/30 rounded-2xl flex items-center justify-center shadow-lg">
+        <svg class="w-8 h-8 text-vault-gold" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0V10.5m-3.25 3h15c1.242 0 2.25 1.008 2.25 2.25v3a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25v-3a2.25 2.25 0 01-2.25-2.25z" />
+        </svg>
+      </div>
+      <div>
+        <h2 class="font-serif italic text-2xl text-white tracking-wider">Omni Vault POS</h2>
+        <p class="text-xs text-vault-gold uppercase tracking-widest mt-1 font-semibold">Security Verification Required</p>
+      </div>
+      <form onsubmit="verifyPOSPasscode(event)" class="space-y-4">
+        <div>
+          <input type="password" id="pos-passcode-input" placeholder="••••" required class="w-full bg-vault-card border border-vault-border text-white text-2xl text-center py-4 rounded-xl placeholder-stone-800 outline-none focus:border-vault-gold transition-colors tracking-widest">
+          <p id="lock-error" class="text-vault-rose text-xs mt-2.5 hidden font-semibold">Incorrect security passcode. Access denied.</p>
+        </div>
+        <button type="submit" class="w-full py-4 bg-vault-gold text-vault-charcoal font-bold text-xs uppercase tracking-widest rounded-xl hover:brightness-110 active:scale-95 transition-all">
+          Unlock System
+        </button>
+      </form>
+    </div>
+  </div>
+
   <!-- Floating Dashboard Navigation Header -->
   <header class="sticky top-0 z-40 bg-vault-charcoal/90 backdrop-blur-md border-b border-vault-border px-5 py-4 flex items-center justify-between">
     <div class="flex items-center gap-3">
@@ -278,12 +302,33 @@
     // ---------------------------------------------------------------
     // 1. LINK TO YOUR NEWLY DEPLOYED GOOGLE APPS SCRIPT WEB APP API
     // ---------------------------------------------------------------
-    const API_ENDPOINT = "https://script.google.com/macros/s/AKfycbxZ1C3gCq0IrkkObqa4DJExL_vuTmOOEOcwAfAgw4rdUl28zR_uPwL1s6Quu5OCO_Na/exec";
+    const API_ENDPOINT = "https://script.google.com/macros/s/AKfycbyH7Y4GvhTvHcsE_Rv7ZAasrZ8VtJ-3SReqQfRTpt96HbuO8qPv0HFmMsbMTjsCL4ZQ/exec";
+
+    // 2. SET SECURE ADMINISTRATIVE PASSCODE (Change this to any PIN you want)
+    const ACCESS_PASSCODE = "797810"; // 👈 Change this to your secret passcode!
 
     let localCatalog = [];
     let activeTxProduct = null;
     let activeTxType = 'Sale'; // Default type
     let activeTxQty = 1;
+
+    // Secure Verification Check Function
+    function verifyPOSPasscode(event) {
+      event.preventDefault();
+      const enteredCode = document.getElementById('pos-passcode-input').value;
+      const lockScreen = document.getElementById('lock-screen');
+      const lockError = document.getElementById('lock-error');
+
+      if (enteredCode === ACCESS_PASSCODE) {
+        lockScreen.classList.add('opacity-0', 'pointer-events-none');
+        // Fetch sensitive data only *after* successful passcode verification
+        refreshPOSData();
+        triggerToast("System Unlocked", "Welcome back! POS terminal data initialized cleanly.", "success");
+      } else {
+        lockError.classList.remove('hidden');
+        document.getElementById('pos-passcode-input').value = "";
+      }
+    }
 
     // Trigger Toast Alerts safely
     function triggerToast(title, desc, type = 'success') {
@@ -577,8 +622,9 @@
 
     // Boot execution loops up dynamically 
     window.onload = () => {
-      refreshPOSData();
+      // Direct focus to security panel input on load
+      document.getElementById('pos-passcode-input').focus();
     }
   </script>
 </body>
-</html>
+</html>1
