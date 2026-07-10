@@ -567,6 +567,15 @@
         const response = await fetch(GOOGLE_SHEET_API);
         const fetchedData = await response.json();
         
+        // Assert fetchedData is an array to avoid mapping exceptions from error payloads
+        if (!fetchedData || !Array.isArray(fetchedData)) {
+          let errorDetail = "Invalid format returned from Apps Script.";
+          if (fetchedData && fetchedData.status === 'error') {
+            errorDetail = fetchedData.message;
+          }
+          throw new Error(errorDetail);
+        }
+        
         localProductsDataset = fetchedData.map(item => ({
           name: item.name || 'Untitled Premium Piece',
           price: parseFloat(item.price) || 0,
@@ -582,9 +591,13 @@
       } catch (error) {
         console.error("API Engine Fault Exception:", error);
         document.getElementById('loading-spinner').innerHTML = `
-          <p class="col-span-full text-center text-red-500 font-semibold text-sm py-10 bg-white rounded-2xl border border-red-100">
-            Vault API pipeline connection refused. Verify Web App Deployment configuration URL.
-          </p>`;
+          <div class="col-span-full text-center text-red-500 font-semibold text-sm py-10 bg-white rounded-2xl border border-red-100 px-6">
+            <p class="font-bold">Vault API Connection Interrupted</p>
+            <p class="text-xs text-stone-500 font-normal mt-2 leading-relaxed max-w-md mx-auto">
+              ${error.message}<br><br>
+              <span class="text-stone-400">Please verify your Apps Script Web App Deployment settings, confirm your Spreadsheet ID inside GoogleAppsScript.js, and verify your Sheet tab names.</span>
+            </p>
+          </div>`;
       }
     }
 
@@ -1009,6 +1022,11 @@
         if (result && result.status === 'error') {
           triggerToast("Sync Refused", result.message, "error");
           return;
+        }
+
+        // Defensive check: ensure result contains products array before mapping
+        if (!result || !result.products || !Array.isArray(result.products)) {
+          throw new Error("Dashboard metrics response is missing products details.");
         }
 
         const backendCatalog = result.products.map(item => ({
