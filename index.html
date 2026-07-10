@@ -82,7 +82,7 @@
       </svg>
     </div>
 
-    <!-- Floating Emerald Cut Crystal Gem (Left Margin) -->
+    <!-- Floating Emerald Cut Crystal Gem -->
     <div class="parallax-layer absolute left-[1%] top-[65%] opacity-15 md:opacity-35" data-speed="0.32">
       <svg class="w-14 h-14 md:w-24 md:h-24 text-brand-gold" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <rect x="25" y="15" width="50" height="70" rx="10" stroke="currentColor" stroke-width="1"/>
@@ -92,7 +92,7 @@
       </svg>
     </div>
 
-    <!-- Floating Elegant Pearls (Right Margin) -->
+    <!-- Floating Elegant Pearls -->
     <div class="parallax-layer absolute right-[-2%] top-[75%] opacity-20 md:opacity-40" data-speed="0.12">
       <svg class="w-20 h-20 md:w-32 md:h-32 text-brand-gold" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
         <circle cx="30" cy="50" r="6" fill="currentColor" opacity="0.8"/>
@@ -112,10 +112,10 @@
   <div id="storefront-view" class="flex flex-col flex-grow">
     
     <!-- Main Sticky Header Navigation -->
-    <header class="sticky top-0 z-45 glass-nav border-b border-stone-200/60 transition-all duration-300">
+    <header class="sticky top-0 z-40 glass-nav border-b border-stone-200/60 transition-all duration-300">
       <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         
-        <!-- Brand Identity Minimal Logo & Name Group -->
+        <!-- Brand Identity Minimal Logo -->
         <a href="#" class="flex items-center gap-3.5 group relative z-50">
           <img src="omnibyv logo.png" 
                alt="Omni By V Logo" 
@@ -132,7 +132,7 @@
         <nav id="desktop-category-nav" class="hidden md:flex items-center gap-8 text-[12px] font-semibold tracking-[0.15em] uppercase text-stone-500">
         </nav>
 
-        <!-- Cart Trigger Status Button & Secure Entrance Trigger -->
+        <!-- Cart Trigger and Admin Portal Lock Button -->
         <div class="flex items-center gap-4 relative z-50">
           <!-- Hidden Vault Portal Key -->
           <button onclick="togglePasscodeScreen(true)" class="p-2 text-stone-400 hover:text-brand-gold transition-colors duration-300" title="Secure Vault Controller">
@@ -149,7 +149,7 @@
       </div>
     </header>
 
-    <!-- Parallax Scroll Lookbook Hero Section with image_11cce7.png -->
+    <!-- Lookbook Hero Section with image_11cce7.png -->
     <section class="relative bg-brand-obsidian text-white min-h-[75vh] md:min-h-[85vh] flex items-center justify-center px-6 overflow-hidden border-b border-brand-gold/30">
       
       <!-- Immersive Background image_11cce7.png Layer acting as dynamic parallax scroll canvas -->
@@ -234,7 +234,7 @@
   </div>
 
   <!-- SECURE PASSCODE INTERCEPT SCREEN -->
-  <div id="passcode-screen" class="fixed inset-0 z-55 bg-brand-obsidian/95 backdrop-blur-md flex items-center justify-center p-6 hidden fade-overlay">
+  <div id="passcode-screen" class="fixed inset-0 z-50 bg-brand-obsidian/95 backdrop-blur-md flex items-center justify-center p-6 hidden fade-overlay">
     <div class="max-w-md w-full text-center space-y-8">
       <div class="space-y-3">
         <span class="text-brand-gold text-xs font-bold tracking-[0.4em] uppercase block">Omni Vault Access</span>
@@ -260,10 +260,10 @@
   </div>
 
   <!-- ADMIN WORKSPACE PORTAL VIEW -->
-  <div id="admin-view" class="max-w-4xl mx-auto px-4 py-8 space-y-6 hidden flex-grow w-full z-20 relative">
+  <div id="admin-view" class="max-w-4xl mx-auto px-4 py-8 space-y-6 hidden flex-grow w-full z-20 relative text-white">
     
     <!-- Top Brand Header Action Bar -->
-    <header class="flex items-center justify-between border-b border-stone-800 pb-4">
+    <header class="flex items-center justify-between border-b border-stone-850 pb-4">
       <div class="flex flex-col">
         <span class="font-serif text-xl font-semibold tracking-widest text-white">OMNI VAULT POS</span>
         <span class="text-[9px] tracking-widest uppercase text-brand-gold font-bold">Mobile Controller Panel</span>
@@ -302,9 +302,9 @@
 
       <!-- VIEW PANEL: ADD PRODUCT MODULE -->
       <div class="bg-brand-darkCard border border-stone-800 p-5 rounded-2xl space-y-4">
-        <h3 class="font-serif text-lg text-white font-medium border-b border-stone-800 pb-3">Publish New Jewelry Design</h3>
+        <h3 class="font-serif text-lg text-white font-medium border-b border-stone-850 pb-3">Publish New Jewelry Design</h3>
         
-        <form id="add-product-form" onsubmit="handleFormSubmission(event)" class="space-y-4">
+        <form id="add-product-form" onsubmit="handleFormSubmission(event)" class="space-y-4 text-left">
           <div>
             <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Jewelry Piece Title *</label>
             <input type="text" id="input-name" required placeholder="e.g., Aurelia Solitaire Diamond Ring" class="w-full bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
@@ -342,21 +342,21 @@
             </div>
           </div>
 
-          <!-- Premium Capture & Upload Photo Section -->
+          <!-- Premium Capture & Upload Photo Section with Multi-Image Support -->
           <div>
-            <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-2 font-bold">Product Visual Photo</label>
+            <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-2 font-bold">Product Media Gallery (Snaps / URLs) *</label>
             
             <div class="grid grid-cols-2 gap-3 mb-3">
               <!-- Upload Action Button -->
               <button type="button" onclick="triggerFileInput('upload')" class="bg-stone-900 border border-stone-800 hover:border-brand-gold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs font-semibold text-stone-300 transition-colors">
                 <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
-                Upload File
+                Add File Slot
               </button>
 
               <!-- Live Camera Snap Action Button -->
               <button type="button" onclick="triggerFileInput('camera')" class="bg-stone-900 border border-stone-800 hover:border-brand-gold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs font-semibold text-stone-300 transition-colors">
                 <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" /><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" /></svg>
-                Capture Photo
+                Snap alternate view
               </button>
             </div>
 
@@ -364,14 +364,19 @@
             <input type="file" id="image-upload-file" accept="image/*" class="hidden" onchange="handleImageProcessing(this.files[0])">
             <input type="file" id="image-capture-camera" accept="image/*" capture="environment" class="hidden" onchange="handleImageProcessing(this.files[0])">
 
-            <!-- Fallback URL manual input -->
-            <input type="text" id="input-image" placeholder="Or enter professional image URL..." class="w-full bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-xs outline-none focus:border-brand-gold">
-            
-            <!-- Live Compressed Visual Image Preview Panel -->
-            <div id="image-preview-container" class="hidden mt-3 relative w-32 h-40 rounded-xl overflow-hidden border border-stone-800 bg-stone-950 flex items-center justify-center">
-              <img id="image-preview-el" src="" class="w-full h-full object-cover">
-              <button type="button" onclick="clearSelectedImage()" class="absolute top-1.5 right-1.5 bg-black/60 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] hover:bg-black font-bold">✕</button>
+            <!-- Manual URL collection bar -->
+            <div class="flex gap-2 mb-3">
+              <input type="text" id="input-image-url" placeholder="Or enter professional image URL..." class="flex-grow bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-xs outline-none focus:border-brand-gold">
+              <button type="button" onclick="addManualImageUrl()" class="bg-stone-800 hover:bg-brand-gold hover:text-brand-obsidian text-stone-300 font-bold text-xs uppercase px-4 rounded-xl transition-all">Add URL</button>
             </div>
+
+            <!-- Previews Grid Tray for Active Image Collection -->
+            <div id="draft-images-tray" class="flex flex-wrap gap-3 p-3 bg-stone-950/80 rounded-xl border border-stone-850 min-h-[100px] items-center justify-start">
+              <p class="text-[10px] text-stone-500 w-full text-center py-4 uppercase tracking-widest font-semibold">No media slides drafted yet.</p>
+            </div>
+            
+            <!-- Secret final consolidated value collector field -->
+            <input type="hidden" id="input-image-final-payload" value="">
           </div>
 
           <div class="pt-2">
@@ -388,7 +393,7 @@
           <h3 class="font-serif text-lg text-white font-medium">Boutique Catalog</h3>
           <span id="stock-item-count" class="text-xs text-stone-500">0 Designs</span>
         </div>
-        <div id="pos-products-grid" class="space-y-3.5 max-h-[380px] overflow-y-auto pr-1">
+        <div id="pos-products-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3.5 max-h-[380px] overflow-y-auto pr-1">
           <!-- Populated inside JavaScript thread -->
         </div>
       </div>
@@ -469,7 +474,7 @@
     </div>
   </div>
 
-  <!-- Bulletproof Elegant Email Fallback Modal Window Backdrop Layout -->
+  <!-- Bulletproof Elegant Email Fallback Modal Window -->
   <div id="fallback-modal" class="fixed inset-0 z-50 invisible flex items-center justify-center p-4">
     <div onclick="toggleFallbackModal(false)" class="absolute inset-0 bg-brand-obsidian/60 backdrop-blur-md transition-opacity opacity-0" id="modal-backdrop"></div>
     <div class="relative w-full max-w-xl bg-white rounded-2xl p-6 md:p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-stone-100" id="modal-content">
@@ -481,7 +486,7 @@
         <h3 class="font-serif text-2xl font-bold text-brand-obsidian uppercase tracking-wide">Complete Your Reservation</h3>
         <p class="text-stone-500 text-xs md:text-sm max-w-md mx-auto leading-relaxed">It looks like a native email client isn't configured on this browser. Copy the curated details below and send them to your personal concierge agent.</p>
       </div>
-      <div class="mt-6 space-y-4">
+      <div class="mt-6 space-y-4 text-left">
         <div>
           <label class="block text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-1.5">Intake Brand Email Address</label>
           <div class="flex gap-2">
@@ -500,7 +505,7 @@
     </div>
   </div>
 
-  <!-- Custom Luxury Notification Overlay Dialog (replaces standard browser alerts) -->
+  <!-- Custom Luxury Notification Overlay Dialog -->
   <div id="custom-dialog-overlay" class="fixed inset-0 z-55 invisible flex items-center justify-center p-4">
     <div onclick="toggleCustomDialog(false)" class="absolute inset-0 bg-brand-obsidian/40 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="dialog-backdrop"></div>
     <div class="relative max-w-md w-full bg-white rounded-2xl p-6 text-center shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-stone-100" id="dialog-content">
@@ -522,14 +527,14 @@
     <div class="flex items-center gap-3">
       <div id="toast-icon-wrapper" class="w-5 h-5 flex items-center justify-center rounded-full bg-brand-gold text-brand-obsidian">
       </div>
-      <div>
+      <div class="text-left">
         <h4 id="toast-title" class="text-xs font-bold text-white tracking-wider uppercase">Sync Fault</h4>
         <p id="toast-message" class="text-[11px] text-stone-400 mt-0.5 leading-normal"></p>
       </div>
     </div>
   </div>
 
-  <!-- Storefront Footer Section Layout -->
+  <!-- Storefront Footer Section -->
   <footer class="relative z-30 bg-brand-obsidian text-stone-400 text-xs py-12 px-6 border-t border-brand-gold/20 mt-auto">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
       <div class="text-center md:text-left">
@@ -562,7 +567,13 @@
     let computedShippingRegionName = "Northeast Region";
     let enteredZipCode = "";
 
-    // --- Core Dynamic 60FPS Parallax Scroll Engine (High-Performance requestAnimationFrame Loop) ---
+    // Multi-Image Draft State for Admin
+    let tempDraftImages = [];
+
+    // Card Hover Carousels Tracker
+    let activeCarousels = {};
+
+    // --- Core Dynamic Parallax Scroll Engine ---
     let lastScrollY = 0;
     let ticking = false;
 
@@ -603,14 +614,17 @@
         const response = await fetch(GOOGLE_SHEET_API);
         const fetchedData = await response.json();
         
-        if (!fetchedData || !Array.isArray(fetchedData)) {
+        if (!fetchedData || (!Array.isArray(fetchedData) && fetchedData.status === 'error')) {
           let errorDetail = "Invalid format returned from Apps Script.";
           if (fetchedData && fetchedData.status === 'error') {
             errorDetail = fetchedData.message;
-          } else if (fetchedData && fetchedData.monthlySales && fetchedData.products) {
-            errorDetail = "Google Apps Script has been updated with Dashboard structures, but your storefront webpage's code hasn't synchronized yet. Verify that you deployed a 'New Version' in Apps Script and uploaded the latest index.html code to GitHub.";
           }
           throw new Error(errorDetail);
+        }
+
+        // Catch the infamous "Deployment Trap" old format
+        if (fetchedData && !Array.isArray(fetchedData) && fetchedData.products && fetchedData.monthlySales) {
+          throw new Error("Dashboard metrics structure received instead of storefront list. Please execute a 'New Version' hard deployment inside Apps Script.");
         }
 
         // Hide diagnostic screen if successful connection established
@@ -619,7 +633,7 @@
         localProductsDataset = fetchedData.map(item => ({
           name: item.name || 'Untitled Premium Piece',
           price: parseFloat(item.price) || 0,
-          image: item.image || '',
+          image: item.image || '', // Pipe separated multi-images can hide here
           status: item.status || 'In Stock',
           category: item.category ? item.category.trim() : 'Uncategorized',
           quantity: Object.prototype.hasOwnProperty.call(item, 'quantity') ? parseInt(item.quantity) : (Object.prototype.hasOwnProperty.call(item, 'stock') ? parseInt(item.stock) : 5)
@@ -673,7 +687,7 @@
       });
     }
 
-    // Dynamic Filter Controller Component
+    // Dynamic Filter Controller Component with Alternate Image Hover Carousels
     function renderProductsLayout() {
       const gridContainer = document.getElementById('product-grid');
       const emptyStateBlock = document.getElementById('empty-state');
@@ -703,13 +717,35 @@
         }
 
         const isSoldOut = computedStatus.toLowerCase().includes('out');
-        const displayImg = product.image || "https://placehold.co/400x500/FAF9F5/0C0F12?text=In+Appraisal";
+        
+        // Multi-image parsing
+        const imagesList = product.image ? product.image.split('|').map(u => u.trim()).filter(Boolean) : [];
+        const displayImg = imagesList[0] || "https://placehold.co/400x500/FAF9F5/0C0F12?text=In+Appraisal";
+
+        // Dot navigation indicators for multiple images
+        let indicatorDotsHtml = "";
+        if (imagesList.length > 1) {
+          indicatorDotsHtml = `
+            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              ${imagesList.map((_, dotIdx) => `
+                <span class="carousel-dot-indicator w-1.5 h-1.5 rounded-full bg-white/50 transition-all ${dotIdx === 0 ? 'bg-brand-gold w-3' : ''}"></span>
+              `).join('')}
+            </div>
+          `;
+        }
 
         const productCardHtml = `
-          <div class="group flex flex-col relative space-y-3 opacity-0 animate-fade-in" style="animation-delay: ${idx * 75}ms; animation-fill-mode: forwards;">
+          <div class="group flex flex-col relative space-y-3 opacity-0 animate-fade-in text-left" 
+               style="animation-delay: ${idx * 50}ms; animation-fill-mode: forwards;"
+               onmouseenter="startCardCarousel(this, '${encodeURIComponent(product.image)}')"
+               onmouseleave="stopCardCarousel(this, '${encodeURIComponent(product.image)}')">
+            
             <div class="relative overflow-hidden rounded-2xl bg-stone-100 aspect-[4/5] shadow-sm transition-transform duration-500 group-hover:-translate-y-1">
-              <img src="${displayImg}" alt="${product.name}" class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110" onerror="this.src='https://placehold.co/400x500/FAF9F5/0C0F12?text=In+Appraisal';">
+              <img id="card-img-${idx}" src="${displayImg}" alt="${product.name}" class="card-display-img w-full h-full object-cover transition-all duration-700 ease-out" onerror="this.src='https://placehold.co/400x500/FAF9F5/0C0F12?text=In+Appraisal';">
               
+              <!-- Indicator Dots -->
+              ${indicatorDotsHtml}
+
               ${computedStatus.toLowerCase().includes('low') ? `<span class="absolute top-4 left-4 bg-amber-500/90 backdrop-blur-md text-white text-[9px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md">Low Stock</span>` : ''}
               ${isSoldOut ? `<span class="absolute inset-0 bg-brand-obsidian/60 backdrop-blur-[2px] flex items-center justify-center text-white text-xs font-bold tracking-widest uppercase">Sold Out</span>` : ''}
 
@@ -743,6 +779,66 @@
       activeCategoryView = targetCategory;
       renderCategoryNavigation();
       renderProductsLayout();
+    }
+
+    // Dynamic Product Card Carousel hover mechanics
+    function startCardCarousel(cardEl, pipeImagesEncoded) {
+      const images = decodeURIComponent(pipeImagesEncoded).split('|').map(u => u.trim()).filter(Boolean);
+      if (images.length <= 1) return;
+
+      const imgEl = cardEl.querySelector('.card-display-img');
+      const dots = cardEl.querySelectorAll('.carousel-dot-indicator');
+      let currentIdx = 0;
+
+      // Clear any pre-existing carousel loop for safety
+      if (cardEl.dataset.carouselId) {
+        clearInterval(cardEl.dataset.carouselId);
+      }
+
+      const intervalId = setInterval(() => {
+        currentIdx = (currentIdx + 1) % images.length;
+        
+        // Luxury slow fade transition
+        imgEl.style.opacity = '0.3';
+        setTimeout(() => {
+          imgEl.src = images[currentIdx];
+          imgEl.style.opacity = '1';
+        }, 200);
+
+        // Update indicators
+        dots.forEach((dot, dotIndex) => {
+          if (dotIndex === currentIdx) {
+            dot.className = "carousel-dot-indicator w-3 h-1.5 rounded-full bg-brand-gold transition-all";
+          } else {
+            dot.className = "carousel-dot-indicator w-1.5 h-1.5 rounded-full bg-white/50 transition-all";
+          }
+        });
+      }, 1400);
+
+      cardEl.dataset.carouselId = intervalId;
+    }
+
+    function stopCardCarousel(cardEl, pipeImagesEncoded) {
+      if (cardEl.dataset.carouselId) {
+        clearInterval(parseInt(cardEl.dataset.carouselId));
+        cardEl.removeAttribute('data-carouselId');
+      }
+
+      const images = decodeURIComponent(pipeImagesEncoded).split('|').map(u => u.trim()).filter(Boolean);
+      if (images.length > 0) {
+        const imgEl = cardEl.querySelector('.card-display-img');
+        imgEl.src = images[0];
+        imgEl.style.opacity = '1';
+
+        const dots = cardEl.querySelectorAll('.carousel-dot-indicator');
+        dots.forEach((dot, dotIndex) => {
+          if (dotIndex === 0) {
+            dot.className = "carousel-dot-indicator w-3 h-1.5 rounded-full bg-brand-gold transition-all";
+          } else {
+            dot.className = "carousel-dot-indicator w-1.5 h-1.5 rounded-full bg-white/50 transition-all";
+          }
+        });
+      }
     }
 
     // --- Regional US ZIP Shipping Calculation Engine ---
@@ -944,9 +1040,12 @@
         trackingSubtotalValue += item.product.price * item.quantity;
         totalItemUnits += item.quantity;
 
+        const images = item.product.image ? item.product.image.split('|').map(u => u.trim()).filter(Boolean) : [];
+        const singleDisplayImg = images[0] || 'https://placehold.co/100x120/161b21/d4af37?text=Product';
+
         const cartCardHtml = `
-          <div class="flex items-center gap-4 pt-4 first:pt-0">
-            <img src="${item.product.image || 'https://placehold.co/100x120/161b21/d4af37?text=Product'}" class="w-16 h-20 object-cover rounded-xl bg-stone-100 flex-shrink-0" onerror="this.src='https://placehold.co/100x120/161b21/d4af37?text=Product';">
+          <div class="flex items-center gap-4 pt-4 first:pt-0 text-left">
+            <img src="${singleDisplayImg}" class="w-16 h-20 object-cover rounded-xl bg-stone-100 flex-shrink-0" onerror="this.src='https://placehold.co/100x120/161b21/d4af37?text=Product';">
             <div class="flex-grow">
               <h4 class="font-serif text-sm font-bold text-brand-obsidian leading-tight">${item.product.name}</h4>
               <p class="text-xs text-stone-500 font-semibold mt-1">$${item.product.price.toLocaleString()}</p>
@@ -1203,7 +1302,8 @@
         if (p.quantity === 0) textClass = "text-red-500";
         else if (p.quantity <= 2) textClass = "text-amber-500";
 
-        const imgSrc = p.image || "https://placehold.co/100x120/161b21/d4af37?text=Appraisal";
+        const images = p.image ? p.image.split('|').map(u => u.trim()).filter(Boolean) : [];
+        const imgSrc = images[0] || "https://placehold.co/100x120/161b21/d4af37?text=Appraisal";
 
         container.insertAdjacentHTML('beforeend', `
           <div class="flex items-center gap-3.5 p-3 rounded-xl bg-stone-900/60 border border-stone-850 text-left">
@@ -1229,7 +1329,7 @@
       }
     }
 
-    // Native Camera/Photo Processing & Compression Engine
+    // Native Camera/Photo Processing & Compression Engine (Saves to Multi-Image Draft Array)
     function handleImageProcessing(file) {
       if (!file) return;
 
@@ -1262,27 +1362,65 @@
           // Render compressed JPEG
           const optimizedBase64 = canvas.toDataURL('image/jpeg', 0.65);
           
-          document.getElementById('image-preview-el').src = optimizedBase64;
-          document.getElementById('image-preview-container').classList.remove('hidden');
-          document.getElementById('input-image').value = optimizedBase64;
-
-          triggerToast("Image Ready", "High-efficiency camera payload cached safely.", "success");
+          tempDraftImages.push(optimizedBase64);
+          renderDraftImagesPreview();
+          triggerToast("Media Capped", "Compressed camera angle saved.", "success");
         };
         img.src = event.target.result;
       };
       reader.readAsDataURL(file);
     }
 
-    function clearSelectedImage() {
-      document.getElementById('image-preview-container').classList.add('hidden');
-      document.getElementById('image-preview-el').src = "";
-      document.getElementById('input-image').value = "";
-      document.getElementById('image-upload-file').value = "";
-      document.getElementById('image-capture-camera').value = "";
+    function addManualImageUrl() {
+      const inputEl = document.getElementById('input-image-url');
+      const val = inputEl.value.trim();
+      if (val) {
+        tempDraftImages.push(val);
+        inputEl.value = "";
+        renderDraftImagesPreview();
+        triggerToast("URL Drafted", "Alternate remote image queued.", "success");
+      }
+    }
+
+    function removeDraftImage(index) {
+      tempDraftImages.splice(index, 1);
+      renderDraftImagesPreview();
+    }
+
+    function renderDraftImagesPreview() {
+      const container = document.getElementById('draft-images-tray');
+      const finalPayloadEl = document.getElementById('input-image-final-payload');
+      
+      container.innerHTML = "";
+
+      if (tempDraftImages.length === 0) {
+        container.innerHTML = `<p class="text-[10px] text-stone-500 w-full text-center py-4 uppercase tracking-widest font-semibold">No media slides drafted yet.</p>`;
+        finalPayloadEl.value = "";
+        return;
+      }
+
+      tempDraftImages.forEach((img, idx) => {
+        container.insertAdjacentHTML('beforeend', `
+          <div class="relative w-20 h-24 rounded-lg overflow-hidden border border-stone-800 bg-stone-900 group">
+            <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x120/161b21/d4af37?text=Broken';">
+            <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[8px] font-bold px-1.5 py-0.5 rounded">${idx + 1}</span>
+            <button type="button" onclick="removeDraftImage(${idx})" class="absolute top-1 right-1 bg-red-950/80 text-white rounded-full w-4 h-4 flex items-center justify-center text-[9px] hover:bg-red-900 font-bold">✕</button>
+          </div>
+        `);
+      });
+
+      // Join our temporary images with the pipe character to form our compound payload
+      finalPayloadEl.value = tempDraftImages.join('|');
     }
 
     async function handleFormSubmission(event) {
       event.preventDefault();
+
+      const payloadVal = document.getElementById('input-image-final-payload').value.trim();
+      if (!payloadVal) {
+        triggerToast("Photo Required", "Please capture or add at least 1 image before saving.", "error");
+        return;
+      }
 
       const btn = document.getElementById('form-submit-btn');
       btn.disabled = true;
@@ -1295,7 +1433,7 @@
         quantity: parseInt(document.getElementById('input-quantity').value),
         category: document.getElementById('input-category').value.trim(),
         status: document.getElementById('input-status').value,
-        image: document.getElementById('input-image').value.trim()
+        image: payloadVal
       };
 
       try {
@@ -1308,7 +1446,8 @@
         if (resData.status === 'success') {
           triggerToast("Piece Published", "Inventory successfully committed.", "success");
           document.getElementById('add-product-form').reset();
-          clearSelectedImage();
+          tempDraftImages = [];
+          renderDraftImagesPreview();
           refreshPOSData();
         } else {
           throw new Error(resData.message);
