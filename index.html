@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Omni by V | Premium Statement Jewelry Boutique & Vault</title>
   
+  <!-- Tailwind CSS & Google Fonts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -212,6 +213,13 @@
         </div>
       </div>
 
+      <!-- Live Connection and Parsing Diagnostics Center -->
+      <div id="diagnostic-error-feed" class="hidden text-center py-12 max-w-lg mx-auto bg-red-950/20 border border-red-900/30 text-red-200 rounded-2xl px-6 space-y-3 mb-10">
+        <h4 class="font-bold text-sm tracking-widest uppercase">Vault Configuration Alert</h4>
+        <p id="diagnostic-error-msg" class="text-xs text-stone-300 leading-relaxed"></p>
+        <p class="text-[10px] text-stone-400">Please review tab labels and deployment setup.</p>
+      </div>
+
       <!-- Target Product Multi-Grid Layout -->
       <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 opacity-0 transition-opacity duration-500">
       </div>
@@ -226,7 +234,7 @@
   </div>
 
   <!-- SECURE PASSCODE INTERCEPT SCREEN -->
-  <div id="passcode-screen" class="fixed inset-0 z-50 bg-brand-obsidian/95 backdrop-blur-md flex items-center justify-center p-6 hidden fade-overlay">
+  <div id="passcode-screen" class="fixed inset-0 z-55 bg-brand-obsidian/95 backdrop-blur-md flex items-center justify-center p-6 hidden fade-overlay">
     <div class="max-w-md w-full text-center space-y-8">
       <div class="space-y-3">
         <span class="text-brand-gold text-xs font-bold tracking-[0.4em] uppercase block">Omni Vault Access</span>
@@ -298,24 +306,24 @@
         
         <form id="add-product-form" onsubmit="handleFormSubmission(event)" class="space-y-4">
           <div>
-            <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Jewelry Piece Title</label>
+            <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Jewelry Piece Title *</label>
             <input type="text" id="input-name" required placeholder="e.g., Aurelia Solitaire Diamond Ring" class="w-full bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Price ($ USD)</label>
+              <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Price ($ USD) *</label>
               <input type="number" step="0.01" id="input-price" required placeholder="1850.00" class="w-full bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
             </div>
             <div>
-              <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Initial Vault Quantity</label>
+              <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Initial Vault Quantity *</label>
               <input type="number" id="input-quantity" required placeholder="5" class="w-full bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div>
-              <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Category Line</label>
+              <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Category Line *</label>
               <input type="text" id="input-category" required placeholder="e.g., Rings, Necklaces, Bracelets" list="existing-categories-datalist" class="w-full bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
               <datalist id="existing-categories-datalist">
                 <option value="Rings">
@@ -390,7 +398,7 @@
   <!-- Interactive Slide-out Shopping Cart Sidebar Window Overlay -->
   <div id="cart-overlay" class="fixed inset-0 z-50 invisible transition-all duration-300">
     <div onclick="toggleCartDrawer(false)" class="absolute inset-0 bg-brand-obsidian/40 backdrop-blur-sm transition-opacity opacity-0" id="cart-backdrop"></div>
-    <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300 animate-layer" id="cart-drawer">
+    <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300" id="cart-drawer">
       
       <!-- Cart View Header Window -->
       <div class="p-6 border-b border-stone-100 flex items-center justify-between">
@@ -405,14 +413,39 @@
       </div>
 
       <!-- Summary Pricing Checkout Interface Footer -->
-      <div class="p-6 border-t border-stone-100 bg-brand-canvas space-y-6">
-        <div class="flex justify-between items-center text-sm">
-          <span class="text-stone-500 tracking-wide">Estimated Vault Subtotal</span>
-          <span id="cart-total" class="font-semibold text-lg text-brand-obsidian">$0.00</span>
+      <div class="p-6 border-t border-stone-100 bg-brand-canvas space-y-4">
+        
+        <!-- Live US Zone ZIP Shipping Calculator -->
+        <div class="bg-white border border-stone-200/80 p-4 rounded-xl space-y-3 shadow-sm">
+          <div class="flex items-center justify-between">
+            <label class="text-[10px] uppercase tracking-wider font-bold text-stone-500 block">Deliver to ZIP Code</label>
+            <span id="shipping-zone-badge" class="text-[9px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded bg-brand-canvas text-stone-500 hidden">Local</span>
+          </div>
+          <div class="flex gap-2">
+            <input type="text" id="cart-zip-input" maxlength="5" placeholder="e.g., 06516" class="bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2 text-xs text-brand-obsidian font-semibold outline-none focus:border-brand-gold w-full">
+            <button onclick="recalculateShippingFromInput()" class="bg-brand-obsidian text-white hover:bg-brand-gold px-3 py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-colors whitespace-nowrap">Calculate</button>
+          </div>
+          <p id="shipping-calc-error" class="text-red-500 text-[10px] hidden font-semibold">Please enter a valid 5-digit ZIP code.</p>
+        </div>
+
+        <!-- Pricing Summary Tree -->
+        <div class="space-y-2 text-xs border-b border-stone-200/60 pb-3">
+          <div class="flex justify-between text-stone-500">
+            <span>Portfolio Subtotal</span>
+            <span id="cart-subtotal">$0.00</span>
+          </div>
+          <div class="flex justify-between text-stone-500 items-center">
+            <span>Secure Insured Shipping</span>
+            <span id="cart-shipping" class="font-medium">$0.00</span>
+          </div>
+          <div class="flex justify-between text-sm font-bold text-brand-obsidian pt-1">
+            <span>Estimated Grand Total</span>
+            <span id="cart-total">$0.00</span>
+          </div>
         </div>
         
         <!-- Dual-Action Luxury Checkout Portal -->
-        <div class="space-y-3">
+        <div class="space-y-3 pt-1">
           <!-- Action 1: Instant App Venmo Payment Button -->
           <button onclick="payViaVenmoDeepLink()" class="w-full bg-[#008CFF] hover:bg-[#007cd2] text-white text-[11px] font-bold tracking-[0.2em] py-4 rounded-xl uppercase transition-all duration-300 shadow-md flex items-center justify-center gap-2">
             <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -421,7 +454,7 @@
             Pay Instantly with Venmo App
           </button>
           
-          <div class="relative flex py-2 items-center">
+          <div class="relative flex py-1.5 items-center">
             <div class="flex-grow border-t border-stone-200"></div>
             <span class="flex-shrink mx-4 text-[9px] uppercase tracking-widest text-stone-400 font-bold">Or Reserve First</span>
             <div class="flex-grow border-t border-stone-200"></div>
@@ -467,7 +500,7 @@
     </div>
   </div>
 
-  <!-- Custom Luxury Notification Overlay Dialog (replaces standard browser alert) -->
+  <!-- Custom Luxury Notification Overlay Dialog (replaces standard browser alerts) -->
   <div id="custom-dialog-overlay" class="fixed inset-0 z-55 invisible flex items-center justify-center p-4">
     <div onclick="toggleCustomDialog(false)" class="absolute inset-0 bg-brand-obsidian/40 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="dialog-backdrop"></div>
     <div class="relative max-w-md w-full bg-white rounded-2xl p-6 text-center shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-stone-100" id="dialog-content">
@@ -512,7 +545,6 @@
   </footer>
 
   <!-- Script Integration Mechanics Core Back-End Interface -->
-  <!-- -->
   <script>
     const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbxZ1C3gCq0IrkkObqa4DJExL_vuTmOOEOcwAfAgw4rdUl28zR_uPwL1s6Quu5OCO_Na/exec";
     
@@ -525,12 +557,16 @@
     let activeCartInventory = [];
     let isAuthorizedAdmin = false;
 
-    //    // --- Core Dynamic 60FPS Parallax Scroll Engine (High-Performance requestAnimationFrame Loop) ---
+    // Shipping estimation state
+    let calculatedShippingValue = 0;
+    let computedShippingRegionName = "Northeast Region";
+    let enteredZipCode = "";
+
+    // --- Core Dynamic 60FPS Parallax Scroll Engine (High-Performance requestAnimationFrame Loop) ---
     let lastScrollY = 0;
     let ticking = false;
 
     function updateParallaxElements() {
-      // Execute only if storefront is visible to avoid running background layout calculations in admin view
       if (document.getElementById('storefront-view').classList.contains('hidden')) {
         ticking = false;
         return;
@@ -561,20 +597,24 @@
       }
     }, { passive: true });
 
-    //    // Core Init Launcher Engine
+    // Core Init Launcher Engine
     async function loadBoutiqueStorefront() {
       try {
         const response = await fetch(GOOGLE_SHEET_API);
         const fetchedData = await response.json();
         
-        // Assert fetchedData is an array to avoid mapping exceptions from error payloads
         if (!fetchedData || !Array.isArray(fetchedData)) {
           let errorDetail = "Invalid format returned from Apps Script.";
           if (fetchedData && fetchedData.status === 'error') {
             errorDetail = fetchedData.message;
+          } else if (fetchedData && fetchedData.monthlySales && fetchedData.products) {
+            errorDetail = "Google Apps Script has been updated with Dashboard structures, but your storefront webpage's code hasn't synchronized yet. Verify that you deployed a 'New Version' in Apps Script and uploaded the latest index.html code to GitHub.";
           }
           throw new Error(errorDetail);
         }
+
+        // Hide diagnostic screen if successful connection established
+        document.getElementById('diagnostic-error-feed').classList.add('hidden');
         
         localProductsDataset = fetchedData.map(item => ({
           name: item.name || 'Untitled Premium Piece',
@@ -590,23 +630,18 @@
         updateAdminCategoriesDropdown();
       } catch (error) {
         console.error("API Engine Fault Exception:", error);
-        document.getElementById('loading-spinner').innerHTML = `
-          <div class="col-span-full text-center text-red-500 font-semibold text-sm py-10 bg-white rounded-2xl border border-red-100 px-6">
-            <p class="font-bold">Vault API Connection Interrupted</p>
-            <p class="text-xs text-stone-500 font-normal mt-2 leading-relaxed max-w-md mx-auto">
-              ${error.message}<br><br>
-              <span class="text-stone-400">Please verify your Apps Script Web App Deployment settings, confirm your Spreadsheet ID inside GoogleAppsScript.js, and verify your Sheet tab names.</span>
-            </p>
-          </div>`;
+        document.getElementById('loading-spinner').classList.add('hidden');
+        const diagFeed = document.getElementById('diagnostic-error-feed');
+        diagFeed.classList.remove('hidden');
+        document.getElementById('diagnostic-error-msg').textContent = error.message;
       }
     }
 
-    //    // Dynamic Category Navigation Generator (Reads Categories Dynamically from Sheet)
+    // Dynamic Category Navigation Generator (Reads Categories Dynamically from Sheet)
     function renderCategoryNavigation() {
       const desktopNav = document.getElementById('desktop-category-nav');
       const mobileNav = document.getElementById('mobile-category-nav');
       
-      // Pull unique, sanitized categories from sheet rows, alphabetizing them for cleaner UI organization
       const uniqueSheetCategories = [...new Set(localProductsDataset.map(item => item.category).filter(Boolean))].sort();
       const allCategories = ['All', ...uniqueSheetCategories];
       
@@ -616,9 +651,8 @@
       allCategories.forEach(category => {
         const isSelected = activeCategoryView.toLowerCase() === category.toLowerCase();
         
-        // Render Desktop Links
         const desktopClasses = isSelected 
-          ? 'text-brand-gold border-b-2 border-brand-gold' 
+          ? 'text-brand-gold border-b-2 border-brand-gold font-bold' 
           : 'hover:text-brand-obsidian';
           
         desktopNav.insertAdjacentHTML('beforeend', `
@@ -627,7 +661,6 @@
           </button>
         `);
         
-        // Render Mobile Scroll Tabs
         const mobileClasses = isSelected 
           ? 'bg-brand-obsidian text-white' 
           : 'bg-white border border-stone-200 text-stone-600';
@@ -706,14 +739,84 @@
       gridContainer.classList.remove('opacity-0');
     }
 
-    // Interactive Tab Action Trigger Switch Engine
     function switchCategory(targetCategory) {
       activeCategoryView = targetCategory;
       renderCategoryNavigation();
       renderProductsLayout();
     }
 
-    //    // Navigation Cart Modal Drawer Controllers
+    // --- Regional US ZIP Shipping Calculation Engine ---
+    function calculateShippingCost(subtotal, zip) {
+      // Rule 1: Free Shipping above $75
+      if (subtotal >= 75) {
+        computedShippingRegionName = "Free Insured Shipping";
+        return 0;
+      }
+
+      const cleanZip = zip.trim();
+      if (!/^\d{5}$/.test(cleanZip)) {
+        computedShippingRegionName = "Local Northeast";
+        return 9.50; // default local base rate
+      }
+
+      // Read the first digit of the ZIP to establish US shipping zones
+      const firstDigit = cleanZip.charAt(0);
+      const firstThree = parseInt(cleanZip.substring(0, 3));
+
+      // Check special express locations (Alaska: 995-999 / Hawaii: 967-968)
+      if (firstThree >= 995 && firstThree <= 999) {
+        computedShippingRegionName = "Alaska Premium Express";
+        return 35.00;
+      }
+      if (firstThree >= 967 && firstThree <= 968) {
+        computedShippingRegionName = "Hawaii Premium Express";
+        return 35.00;
+      }
+
+      switch (firstDigit) {
+        case '0':
+        case '1':
+          computedShippingRegionName = "Local Northeast Zone";
+          return 9.50;
+        case '2':
+        case '3':
+          computedShippingRegionName = "Southeast Secure Zone";
+          return 12.50;
+        case '4':
+        case '5':
+        case '6':
+          computedShippingRegionName = "Midwest Secure Zone";
+          return 14.50;
+        case '7':
+        case '8':
+          computedShippingRegionName = "Southwest & Mountain Zone";
+          return 16.50;
+        case '9':
+          computedShippingRegionName = "Pacific Coast Zone";
+          return 19.00;
+        default:
+          computedShippingRegionName = "Local Northeast Zone";
+          return 9.50;
+      }
+    }
+
+    // Recalculates shipping when users click the "Calculate" button
+    function recalculateShippingFromInput() {
+      const inputEl = document.getElementById('cart-zip-input');
+      const errEl = document.getElementById('shipping-calc-error');
+      const val = inputEl.value.trim();
+
+      if (/^\d{5}$/.test(val)) {
+        errEl.classList.add('hidden');
+        enteredZipCode = val;
+        updateCartStateView();
+        triggerToast("Shipping Applied", `${computedShippingRegionName} set!`, "success");
+      } else {
+        errEl.classList.remove('hidden');
+      }
+    }
+
+    // Navigation Cart Modal Drawer Controllers
     function toggleCartDrawer(openState) {
       const overlay = document.getElementById('cart-overlay');
       const backdrop = document.getElementById('cart-backdrop');
@@ -732,7 +835,6 @@
       }
     }
 
-    // Fallback Overlay Display Controls
     function toggleFallbackModal(openState) {
       const overlay = document.getElementById('fallback-modal');
       const backdrop = document.getElementById('modal-backdrop');
@@ -751,7 +853,6 @@
       }
     }
 
-    // Custom Elegant Dialog Box Display Layer
     function toggleCustomDialog(openState, message = "") {
       const overlay = document.getElementById('custom-dialog-overlay');
       const backdrop = document.getElementById('dialog-backdrop');
@@ -772,12 +873,11 @@
       }
     }
 
-    // Clipboard Copy Assistant
     function copyFallbackText(elementId) {
       const inputElement = document.getElementById(elementId);
       inputElement.select();
       inputElement.setSelectionRange(0, 99999); 
-      navigator.clipboard.writeText(inputElement.value);
+      document.execCommand('copy');
       
       const copyButton = event.target;
       const initialText = copyButton.textContent;
@@ -810,7 +910,6 @@
       }
     }
 
-    // Adjusted Counter Management Handlers
     function changeQuantity(nameEncoded, delta) {
       const targetName = decodeURIComponent(nameEncoded);
       const cartItem = activeCartInventory.find(item => item.product.name === targetName);
@@ -832,14 +931,17 @@
     function updateCartStateView() {
       const itemsContainer = document.getElementById('cart-items');
       const counterBadge = document.getElementById('cart-counter');
+      const subtotalLabel = document.getElementById('cart-subtotal');
+      const shippingLabel = document.getElementById('cart-shipping');
       const totalLabel = document.getElementById('cart-total');
+      const zoneBadge = document.getElementById('shipping-zone-badge');
 
       itemsContainer.innerHTML = "";
-      let trackingTotalValue = 0;
+      let trackingSubtotalValue = 0;
       let totalItemUnits = 0;
 
       activeCartInventory.forEach(item => {
-        trackingTotalValue += item.product.price * item.quantity;
+        trackingSubtotalValue += item.product.price * item.quantity;
         totalItemUnits += item.quantity;
 
         const cartCardHtml = `
@@ -859,8 +961,28 @@
         itemsContainer.insertAdjacentHTML('beforeend', cartCardHtml);
       });
 
+      // Calculate dynamic zone-based shipping cost
+      calculatedShippingValue = calculateShippingCost(trackingSubtotalValue, enteredZipCode);
+      const finalGrandTotal = trackingSubtotalValue + calculatedShippingValue;
+
+      // Update UI displays
       counterBadge.textContent = totalItemUnits;
-      totalLabel.textContent = `$${trackingTotalValue.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+      subtotalLabel.textContent = `$${trackingSubtotalValue.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+      
+      if (calculatedShippingValue === 0 && trackingSubtotalValue >= 75) {
+        shippingLabel.innerHTML = `<span class="text-brand-gold font-semibold uppercase text-[10px] tracking-wider">Free (Promo)</span>`;
+      } else {
+        shippingLabel.textContent = `+$${calculatedShippingValue.toFixed(2)}`;
+      }
+
+      if (enteredZipCode) {
+        zoneBadge.textContent = computedShippingRegionName;
+        zoneBadge.classList.remove('hidden');
+      } else {
+        zoneBadge.classList.add('hidden');
+      }
+
+      totalLabel.textContent = `$${finalGrandTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
 
       if (activeCartInventory.length === 0) {
         itemsContainer.innerHTML = `
@@ -871,24 +993,27 @@
       }
     }
 
-    // Dynamic Venmo Core Deep-Link Dispatcher
     function payViaVenmoDeepLink() {
       if (activeCartInventory.length === 0) {
         toggleCustomDialog(true, "Your portfolio selection is currently empty!");
         return;
       }
 
-      let calculatedGrandTotal = 0;
+      let subtotal = 0;
       let orderSummaryList = [];
 
       activeCartInventory.forEach(item => {
-        calculatedGrandTotal += item.product.price * item.quantity;
+        subtotal += item.product.price * item.quantity;
         orderSummaryList.push(`${item.quantity}x ${item.product.name}`);
       });
 
-      const sanitizedNote = `Omni by V Order: ${orderSummaryList.join(', ')}`.substring(0, 270);
-      const venmoAppUri = `venmo://paycharge?txn=pay&recipients=${encodeURIComponent(VENMO_USERNAME)}&amount=${calculatedGrandTotal.toFixed(2)}&note=${encodeURIComponent(sanitizedNote)}`;
-      const venmoWebFallback = `https://venmo.com/${encodeURIComponent(VENMO_USERNAME)}?txn=pay&amount=${calculatedGrandTotal.toFixed(2)}&note=${encodeURIComponent(sanitizedNote)}`;
+      // Include shipping calculation inside final venmo target request
+      const finalTotal = subtotal + calculatedShippingValue;
+      const shippingDetail = calculatedShippingValue > 0 ? ` + Shipping (${computedShippingRegionName})` : " (Free Shipping)";
+
+      const sanitizedNote = `Omni by V Order: ${orderSummaryList.join(', ')}${shippingDetail}`.substring(0, 270);
+      const venmoAppUri = `venmo://paycharge?txn=pay&recipients=${encodeURIComponent(VENMO_USERNAME)}&amount=${finalTotal.toFixed(2)}&note=${encodeURIComponent(sanitizedNote)}`;
+      const venmoWebFallback = `https://venmo.com/${encodeURIComponent(VENMO_USERNAME)}?txn=pay&amount=${finalTotal.toFixed(2)}&note=${encodeURIComponent(sanitizedNote)}`;
 
       let appSwitchConfirmed = false;
       window.addEventListener('blur', () => appSwitchConfirmed = true);
@@ -902,7 +1027,6 @@
       }, 750);
     }
 
-    // Smart Dual-Action Mail Intent Trigger
     function sendEmailReservationRequest() {
       if (activeCartInventory.length === 0) {
         toggleCustomDialog(true, "Your portfolio selection is currently empty!");
@@ -913,11 +1037,11 @@
       const subjectLine = "New Omni By V Inventory Reservation Request";
       
       let emailBodyText = "Hello Omni By V,\n\nI would like to place a reservation request for the following pieces from your curated collection:\n\n";
-      let calculatedGrandTotal = 0;
+      let calculatedSubtotal = 0;
 
       activeCartInventory.forEach((item, index) => {
         const itemTotal = item.product.price * item.quantity;
-        calculatedGrandTotal += itemTotal;
+        calculatedSubtotal += itemTotal;
         
         emailBodyText += `${index + 1}. ${item.product.name}\n`;
         emailBodyText += `   Category: ${item.product.category}\n`;
@@ -926,9 +1050,16 @@
         emailBodyText += `   Total for Item: $${itemTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}\n\n`;
       });
 
+      const grandTotal = calculatedSubtotal + calculatedShippingValue;
+
       emailBodyText += `----------------------------------------\n`;
-      emailBodyText += `✨ ESTIMATED SELECTION VALUE: $${calculatedGrandTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}\n`;
+      emailBodyText += `💎 PORTFOLIO SUBTOTAL: $${calculatedSubtotal.toLocaleString(undefined, {minimumFractionDigits: 2})}\n`;
+      emailBodyText += `🚚 SHIPPING (${computedShippingRegionName}): $${calculatedShippingValue.toFixed(2)}\n`;
+      emailBodyText += `✨ ESTIMATED TOTAL VALUE: $${grandTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}\n`;
       emailBodyText += `----------------------------------------\n\n`;
+      if (enteredZipCode) {
+        emailBodyText += `Destination ZIP Code: ${enteredZipCode}\n\n`;
+      }
       emailBodyText += `Please contact me using this email address to finalize payment instructions via Bank of America secure invoice and arrange secure delivery details.\n\nThank you!`;
 
       document.getElementById('fallback-body-textarea').value = emailBodyText;
@@ -948,9 +1079,7 @@
       }, 500);
     }
 
-
-    //    // --- ADMIN / POS PORTAL OPERATIONS ---
-    
+    // --- ADMIN / POS PORTAL OPERATIONS ---
     function togglePasscodeScreen(openState) {
       const panel = document.getElementById('passcode-screen');
       const input = document.getElementById('passcode-input');
@@ -992,27 +1121,20 @@
     }
 
     function revealAdminWorkspace() {
-      // Hide standard storefront wrapper
       document.getElementById('storefront-view').classList.add('hidden');
-      
-      // Reveal dark panel workspace
       const adminView = document.getElementById('admin-view');
       adminView.classList.remove('hidden');
       document.body.style.backgroundColor = "#0C0F12";
-      
       refreshPOSData();
     }
 
     function closeAdminPortal() {
       document.getElementById('admin-view').classList.add('hidden');
       document.getElementById('storefront-view').classList.remove('hidden');
-      document.body.style.backgroundColor = ""; // Reset body to brand canvas
-      
-      // Reload public catalog changes in real-time
+      document.body.style.backgroundColor = "";
       loadBoutiqueStorefront();
     }
 
-    // Dynamic Fetch Dashboard Data Sync
     async function refreshPOSData() {
       try {
         const response = await fetch(`${GOOGLE_SHEET_API}?action=getPOSDashboard`);
@@ -1024,7 +1146,6 @@
           return;
         }
 
-        // Defensive check: ensure result contains products array before mapping
         if (!result || !result.products || !Array.isArray(result.products)) {
           throw new Error("Dashboard metrics response is missing products details.");
         }
@@ -1058,7 +1179,6 @@
       }
     }
 
-    // Populate Datalist dynamically for auto-completing inputs
     function updateAdminCategoriesDropdown() {
       const datalist = document.getElementById('existing-categories-datalist');
       const uniqueSheetCategories = [...new Set(localProductsDataset.map(item => item.category).filter(Boolean))].sort();
@@ -1069,7 +1189,6 @@
       });
     }
 
-    // Render POS management catalog list
     function renderPOSGrid(catalog) {
       const container = document.getElementById('pos-products-grid');
       container.innerHTML = "";
@@ -1102,7 +1221,6 @@
       });
     }
 
-    // Trigger Hidden inputs
     function triggerFileInput(mode) {
       if (mode === 'upload') {
         document.getElementById('image-upload-file').click();
@@ -1111,7 +1229,7 @@
       }
     }
 
-    //    // Native Camera/Photo Processing & Compression Engine
+    // Native Camera/Photo Processing & Compression Engine
     function handleImageProcessing(file) {
       if (!file) return;
 
@@ -1163,7 +1281,6 @@
       document.getElementById('image-capture-camera').value = "";
     }
 
-    //    // Submit Newly Formed Design row
     async function handleFormSubmission(event) {
       event.preventDefault();
 
@@ -1204,7 +1321,6 @@
       }
     }
 
-    // Render toast feedback panels
     function triggerToast(title, message, type = "success") {
       const el = document.getElementById('toast-layer');
       const titleEl = document.getElementById('toast-title');
@@ -1229,7 +1345,6 @@
       }, 4000);
     }
 
-    // CSS Keyframe Injection helper
     const stylingInjection = document.createElement('style');
     stylingInjection.innerHTML = `
       @keyframes fadeIn {
