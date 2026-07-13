@@ -464,10 +464,10 @@
           </h4>
           <p class="text-xs text-stone-700 leading-relaxed font-medium">
             Omni By V Showroom<br>
-            1014 Campbell Ace Unit #23, West Haven, CT - 06516
+            542 Gold Coast Blvd, West Haven, CT
           </p>
           <p class="text-[10px] text-stone-500 leading-normal">
-            We will Call/Text/Email you once your Order is Ready for Pickup. Please Present ID on arrival.
+            Your pieces will be prepared and polished for pickup in our high-security vault. Present ID on arrival.
           </p>
         </div>
 
@@ -547,16 +547,23 @@
             <div class="flex-grow border-t border-stone-200"></div>
           </div>
 
-          <!-- Action 2: Traditional Email Reservation Request -->
-          <button onclick="sendEmailReservationRequest()" class="w-full bg-brand-obsidian text-white hover:bg-brand-gold text-[11px] font-bold tracking-[0.2em] py-3.5 rounded-xl uppercase transition-all duration-300 shadow-lg shadow-brand-obsidian/5">
-            Book Vault Consultation via Email
-          </button>
+          <!-- Action 2: WhatsApp & SMS Integration Buttons -->
+          <div class="grid grid-cols-1 gap-2">
+            <button onclick="processLuxuryMessagingReservation('whatsapp')" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white text-[11px] font-bold tracking-[0.2em] py-3.5 rounded-xl uppercase transition-all duration-300 shadow-lg flex items-center justify-center gap-2">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.734-1.456L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.115-2.903-6.99C16.262 1.876 13.784.842 11.15.84 5.717.84 1.292 5.26 1.288 10.692c-.001 1.734.463 3.426 1.344 4.927l-.988 3.604 3.702-.97c1.513.823 3.09 1.255 4.694 1.255zM18.06 14.85c-.33-.164-1.942-.957-2.242-1.063-.3-.106-.518-.16-.733.164-.216.327-.834 1.064-1.022 1.276-.187.213-.375.24-.705.075-1.127-.565-1.95-.985-2.715-2.296-.201-.34-.201-.632-.036-.797.148-.15 1.4-.833.518-1.5-.187-.213-.375-.24-.705-.075-1.616-.723-1.113-.728-2.585-1.252-.403-.143-.85-.143-1.252.003L7.75 8.913c-.347.12-.663.313-.93.568-.456.435-1.353 1.32-1.353 3.215s1.378 3.73 1.572 3.987c.193.257 2.712 4.14 6.57 5.805.918.397 1.634.633 2.193.81.923.293 1.764.252 2.428.153.74-.11 2.242-.915 2.553-1.8 1.127-.565.806-1.503.733-1.64-.073-.136-.268-.215-.598-.38z"/></svg>
+              Reserve on WhatsApp
+            </button>
+            <button onclick="processLuxuryMessagingReservation('sms')" class="w-full bg-brand-obsidian text-white hover:bg-brand-gold text-[11px] font-bold tracking-[0.2em] py-3.5 rounded-xl uppercase transition-all duration-300 shadow-md flex items-center justify-center gap-2">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" /></svg>
+              Reserve via Text Message
+            </button>
+          </div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Bulletproof Elegant Email Fallback Modal Window -->
+  <!-- Bulletproof Elegant Text Copy Fallback Modal Window -->
   <div id="fallback-modal" class="fixed inset-0 z-50 invisible flex items-center justify-center p-4">
     <div onclick="toggleFallbackModal(false)" class="absolute inset-0 bg-brand-obsidian/60 backdrop-blur-md transition-opacity opacity-0" id="modal-backdrop"></div>
     <div class="relative w-full max-w-xl bg-white rounded-2xl p-6 md:p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-stone-100" id="modal-content">
@@ -565,22 +572,22 @@
       </button>
       <div class="space-y-4 text-center">
         <span class="text-brand-gold text-[10px] font-bold tracking-[0.25em] uppercase block">Boutique Desk Concierge</span>
-        <h3 class="font-serif text-2xl font-bold text-brand-obsidian uppercase tracking-wide">Complete Your Reservation</h3>
-        <p class="text-stone-500 text-xs md:text-sm max-w-md mx-auto leading-relaxed">It looks like a native email client isn't configured on this browser. Copy the curated details below and send them to your personal concierge agent.</p>
+        <h3 class="font-serif text-2xl font-bold text-brand-obsidian uppercase tracking-wide">Secure Your Reservation</h3>
+        <p class="text-stone-500 text-xs md:text-sm max-w-md mx-auto leading-relaxed">It looks like a native messaging client isn't configured on this device. Copy the phone number and pre-formatted details below to send them via your preferred messaging app.</p>
       </div>
       <div class="mt-6 space-y-4 text-left">
         <div>
-          <label class="block text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-1.5">Intake Brand Email Address</label>
+          <label class="block text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-1.5">Concierge Phone Number</label>
           <div class="flex gap-2">
-            <input type="text" readonly value="vibhutiraval94@gmail.com" id="fallback-email-input" class="w-full bg-stone-50 border border-stone-200 text-brand-obsidian font-semibold rounded-lg px-4 py-2.5 text-sm outline-none">
-            <button onclick="copyFallbackText('fallback-email-input')" class="bg-brand-obsidian text-white hover:bg-brand-gold px-4 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase transition-colors whitespace-nowrap">Copy Email</button>
+            <input type="text" readonly value="2039436789" id="fallback-phone-input" class="w-full bg-stone-50 border border-stone-200 text-brand-obsidian font-semibold rounded-lg px-4 py-2.5 text-sm outline-none">
+            <button onclick="copyFallbackText('fallback-phone-input')" class="bg-brand-obsidian text-white hover:bg-brand-gold px-4 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase transition-colors whitespace-nowrap">Copy Number</button>
           </div>
         </div>
         <div>
-          <label class="block text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-1.5">Your Curated Inventory List</label>
+          <label class="block text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-1.5">Your Reservation Portfolio Details</label>
           <div class="relative">
             <textarea readonly id="fallback-body-textarea" rows="7" class="w-full bg-stone-50 border border-stone-200 font-mono text-[11px] leading-relaxed p-4 rounded-xl text-stone-700 outline-none resize-none"></textarea>
-            <button onclick="copyFallbackText('fallback-body-textarea')" class="absolute bottom-3 right-3 bg-white border border-stone-200 text-brand-obsidian hover:bg-stone-50 shadow-sm px-3 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-wider transition-colors">Copy List</button>
+            <button onclick="copyFallbackText('fallback-body-textarea')" class="absolute bottom-3 right-3 bg-white border border-stone-200 text-brand-obsidian hover:bg-stone-50 shadow-sm px-3 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-wider transition-colors">Copy Portfolio</button>
           </div>
         </div>
       </div>
@@ -647,7 +654,14 @@
         <p class="text-stone-500 font-light">&copy; 2026 Omni By V Boutique. All Rights Reserved.</p>
       </div>
       
-      
+      <div class="text-center md:text-left space-y-3">
+        <h4 class="text-brand-gold text-xs font-bold tracking-[0.25em] uppercase">Showroom Hours</h4>
+        <p class="text-stone-400 leading-relaxed font-light">
+          542 Gold Coast Blvd, West Haven, CT<br>
+          Monday - Saturday: 10:00 AM - 6:00 PM<br>
+          Sunday: Closed for Appraisal Curation
+        </p>
+      </div>
 
       <div class="text-center md:text-left space-y-3">
         <h4 class="text-brand-gold text-xs font-bold tracking-[0.25em] uppercase">Inquiries & Operations</h4>
@@ -1328,6 +1342,124 @@
       return { name, email, phone, pickup: true };
     }
 
+    // Unified Mobile Messaging (WhatsApp / SMS) reservation routing system
+    function processLuxuryMessagingReservation(mode) {
+      if (activeCartInventory.length === 0) {
+        toggleCustomDialog(true, "Your portfolio selection is currently empty!");
+        return;
+      }
+
+      const buyer = validateBuyerIntake();
+      if (!buyer) return;
+
+      const actionBtn = event.currentTarget;
+      const originalBtnText = actionBtn.innerHTML;
+      actionBtn.disabled = true;
+      actionBtn.textContent = "Logging Reservation...";
+
+      let calculatedSubtotal = 0;
+      let orderedItemsListArray = [];
+      activeCartInventory.forEach(item => {
+        calculatedSubtotal += item.product.price * item.quantity;
+        orderedItemsListArray.push(`${item.quantity}x ${item.product.name} ($${item.product.price.toLocaleString()})`);
+      });
+
+      const shippingCost = calculatedShippingValue;
+      const taxCost = (calculatedSubtotal + shippingCost) * CT_TAX_RATE;
+      const grandTotal = calculatedSubtotal + shippingCost + taxCost;
+      const addressDetailsString = activeFulfillment === 'delivery' 
+        ? `${buyer.street}, ${buyer.city}, ${buyer.state} ${buyer.zip}` 
+        : "Store Pickup - 542 Gold Coast Blvd, West Haven, CT";
+
+      // 1. Build a structured cloud record packet for Google Sheets sync
+      const reservationPayload = {
+        action: "createReservation",
+        buyerName: buyer.name,
+        buyerEmail: buyer.email,
+        buyerPhone: buyer.phone,
+        fulfillmentType: activeFulfillment,
+        addressDetails: addressDetailsString,
+        subtotal: calculatedSubtotal,
+        shippingCost: shippingCost,
+        tax: taxCost,
+        grandTotal: grandTotal,
+        itemsList: orderedItemsListArray.join('\n')
+      };
+
+      // Send to server in background to write row to your Reservations sheet
+      fetch(GOOGLE_SHEET_API, {
+        method: 'POST',
+        body: JSON.stringify(reservationPayload)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === 'success') {
+          console.log("Reservation recorded in Google Sheets database.");
+        }
+      })
+      .catch(err => console.warn("Google Sheets auto-log offline: ", err))
+      .finally(() => {
+        // 2. Format a gorgeous messaging layout for WhatsApp & SMS
+        let messageText = `✨ OMNI BY V RESERVATION REQUEST ✨\n\n`;
+        messageText += `👤 CLIENT DETAILS:\n`;
+        messageText += `• Name: ${buyer.name}\n`;
+        messageText += `• Phone: ${buyer.phone}\n`;
+        messageText += `• Email: ${buyer.email}\n\n`;
+
+        messageText += `📦 REQUESTED ITEMS:\n`;
+        activeCartInventory.forEach((item, index) => {
+          messageText += `[${index + 1}] ${item.quantity}x ${item.product.name} ($${item.product.price.toLocaleString()})\n`;
+        });
+        messageText += `\n`;
+
+        messageText += `📍 FULFILLMENT:\n`;
+        if (activeFulfillment === 'delivery') {
+          messageText += `• Luxury Delivery to:\n  ${addressDetailsString}\n\n`;
+        } else {
+          messageText += `• In-Showroom Collection\n  (West Haven Boutique)\n\n`;
+        }
+
+        messageText += `💳 PAYMENT ESTIMATES:\n`;
+        messageText += `• Subtotal: $${calculatedSubtotal.toFixed(2)}\n`;
+        messageText += `• Shipping: $${shippingCost.toFixed(2)}\n`;
+        messageText += `• CT Sales Tax (6.35%): $${taxCost.toFixed(2)}\n`;
+        messageText += `• Estimated Grand Total: $${grandTotal.toFixed(2)}\n\n`;
+        messageText += `Please coordinate my secure vault consultation details!`;
+
+        const targetPhone = "12039436789"; // Concierge direct number
+
+        // Route dynamically to WhatsApp or SMS
+        if (mode === 'whatsapp') {
+          const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(messageText)}`;
+          window.open(waUrl, '_blank');
+        } else {
+          // Cross-platform device compatible SMS markup
+          const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+          const smsUrl = `sms:+${targetPhone}${isIOS ? '&' : '?'}body=${encodeURIComponent(messageText)}`;
+          
+          let appSwitchConfirmed = false;
+          window.addEventListener('blur', () => appSwitchConfirmed = true);
+          window.location.href = smsUrl;
+
+          // If the page doesn't blur (meaning the native SMS app didn't open), display fallback
+          setTimeout(() => {
+            if (!appSwitchConfirmed) {
+              document.getElementById('fallback-body-textarea').value = messageText;
+              toggleCartDrawer(false);
+              toggleFallbackModal(true);
+            }
+          }, 800);
+        }
+
+        // Clean up UI & refresh
+        actionBtn.disabled = false;
+        actionBtn.innerHTML = originalBtnText;
+        activeCartInventory = [];
+        updateCartStateView();
+        toggleCartDrawer(false);
+      });
+    }
+
     function payViaVenmoDeepLink() {
       if (activeCartInventory.length === 0) {
         toggleCustomDialog(true, "Your portfolio selection is currently empty!");
@@ -1377,67 +1509,98 @@
       const buyer = validateBuyerIntake();
       if (!buyer) return;
 
-      const businessEmail = "vibhuti@omnibyv.com"; 
-      const subjectLine = `Omni Reservation: ${buyer.name} - ${activeFulfillment.toUpperCase()}`;
-      
-      let emailBodyText = `Hello Omni By V,\n\nI would like to place a secure reservation request for the following pieces:\n\n`;
-      let calculatedSubtotal = 0;
+      // Track active interaction element and transition state
+      const reserveBtn = event.target;
+      const originalBtnText = reserveBtn.textContent;
+      reserveBtn.disabled = true;
+      reserveBtn.textContent = "Dispatched to Cloud Vault...";
 
-      activeCartInventory.forEach((item, index) => {
-        const itemTotal = item.product.price * item.quantity;
-        calculatedSubtotal += itemTotal;
-        
-        emailBodyText += `${index + 1}. ${item.product.name}\n`;
-        emailBodyText += `   Category: ${item.product.category}\n`;
-        emailBodyText += `   Quantity: ${item.quantity}\n`;
-        emailBodyText += `   Price per Unit: $${item.product.price.toLocaleString(undefined, {minimumFractionDigits: 2})}\n`;
-        emailBodyText += `   Total for Item: $${itemTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}\n\n`;
+      let calculatedSubtotal = 0;
+      let orderedItemsListArray = [];
+      activeCartInventory.forEach(item => {
+        calculatedSubtotal += item.product.price * item.quantity;
+        orderedItemsListArray.push(`${item.quantity}x ${item.product.name} ($${item.product.price.toLocaleString()})`);
       });
 
       const shippingCost = calculatedShippingValue;
       const taxCost = (calculatedSubtotal + shippingCost) * CT_TAX_RATE;
       const grandTotal = calculatedSubtotal + shippingCost + taxCost;
+      const addressDetailsString = activeFulfillment === 'delivery' 
+        ? `${buyer.street}, ${buyer.city}, ${buyer.state} ${buyer.zip}` 
+        : "Store Pickup - 542 Gold Coast Blvd, West Haven, CT";
 
-      emailBodyText += `----------------------------------------\n`;
-      emailBodyText += `💎 PORTFOLIO SUBTOTAL: $${calculatedSubtotal.toLocaleString(undefined, {minimumFractionDigits: 2})}\n`;
-      emailBodyText += `🚚 FULFILLMENT: ${activeFulfillment.toUpperCase()} (${activeFulfillment === 'pickup' ? 'Free' : computedShippingRegionName}: $${shippingCost.toFixed(2)})\n`;
-      emailBodyText += `🏛️ CONNECTICUT STATE TAX (6.35%): $${taxCost.toLocaleString(undefined, {minimumFractionDigits: 2})}\n`;
-      emailBodyText += `✨ ESTIMATED GRAND TOTAL: $${grandTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}\n`;
-      emailBodyText += `----------------------------------------\n\n`;
+      // Build structured cloud reservation payload packet
+      const reservationPayload = {
+        action: "createReservation",
+        buyerName: buyer.name,
+        buyerEmail: buyer.email,
+        buyerPhone: buyer.phone,
+        fulfillmentType: activeFulfillment,
+        addressDetails: addressDetailsString,
+        subtotal: calculatedSubtotal,
+        shippingCost: shippingCost,
+        tax: taxCost,
+        grandTotal: grandTotal,
+        itemsList: orderedItemsListArray.join('\n')
+      };
 
-      emailBodyText += `👤 CUSTOMER CONTACT DETAILS:\n`;
-      emailBodyText += `   Name: ${buyer.name}\n`;
-      emailBodyText += `   Email: ${buyer.email}\n`;
-      emailBodyText += `   Phone: ${buyer.phone}\n\n`;
-
-      if (activeFulfillment === 'delivery') {
-        emailBodyText += `📍 SHIPPING DELIVERY ADDRESS:\n`;
-        emailBodyText += `   Street: ${buyer.street}\n`;
-        emailBodyText += `   City: ${buyer.city}\n`;
-        emailBodyText += `   State: ${buyer.state}\n`;
-        emailBodyText += `   ZIP Code: ${buyer.zip}\n\n`;
-      } else {
-        emailBodyText += `📍 FULFILLMENT SELECTION: Boutique Store Pickup\n`;
-        emailBodyText += `   Pickup Location: 1014 Campbell Ave Unit #23, West Haven, CT - 06516\n\n`;
-      }
-
-      emailBodyText += `Please contact me using this email address to finalize payment instructions via secure invoice and arrange secure delivery details.\n\nThank you!`;
-
-      document.getElementById('fallback-body-textarea').value = emailBodyText;
-
-      const mailtoUriLink = `mailto:${businessEmail}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(emailBodyText)}`;
-      
-      let appSwitchConfirmed = false;
-      window.addEventListener('blur', () => appSwitchConfirmed = true);
-      
-      window.location.href = mailtoUriLink;
-      
-      setTimeout(() => {
-        if (!appSwitchConfirmed) {
+      // 1. Primary Solution: Server-side cloud email process
+      fetch(GOOGLE_SHEET_API, {
+        method: 'POST',
+        body: JSON.stringify(reservationPayload)
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.status === 'success') {
           toggleCartDrawer(false);
-          toggleFallbackModal(true);
+          toggleCustomDialog(true, `Consultation Secured!\n\nYour portfolio reservation has been compiled and emailed directly to our West Haven showroom concierge. A confirmation copy has been sent to ${buyer.email}.`);
+          activeCartInventory = [];
+          updateCartStateView();
+        } else {
+          throw new Error(data.message || "Endpoint rejected packet.");
         }
-      }, 500);
+      })
+      .catch(err => {
+        console.warn("Direct cloud mail pipeline failed. Falling back to native mailto:", err);
+        
+        // 2. Secondary Solution: Fallback to native Mailto protocol
+        const businessEmail = "vibhutiraval94@gmail.com"; 
+        const subjectLine = `Omni Reservation: ${buyer.name} - ${activeFulfillment.toUpperCase()}`;
+        
+        let emailBodyText = `Hello Omni By V,\n\nI would like to place a secure reservation request for the following pieces:\n\n`;
+        activeCartInventory.forEach((item, index) => {
+          const itemTotal = item.product.price * item.quantity;
+          emailBodyText += `${index + 1}. ${item.product.name}\n   Quantity: ${item.quantity}\n   Unit Price: $${item.product.price.toLocaleString()}\n   Total: $${itemTotal.toLocaleString()}\n\n`;
+        });
+
+        emailBodyText += `----------------------------------------\n`;
+        emailBodyText += `💎 SUBTOTAL: $${calculatedSubtotal.toLocaleString()}\n`;
+        emailBodyText += `🚚 FULFILLMENT: ${activeFulfillment.toUpperCase()} (Shipping: $${shippingCost.toFixed(2)})\n`;
+        emailBodyText += `🏛️ CT TAX (6.35%): $${taxCost.toLocaleString()}\n`;
+        emailBodyText += `✨ ESTIMATED TOTAL: $${grandTotal.toLocaleString()}\n`;
+        emailBodyText += `----------------------------------------\n\n`;
+        emailBodyText += `👤 CONTACT:\n   Name: ${buyer.name}\n   Email: ${buyer.email}\n   Phone: ${buyer.phone}\n\n`;
+        emailBodyText += `📍 ADDRESS DETAILS:\n   ${addressDetailsString}\n\n`;
+        emailBodyText += `Please contact me to finalize payment and showroom collection arrangements. Thank you!`;
+
+        document.getElementById('fallback-body-textarea').value = emailBodyText;
+        const mailtoUriLink = `mailto:${businessEmail}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(emailBodyText)}`;
+        
+        let appSwitchConfirmed = false;
+        window.addEventListener('blur', () => appSwitchConfirmed = true);
+        window.location.href = mailtoUriLink;
+        
+        setTimeout(() => {
+          if (!appSwitchConfirmed) {
+            toggleCartDrawer(false);
+            toggleFallbackModal(true);
+          }
+        }, 500);
+      })
+      .finally(() => {
+        reserveBtn.disabled = false;
+        reserveBtn.textContent = originalBtnText;
+      });
     }
 
     // --- ADMIN / POS PORTAL OPERATIONS ---
