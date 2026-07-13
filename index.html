@@ -677,11 +677,11 @@
 
   <!-- Script Integration Mechanics Core Back-End Interface -->
   <script>
-    const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbxZ1C3gCq0IrkkObqa4DJExL_vuTmOOEOcwAfAgw4rdUl28zR_uPwL1s6Quu5OCO_Na/exec";
+    const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbyH7Y4GvhTvHcsE_Rv7ZAasrZ8VtJ-3SReqQfRTpt96HbuO8qPv0HFmMsbMTjsCL4ZQ/exec";
     
     // --- Configurations ---
-    const VENMO_USERNAME = "Vibhuti-Desai-3"; 
-    const STORE_PIN = "Omnibyv@1014";
+    const VENMO_USERNAME = "vibhuti"; 
+    const STORE_PIN = "1234";
     const CT_TAX_RATE = 0.0635; // 6.35% Connecticut sales tax
 
     let localProductsDataset = [];
@@ -1349,8 +1349,22 @@
         return;
       }
 
-      const buyer = validateBuyerIntake();
-      if (!buyer) return;
+      // Gather whatever buyer info is present, otherwise default to chat fallback details
+      const rawName = document.getElementById('buyer-name').value.trim();
+      const rawEmail = document.getElementById('buyer-email').value.trim();
+      const rawPhone = document.getElementById('buyer-phone').value.trim();
+      const street = document.getElementById('buyer-street').value.trim();
+      const city = document.getElementById('buyer-city').value.trim();
+      const state = document.getElementById('buyer-state').value.trim();
+      const zip = document.getElementById('buyer-zip').value.trim();
+
+      const buyerName = rawName || (mode === 'whatsapp' ? "WhatsApp Client" : "SMS Client");
+      const buyerEmail = rawEmail || "Not specified (In-chat request)";
+      const buyerPhone = rawPhone || "Not specified (In-chat request)";
+
+      const addressDetailsString = activeFulfillment === 'delivery' 
+        ? (street || city || state || zip ? `${street}, ${city}, ${state} ${zip}` : "Delivery (Address to be provided in chat)")
+        : "Store Pickup - 542 Gold Coast Blvd, West Haven, CT";
 
       const actionBtn = event.currentTarget;
       const originalBtnText = actionBtn.innerHTML;
@@ -1367,16 +1381,13 @@
       const shippingCost = calculatedShippingValue;
       const taxCost = (calculatedSubtotal + shippingCost) * CT_TAX_RATE;
       const grandTotal = calculatedSubtotal + shippingCost + taxCost;
-      const addressDetailsString = activeFulfillment === 'delivery' 
-        ? `${buyer.street}, ${buyer.city}, ${buyer.state} ${buyer.zip}` 
-        : "Store Pickup - 542 Gold Coast Blvd, West Haven, CT";
 
       // 1. Build a structured cloud record packet for Google Sheets sync
       const reservationPayload = {
         action: "createReservation",
-        buyerName: buyer.name,
-        buyerEmail: buyer.email,
-        buyerPhone: buyer.phone,
+        buyerName: buyerName,
+        buyerEmail: buyerEmail,
+        buyerPhone: buyerPhone,
         fulfillmentType: activeFulfillment,
         addressDetails: addressDetailsString,
         subtotal: calculatedSubtotal,
@@ -1402,9 +1413,10 @@
         // 2. Format a gorgeous messaging layout for WhatsApp & SMS
         let messageText = `✨ OMNI BY V RESERVATION REQUEST ✨\n\n`;
         messageText += `👤 CLIENT DETAILS:\n`;
-        messageText += `• Name: ${buyer.name}\n`;
-        messageText += `• Phone: ${buyer.phone}\n`;
-        messageText += `• Email: ${buyer.email}\n\n`;
+        messageText += `• Name: ${buyerName}\n`;
+        if (rawPhone) messageText += `• Phone: ${buyerPhone}\n`;
+        if (rawEmail) messageText += `• Email: ${buyerEmail}\n`;
+        messageText += `\n`;
 
         messageText += `📦 REQUESTED ITEMS:\n`;
         activeCartInventory.forEach((item, index) => {
@@ -1564,7 +1576,7 @@
         console.warn("Direct cloud mail pipeline failed. Falling back to native mailto:", err);
         
         // 2. Secondary Solution: Fallback to native Mailto protocol
-        const businessEmail = "vibhutiraval94@gmail.com"; 
+        const businessEmail = "vibhuti@omnibyv.com"; 
         const subjectLine = `Omni Reservation: ${buyer.name} - ${activeFulfillment.toUpperCase()}`;
         
         let emailBodyText = `Hello Omni By V,\n\nI would like to place a secure reservation request for the following pieces:\n\n`;
