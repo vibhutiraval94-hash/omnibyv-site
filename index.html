@@ -9,7 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,300;0,400;0,600;1,300&family=Plus+Jakarta+Sans:wght=300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -104,8 +104,13 @@
   </div>
 
   <!-- Promo Ribbon Bar -->
-  <div class="relative z-30 bg-brand-obsidian text-white text-[11px] font-medium tracking-[0.2em] text-center py-2.5 uppercase border-b border-brand-gold/20">
-    ✨ Free Premium Luxury Shipping On Orders Above $75
+  <div class="relative z-30 bg-brand-obsidian text-white text-[11px] font-medium tracking-[0.2em] text-center py-2.5 uppercase border-b border-brand-gold/20 flex items-center justify-center gap-4 flex-wrap px-4">
+    <span>✨ Free Premium Luxury Shipping On Orders Above $75</span>
+    <span class="hidden md:inline text-stone-500">|</span>
+    <a href="tel:2039436789" class="text-brand-gold hover:text-brand-goldHover transition-colors font-semibold tracking-[0.1em] flex items-center gap-1">
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 01-7.108-7.108c-.145-.44.02-.927.396-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+      Direct Client Line: (203) 943-6789
+    </a>
   </div>
 
   <!-- PUBLIC STOREFRONT WRAPPER -->
@@ -129,11 +134,17 @@
         </a>
 
         <!-- Desktop Dynamic Filter Hub Navigation (Filled Automatically by JS) -->
-        <nav id="desktop-category-nav" class="hidden md:flex items-center gap-8 text-[12px] font-semibold tracking-[0.15em] uppercase text-stone-500">
+        <nav id="desktop-category-nav" class="hidden lg:flex items-center gap-8 text-[12px] font-semibold tracking-[0.15em] uppercase text-stone-500">
         </nav>
 
-        <!-- Cart Trigger and Admin Portal Lock Button -->
+        <!-- Cart Trigger, Hotline, and Admin Portal Lock Button -->
         <div class="flex items-center gap-4 relative z-50">
+          <!-- Client Hotline for desktop header -->
+          <a href="tel:2039436789" class="hidden sm:flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-stone-600 hover:text-brand-gold transition-colors" title="Call Concierge">
+            <svg class="w-4 h-4 text-brand-gold animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 01-7.108-7.108c-.145-.44.02-.927.396-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
+            <span class="hidden md:inline">(203) 943-6789</span>
+          </a>
+
           <!-- Hidden Vault Portal Key -->
           <button onclick="togglePasscodeScreen(true)" class="p-2 text-stone-400 hover:text-brand-gold transition-colors duration-300" title="Secure Vault Controller">
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
@@ -141,7 +152,7 @@
             </svg>
           </button>
           
-          <button onclick="toggleCartDrawer(true)" class="relative p-2 text-brand-obsidian hover:text-brand-gold transition-colors duration-300">
+          <button onclick="toggleCartDrawer(true)" class="relative p-2 text-brand-obsidian hover:text-brand-gold transition-colors duration-300" title="Your Selection Portfolio">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
             <span id="cart-counter" class="absolute -top-0.5 -right-0.5 bg-brand-gold text-brand-obsidian font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center shadow-sm">0</span>
           </button>
@@ -167,7 +178,6 @@
       <!-- Dynamic Foreground Floating Showcase Diamond Over Text -->
       <div class="absolute z-10 w-28 h-28 md:w-44 md:h-44 top-[10%] right-[12%] opacity-15 parallax-layer" data-speed="-0.15">
         <svg class="w-full h-full text-brand-gold" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 5L95 40L50 95L5 40L50 5Z" stroke="currentColor" stroke-width="1"/>
           <path d="M50 5V95" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 2"/>
           <path d="M5 40H95" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 2"/>
         </svg>
@@ -196,7 +206,7 @@
     <main class="relative z-20 flex-grow max-w-7xl mx-auto px-6 py-20 w-full">
       
       <!-- Mobile Dynamic Categorization Scroll Bar (Filled Automatically by JS) -->
-      <div id="mobile-category-nav" class="flex md:hidden gap-4 overflow-x-auto pb-6 mb-4 border-b border-stone-200 text-[11px] font-semibold tracking-wider uppercase scrollbar-none">
+      <div id="mobile-category-nav" class="flex lg:hidden gap-4 overflow-x-auto pb-6 mb-4 border-b border-stone-200 text-[11px] font-semibold tracking-wider uppercase scrollbar-none">
       </div>
 
       <!-- Live Dynamic Loading Shimmer Placeholders -->
@@ -263,7 +273,7 @@
   <div id="admin-view" class="max-w-4xl mx-auto px-4 py-8 space-y-6 hidden flex-grow w-full z-20 relative text-white">
     
     <!-- Top Brand Header Action Bar -->
-    <header class="flex items-center justify-between border-b border-stone-850 pb-4">
+    <header class="flex items-center justify-between border-b border-stone-800 pb-4">
       <div class="flex flex-col">
         <span class="font-serif text-xl font-semibold tracking-widest text-white">OMNI VAULT POS</span>
         <span class="text-[9px] tracking-widest uppercase text-brand-gold font-bold">Mobile Controller Panel</span>
@@ -302,29 +312,29 @@
 
       <!-- VIEW PANEL: ADD PRODUCT MODULE -->
       <div class="bg-brand-darkCard border border-stone-800 p-5 rounded-2xl space-y-4">
-        <h3 class="font-serif text-lg text-white font-medium border-b border-stone-850 pb-3">Publish New Jewelry Design</h3>
+        <h3 class="font-serif text-lg text-white font-medium border-b border-stone-800 pb-3">Publish New Jewelry Design</h3>
         
         <form id="add-product-form" onsubmit="handleFormSubmission(event)" class="space-y-4 text-left">
           <div>
             <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Jewelry Piece Title *</label>
-            <input type="text" id="input-name" required placeholder="e.g., Aurelia Solitaire Diamond Ring" class="w-full bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
+            <input type="text" id="input-name" required placeholder="e.g., Aurelia Solitaire Diamond Ring" class="w-full bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div>
               <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Price ($ USD) *</label>
-              <input type="number" step="0.01" id="input-price" required placeholder="1850.00" class="w-full bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
+              <input type="number" step="0.01" id="input-price" required placeholder="1850.00" class="w-full bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
             </div>
             <div>
               <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Initial Vault Quantity *</label>
-              <input type="number" id="input-quantity" required placeholder="5" class="w-full bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
+              <input type="number" id="input-quantity" required placeholder="5" class="w-full bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
             </div>
           </div>
 
           <div class="grid grid-cols-2 gap-4">
             <div>
               <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Category Line *</label>
-              <input type="text" id="input-category" required placeholder="e.g., Rings, Necklaces, Bracelets" list="existing-categories-datalist" class="w-full bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
+              <input type="text" id="input-category" required placeholder="e.g., Rings, Necklaces, Bracelets" list="existing-categories-datalist" class="w-full bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
               <datalist id="existing-categories-datalist">
                 <option value="Rings">
                 <option value="Necklaces">
@@ -334,7 +344,7 @@
             </div>
             <div>
               <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Display Status</label>
-              <select id="input-status" class="w-full bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
+              <select id="input-status" class="w-full bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
                 <option value="In Stock">In Stock</option>
                 <option value="Low Stock">Low Stock</option>
                 <option value="Sold Out">Sold Out</option>
@@ -366,7 +376,7 @@
 
             <!-- Manual URL collection bar -->
             <div class="flex gap-2 mb-3">
-              <input type="text" id="input-image-url" placeholder="Or enter professional image URL..." class="flex-grow bg-stone-900 border border-stone-800 px-4 py-3 rounded-xl text-white text-xs outline-none focus:border-brand-gold">
+              <input type="text" id="input-image-url" placeholder="Or enter professional image URL..." class="flex-grow bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-xs outline-none focus:border-brand-gold">
               <button type="button" onclick="addManualImageUrl()" class="bg-stone-800 hover:bg-brand-gold hover:text-brand-obsidian text-stone-300 font-bold text-xs uppercase px-4 rounded-xl transition-all">Add URL</button>
             </div>
 
@@ -389,7 +399,7 @@
 
       <!-- Live Active Stock Catalog Terminal -->
       <div class="bg-brand-darkCard border border-stone-800 p-5 rounded-2xl space-y-4">
-        <div class="flex items-center justify-between border-b border-stone-850 pb-3">
+        <div class="flex items-center justify-between border-b border-stone-800 pb-3">
           <h3 class="font-serif text-lg text-white font-medium">Boutique Catalog</h3>
           <span id="stock-item-count" class="text-xs text-stone-500">0 Designs</span>
         </div>
@@ -453,11 +463,11 @@
             <span>📍 Boutique Pickup Details</span>
           </h4>
           <p class="text-xs text-stone-700 leading-relaxed font-medium">
-            Omni By V <br>
-            1014 Campbell Ave Unit#23, West Haven, CT - 06516
+            Omni By V Showroom<br>
+            1014 Campbell Ace Unit #23, West Haven, CT - 06516
           </p>
           <p class="text-[10px] text-stone-500 leading-normal">
-            We will Call/Text/Email when your Order is Ready for Pickup. Please Present ID on arrival.
+            We will Call/Text/Email you once your Order is Ready for Pickup. Please Present ID on arrival.
           </p>
         </div>
 
@@ -594,6 +604,28 @@
     </div>
   </div>
 
+  <!-- Custom Confirm Modal Dialog -->
+  <div id="custom-confirm-overlay" class="fixed inset-0 z-55 invisible flex items-center justify-center p-4">
+    <div class="absolute inset-0 bg-brand-obsidian/40 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="confirm-backdrop"></div>
+    <div class="relative max-w-md w-full bg-white rounded-2xl p-6 text-center shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-stone-100" id="confirm-content">
+      <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
+        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+        </svg>
+      </div>
+      <h4 class="font-serif text-lg font-bold text-brand-obsidian uppercase tracking-wider mb-2" id="confirm-title-text">Confirm Action</h4>
+      <p id="confirm-message-text" class="text-xs text-stone-500 leading-relaxed mb-6"></p>
+      <div class="flex gap-3">
+        <button id="confirm-cancel-btn" class="w-1/2 py-3 bg-stone-100 hover:bg-stone-200 text-stone-600 text-xs font-bold uppercase tracking-widest rounded-xl transition-colors">
+          Cancel
+        </button>
+        <button id="confirm-accept-btn" class="w-1/2 py-3 bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase tracking-widest rounded-xl transition-colors">
+          Proceed
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Live Feedback Notification Toast Layer -->
   <div id="toast-layer" class="fixed top-6 right-6 z-55 flex items-center bg-stone-900 border border-stone-800 px-5 py-4 rounded-xl shadow-2xl transition-all duration-300 translate-x-80 opacity-0 pointer-events-none">
     <div class="flex items-center gap-3">
@@ -607,16 +639,31 @@
   </div>
 
   <!-- Storefront Footer Section -->
-  <footer class="relative z-30 bg-brand-obsidian text-stone-400 text-xs py-12 px-6 border-t border-brand-gold/20 mt-auto">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="text-center md:text-left">
-        <p class="font-serif text-sm tracking-[0.2em] text-white font-bold uppercase">OMNI BY V</p>
-        <p class="mt-1 text-stone-500 font-light">&copy; 2026 Omni By V Boutique. All Rights Reserved.</p>
+  <footer class="relative z-30 bg-brand-obsidian text-stone-400 text-xs py-16 px-6 border-t border-brand-gold/20 mt-auto">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
+      <div class="text-center md:text-left space-y-3">
+        <p class="font-serif text-xl tracking-[0.2em] text-white font-bold uppercase">OMNI BY V</p>
+        <p class="text-stone-500 leading-relaxed max-w-sm font-light">Fine jewelry designed to celebrate precision, brilliance, and timeless elegance.</p>
+        <p class="text-stone-500 font-light">&copy; 2026 Omni By V Boutique. All Rights Reserved.</p>
       </div>
-      <div class="flex gap-8 tracking-wider uppercase text-[10px] font-semibold">
-        <a href="#" onclick="togglePasscodeScreen(true); return false;" class="hover:text-brand-gold transition-colors">Vault Operations</a>
-        <a href="#" class="hover:text-brand-gold transition-colors">Privacy Charter</a>
-        <a href="#" class="hover:text-brand-gold transition-colors">Boutique Service</a>
+      
+      <div class="text-center md:text-left space-y-3">
+        <h4 class="text-brand-gold text-xs font-bold tracking-[0.25em] uppercase">Showroom Hours</h4>
+        <p class="text-stone-400 leading-relaxed font-light">
+          542 Gold Coast Blvd, West Haven, CT<br>
+          Monday - Saturday: 10:00 AM - 6:00 PM<br>
+          Sunday: Closed for Appraisal Curation
+        </p>
+      </div>
+
+      <div class="text-center md:text-left space-y-3">
+        <h4 class="text-brand-gold text-xs font-bold tracking-[0.25em] uppercase">Inquiries & Operations</h4>
+        <p class="text-stone-400 font-light">Direct Hotline: <a href="tel:2039436789" class="hover:text-brand-gold font-bold text-white transition-colors underline">(203) 943-6789</a></p>
+        <div class="flex justify-center md:justify-start gap-6 tracking-wider uppercase text-[10px] font-semibold pt-1">
+          <a href="#" onclick="togglePasscodeScreen(true); return false;" class="hover:text-brand-gold text-white transition-colors flex items-center gap-1">🔑 Vault Portal</a>
+          <a href="#" class="hover:text-brand-gold transition-colors">Privacy Charter</a>
+          <a href="#" class="hover:text-brand-gold transition-colors">Boutique Service</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -646,6 +693,9 @@
 
     // Card Hover Carousels Tracker
     let activeCarousels = {};
+
+    // Custom confirm dialog execution handler
+    let customConfirmPromiseResolver = null;
 
     // --- Core Dynamic Parallax Scroll Engine ---
     let lastScrollY = 0;
@@ -1087,6 +1137,44 @@
       }
     }
 
+    // Custom confirm box logic (replaces native window.confirm)
+    function triggerCustomConfirm(title, message) {
+      const overlay = document.getElementById('custom-confirm-overlay');
+      const backdrop = document.getElementById('confirm-backdrop');
+      const content = document.getElementById('confirm-content');
+      
+      document.getElementById('confirm-title-text').textContent = title;
+      document.getElementById('confirm-message-text').textContent = message;
+
+      overlay.classList.remove('invisible');
+      setTimeout(() => {
+        backdrop.classList.add('opacity-100');
+        content.classList.remove('scale-95', 'opacity-0');
+      }, 10);
+
+      return new Promise((resolve) => {
+        customConfirmPromiseResolver = resolve;
+      });
+    }
+
+    function handleConfirmSelection(accepted) {
+      const overlay = document.getElementById('custom-confirm-overlay');
+      const backdrop = document.getElementById('confirm-backdrop');
+      const content = document.getElementById('confirm-content');
+
+      backdrop.classList.remove('opacity-100');
+      content.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => overlay.classList.add('invisible'), 300);
+
+      if (customConfirmPromiseResolver) {
+        customConfirmPromiseResolver(accepted);
+        customConfirmPromiseResolver = null;
+      }
+    }
+
+    document.getElementById('confirm-cancel-btn').addEventListener('click', () => handleConfirmSelection(false));
+    document.getElementById('confirm-accept-btn').addEventListener('click', () => handleConfirmSelection(true));
+
     function copyFallbackText(elementId) {
       const inputElement = document.getElementById(elementId);
       inputElement.select();
@@ -1337,7 +1425,7 @@
         emailBodyText += `   ZIP Code: ${buyer.zip}\n\n`;
       } else {
         emailBodyText += `📍 FULFILLMENT SELECTION: Boutique Store Pickup\n`;
-        emailBodyText += `   Pickup Location: 542 Gold Coast Blvd, West Haven, CT\n\n`;
+        emailBodyText += `   Pickup Location: 1014 Campbell Ave Unit #23, West Haven, CT - 06516\n\n`;
       }
 
       emailBodyText += `Please contact me using this email address to finalize payment instructions via secure invoice and arrange secure delivery details.\n\nThank you!`;
@@ -1374,12 +1462,10 @@
         setTimeout(() => panel.classList.add('opacity-100'), 10);
         input.focus();
       } else {
+        panel.classList.add('hidden');
         panel.classList.remove('opacity-100');
-        setTimeout(() => {
-          panel.classList.add('hidden');
-          input.value = "";
-          err.classList.add('hidden');
-        }, 500);
+        input.value = "";
+        err.classList.add('hidden');
       }
     }
 
@@ -1582,7 +1668,7 @@
 
       tempDraftImages.forEach((img, idx) => {
         container.insertAdjacentHTML('beforeend', `
-          <div class="relative w-20 h-24 rounded-lg overflow-hidden border border-stone-800 bg-stone-900 group">
+          <div class="relative w-20 h-24 rounded-lg overflow-hidden border border-stone-850 bg-stone-900 group">
             <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x120/161b21/d4af37?text=Broken';">
             <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[8px] font-bold px-1.5 py-0.5 rounded">${idx + 1}</span>
             <button type="button" onclick="removeDraftImage(${idx})" class="absolute top-1 right-1 bg-red-950/80 text-white rounded-full w-4 h-4 flex items-center justify-center text-[9px] hover:bg-red-900 font-bold">✕</button>
