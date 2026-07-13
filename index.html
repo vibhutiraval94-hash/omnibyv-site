@@ -653,15 +653,6 @@
         <p class="text-stone-500 leading-relaxed max-w-sm font-light">Fine jewelry designed to celebrate precision, brilliance, and timeless elegance.</p>
         <p class="text-stone-500 font-light">&copy; 2026 Omni By V Boutique. All Rights Reserved.</p>
       </div>
-      
-      <div class="text-center md:text-left space-y-3">
-        <h4 class="text-brand-gold text-xs font-bold tracking-[0.25em] uppercase">Showroom Hours</h4>
-        <p class="text-stone-400 leading-relaxed font-light">
-          542 Gold Coast Blvd, West Haven, CT<br>
-          Monday - Saturday: 10:00 AM - 6:00 PM<br>
-          Sunday: Closed for Appraisal Curation
-        </p>
-      </div>
 
       <div class="text-center md:text-left space-y-3">
         <h4 class="text-brand-gold text-xs font-bold tracking-[0.25em] uppercase">Inquiries & Operations</h4>
@@ -677,11 +668,11 @@
 
   <!-- Script Integration Mechanics Core Back-End Interface -->
   <script>
-    const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbyH7Y4GvhTvHcsE_Rv7ZAasrZ8VtJ-3SReqQfRTpt96HbuO8qPv0HFmMsbMTjsCL4ZQ/exec";
+    const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbxZ1C3gCq0IrkkObqa4DJExL_vuTmOOEOcwAfAgw4rdUl28zR_uPwL1s6Quu5OCO_Na/exec";
     
     // --- Configurations ---
-    const VENMO_USERNAME = "vibhuti"; 
-    const STORE_PIN = "1234";
+    const VENMO_USERNAME = "Vibhuti-Desai-3"; 
+    const STORE_PIN = "Omnibyv@1014";
     const CT_TAX_RATE = 0.0635; // 6.35% Connecticut sales tax
 
     let localProductsDataset = [];
@@ -1364,7 +1355,7 @@
 
       const addressDetailsString = activeFulfillment === 'delivery' 
         ? (street || city || state || zip ? `${street}, ${city}, ${state} ${zip}` : "Delivery (Address to be provided in chat)")
-        : "Store Pickup - 542 Gold Coast Blvd, West Haven, CT";
+        : "Store Pickup - 1014 Campbell Ave Unit #23, West Haven, CT";
 
       const actionBtn = event.currentTarget;
       const originalBtnText = actionBtn.innerHTML;
@@ -1539,7 +1530,7 @@
       const grandTotal = calculatedSubtotal + shippingCost + taxCost;
       const addressDetailsString = activeFulfillment === 'delivery' 
         ? `${buyer.street}, ${buyer.city}, ${buyer.state} ${buyer.zip}` 
-        : "Store Pickup - 542 Gold Coast Blvd, West Haven, CT";
+        : "Store Pickup - 1014 Campbell Ave Unit#23, West Haven, CT";
 
       // Build structured cloud reservation payload packet
       const reservationPayload = {
