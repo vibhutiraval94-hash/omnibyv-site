@@ -9,7 +9,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght=0,300;0,400;0,600;1,300&family=Plus+Jakarta+Sans:wght=300;400;500;600&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -149,10 +149,10 @@
       </div>
     </header>
 
-    <!-- Lookbook Hero Section with image_11cce7.png -->
+    <!-- Lookbook Hero Section -->
     <section class="relative bg-brand-obsidian text-white min-h-[75vh] md:min-h-[85vh] flex items-center justify-center px-6 overflow-hidden border-b border-brand-gold/30">
       
-      <!-- Immersive Background image_11cce7.png Layer acting as dynamic parallax scroll canvas -->
+      <!-- Immersive Background Layer acting as dynamic parallax scroll canvas -->
       <div class="absolute inset-0 z-0 scale-110 parallax-layer" data-speed="0.45" id="hero-background">
         <img src="image_11cce7.png" 
              alt="Premium Luxury Showcase Backdrop" 
@@ -414,25 +414,92 @@
       </div>
 
       <!-- Scrollable Added Items Container -->
-      <div id="cart-items" class="flex-grow overflow-y-auto p-6 space-y-6 divide-y divide-stone-100">
-      </div>
-
-      <!-- Summary Pricing Checkout Interface Footer -->
-      <div class="p-6 border-t border-stone-100 bg-brand-canvas space-y-4">
+      <div id="cart-scroll-container" class="flex-grow overflow-y-auto p-6 space-y-6">
         
-        <!-- Live US Zone ZIP Shipping Calculator -->
-        <div class="bg-white border border-stone-200/80 p-4 rounded-xl space-y-3 shadow-sm">
+        <!-- Cart Items List Segment -->
+        <div id="cart-items" class="space-y-6 divide-y divide-stone-100">
+          <!-- Dynamic Items Populated Here -->
+        </div>
+
+        <!-- NEW Fulfillment Toggle Strategy Section -->
+        <div class="pt-6 border-t border-stone-150 space-y-3 text-left">
+          <label class="text-[10px] uppercase tracking-wider font-bold text-stone-500 block">Fulfillment Preference *</label>
+          <div class="grid grid-cols-2 gap-2.5">
+            <button id="fulfillment-delivery-btn" onclick="setFulfillmentType('delivery')" class="py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border-2 border-brand-obsidian bg-brand-obsidian text-white flex flex-col items-center justify-center gap-1.5">
+              <span>🚚 Delivery</span>
+            </button>
+            <button id="fulfillment-pickup-btn" onclick="setFulfillmentType('pickup')" class="py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-stone-200 text-stone-600 hover:bg-brand-canvas flex flex-col items-center justify-center gap-1.5">
+              <span>🏛️ Store Pickup</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Interactive US Zone ZIP Delivery System -->
+        <div id="zip-calculator-section" class="bg-brand-canvas/60 border border-stone-200/80 p-4 rounded-xl space-y-3 shadow-sm text-left">
           <div class="flex items-center justify-between">
             <label class="text-[10px] uppercase tracking-wider font-bold text-stone-500 block">Deliver to ZIP Code</label>
             <span id="shipping-zone-badge" class="text-[9px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded bg-brand-canvas text-stone-500 hidden">Local</span>
           </div>
           <div class="flex gap-2">
-            <input type="text" id="cart-zip-input" maxlength="5" placeholder="e.g., 06516" class="bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2 text-xs text-brand-obsidian font-semibold outline-none focus:border-brand-gold w-full">
+            <input type="text" id="cart-zip-input" maxlength="5" placeholder="e.g., 06516" class="bg-white border border-stone-200 rounded-lg px-3 py-2 text-xs text-brand-obsidian font-semibold outline-none focus:border-brand-gold w-full">
             <button onclick="recalculateShippingFromInput()" class="bg-brand-obsidian text-white hover:bg-brand-gold px-3 py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-colors whitespace-nowrap">Calculate</button>
           </div>
           <p id="shipping-calc-error" class="text-red-500 text-[10px] hidden font-semibold">Please enter a valid 5-digit ZIP code.</p>
         </div>
 
+        <!-- Store Pickup Address Card Block (Hidden until selected) -->
+        <div id="pickup-info-section" class="hidden bg-amber-500/5 border border-brand-gold/30 p-4 rounded-xl space-y-2 text-left">
+          <h4 class="text-xs font-bold text-brand-gold uppercase tracking-wider flex items-center gap-1.5">
+            <span>📍 Boutique Pickup Details</span>
+          </h4>
+          <p class="text-xs text-stone-700 leading-relaxed font-medium">
+            Omni By V Showroom<br>
+            542 Gold Coast Blvd, West Haven, CT
+          </p>
+          <p class="text-[10px] text-stone-500 leading-normal">
+            Your pieces will be prepared and polished for pickup in our high-security vault. Present ID on arrival.
+          </p>
+        </div>
+
+        <!-- NEW Contact Intake Form Module -->
+        <div class="bg-white border border-stone-200/80 p-4 rounded-xl space-y-4 shadow-sm text-left">
+          <h4 class="text-xs font-bold text-brand-obsidian uppercase tracking-wider border-b border-stone-100 pb-2">Buyer Secure Information *</h4>
+          
+          <div class="space-y-3 text-xs">
+            <div>
+              <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Full Name</label>
+              <input type="text" id="buyer-name" placeholder="Vibhuti S." class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold">
+            </div>
+            <div class="grid grid-cols-2 gap-2">
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Email Address</label>
+                <input type="email" id="buyer-email" placeholder="vibhuti@omnibyv.com" class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold">
+              </div>
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Phone Number</label>
+                <input type="tel" id="buyer-phone" placeholder="(555) 012-3456" class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold">
+              </div>
+            </div>
+
+            <!-- Dynamic Physical Delivery Address (Only visible if Delivery selected) -->
+            <div id="buyer-address-fields" class="space-y-3 pt-2 border-t border-stone-100">
+              <div>
+                <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Delivery Address</label>
+                <input type="text" id="buyer-street" placeholder="542 Gold Coast Blvd" class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold mb-2">
+                <div class="grid grid-cols-3 gap-2">
+                  <input type="text" id="buyer-city" placeholder="West Haven" class="bg-brand-canvas border border-stone-200 rounded-lg px-2.5 py-2 text-xs font-medium outline-none focus:border-brand-gold">
+                  <input type="text" id="buyer-state" value="CT" placeholder="State" class="bg-brand-canvas border border-stone-200 rounded-lg px-2.5 py-2 text-xs font-medium outline-none focus:border-brand-gold text-center">
+                  <input type="text" id="buyer-zip" placeholder="ZIP" class="bg-brand-canvas border border-stone-200 rounded-lg px-2.5 py-2 text-xs font-medium outline-none focus:border-brand-gold text-center" maxlength="5">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Summary Pricing Checkout Interface Footer -->
+      <div class="p-6 border-t border-stone-100 bg-brand-canvas space-y-4 shrink-0">
         <!-- Pricing Summary Tree -->
         <div class="space-y-2 text-xs border-b border-stone-200/60 pb-3">
           <div class="flex justify-between text-stone-500">
@@ -440,8 +507,13 @@
             <span id="cart-subtotal">$0.00</span>
           </div>
           <div class="flex justify-between text-stone-500 items-center">
-            <span>Secure Insured Shipping</span>
+            <span>Fulfillment Costs</span>
             <span id="cart-shipping" class="font-medium">$0.00</span>
+          </div>
+          <!-- Connecticut Sales Tax Indicator -->
+          <div class="flex justify-between text-stone-500">
+            <span class="flex items-center gap-1">CT State Sales Tax <span class="text-[9px] bg-stone-200 text-stone-600 px-1 py-0.2 rounded font-bold">6.35%</span></span>
+            <span id="cart-tax">$0.00</span>
           </div>
           <div class="flex justify-between text-sm font-bold text-brand-obsidian pt-1">
             <span>Estimated Grand Total</span>
@@ -551,11 +623,12 @@
 
   <!-- Script Integration Mechanics Core Back-End Interface -->
   <script>
-    const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbxZ1C3gCq0IrkkObqa4DJExL_vuTmOOEOcwAfAgw4rdUl28zR_uPwL1s6Quu5OCO_Na/exec";
+    const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbyH7Y4GvhTvHcsE_Rv7ZAasrZ8VtJ-3SReqQfRTpt96HbuO8qPv0HFmMsbMTjsCL4ZQ/exec";
     
     // --- Configurations ---
     const VENMO_USERNAME = "Vibhuti-Desai-3"; 
     const STORE_PIN = "Omnibyv@1014";
+    const CT_TAX_RATE = 0.0635; // 6.35% Connecticut sales tax
 
     let localProductsDataset = [];
     let activeCategoryView = "All";
@@ -563,8 +636,9 @@
     let isAuthorizedAdmin = false;
 
     // Shipping estimation state
+    let activeFulfillment = "delivery"; // "delivery" or "pickup"
     let calculatedShippingValue = 0;
-    let computedShippingRegionName = "Northeast Region";
+    let computedShippingRegionName = "Local Northeast";
     let enteredZipCode = "";
 
     // Multi-Image Draft State for Admin
@@ -642,6 +716,7 @@
         renderCategoryNavigation();
         renderProductsLayout();
         updateAdminCategoriesDropdown();
+        setFulfillmentType('delivery'); // Default to delivery on setup
       } catch (error) {
         console.error("API Engine Fault Exception:", error);
         document.getElementById('loading-spinner').classList.add('hidden');
@@ -841,9 +916,50 @@
       }
     }
 
+    // Toggle between Home Delivery and Store Pickup
+    function setFulfillmentType(type) {
+      activeFulfillment = type;
+      
+      const delBtn = document.getElementById('fulfillment-delivery-btn');
+      const pickBtn = document.getElementById('fulfillment-pickup-btn');
+      const zipSection = document.getElementById('zip-calculator-section');
+      const pickupSection = document.getElementById('pickup-info-section');
+      const addressFields = document.getElementById('buyer-address-fields');
+
+      if (type === 'delivery') {
+        // Style Buttons
+        delBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border-2 border-brand-obsidian bg-brand-obsidian text-white flex flex-col items-center justify-center gap-1.5";
+        pickBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-stone-200 text-stone-600 hover:bg-brand-canvas flex flex-col items-center justify-center gap-1.5";
+        
+        // Toggle Sections
+        zipSection.classList.remove('hidden');
+        pickupSection.classList.add('hidden');
+        addressFields.classList.remove('hidden');
+      } else {
+        // Style Buttons
+        delBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-stone-200 text-stone-600 hover:bg-brand-canvas flex flex-col items-center justify-center gap-1.5";
+        pickBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border-2 border-brand-obsidian bg-brand-obsidian text-white flex flex-col items-center justify-center gap-1.5";
+        
+        // Toggle Sections
+        zipSection.classList.add('hidden');
+        pickupSection.classList.remove('hidden');
+        addressFields.classList.add('hidden');
+        
+        // Reset shipping values
+        calculatedShippingValue = 0;
+      }
+
+      updateCartStateView();
+    }
+
     // --- Regional US ZIP Shipping Calculation Engine ---
     function calculateShippingCost(subtotal, zip) {
-      // Rule 1: Free Shipping above $75
+      if (activeFulfillment === 'pickup') {
+        computedShippingRegionName = "Store Pickup (Free)";
+        return 0;
+      }
+
+      // Rule: Free Shipping above $75
       if (subtotal >= 75) {
         computedShippingRegionName = "Free Insured Shipping";
         return 0;
@@ -905,6 +1021,8 @@
       if (/^\d{5}$/.test(val)) {
         errEl.classList.add('hidden');
         enteredZipCode = val;
+        // Also populate the shipping address ZIP field automatically
+        document.getElementById('buyer-zip').value = val;
         updateCartStateView();
         triggerToast("Shipping Applied", `${computedShippingRegionName} set!`, "success");
       } else {
@@ -1029,6 +1147,7 @@
       const counterBadge = document.getElementById('cart-counter');
       const subtotalLabel = document.getElementById('cart-subtotal');
       const shippingLabel = document.getElementById('cart-shipping');
+      const taxLabel = document.getElementById('cart-tax');
       const totalLabel = document.getElementById('cart-total');
       const zoneBadge = document.getElementById('shipping-zone-badge');
 
@@ -1062,19 +1181,28 @@
 
       // Calculate dynamic zone-based shipping cost
       calculatedShippingValue = calculateShippingCost(trackingSubtotalValue, enteredZipCode);
-      const finalGrandTotal = trackingSubtotalValue + calculatedShippingValue;
+      
+      // Calculate CT Sales Tax (Applied to subtotal + shipping in CT)
+      const taxableAmount = trackingSubtotalValue + calculatedShippingValue;
+      const calculatedTaxValue = taxableAmount * CT_TAX_RATE;
+
+      const finalGrandTotal = trackingSubtotalValue + calculatedShippingValue + calculatedTaxValue;
 
       // Update UI displays
       counterBadge.textContent = totalItemUnits;
       subtotalLabel.textContent = `$${trackingSubtotalValue.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
       
-      if (calculatedShippingValue === 0 && trackingSubtotalValue >= 75) {
+      if (activeFulfillment === 'pickup') {
+        shippingLabel.innerHTML = `<span class="text-emerald-600 font-semibold uppercase text-[10px] tracking-wider">Free Pickup</span>`;
+      } else if (calculatedShippingValue === 0 && trackingSubtotalValue >= 75) {
         shippingLabel.innerHTML = `<span class="text-brand-gold font-semibold uppercase text-[10px] tracking-wider">Free (Promo)</span>`;
       } else {
         shippingLabel.textContent = `+$${calculatedShippingValue.toFixed(2)}`;
       }
 
-      if (enteredZipCode) {
+      taxLabel.textContent = `+$${calculatedTaxValue.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
+
+      if (enteredZipCode && activeFulfillment === 'delivery') {
         zoneBadge.textContent = computedShippingRegionName;
         zoneBadge.classList.remove('hidden');
       } else {
@@ -1092,11 +1220,41 @@
       }
     }
 
+    // Helper: Validates contact details in form fields before checking out
+    function validateBuyerIntake() {
+      const name = document.getElementById('buyer-name').value.trim();
+      const email = document.getElementById('buyer-email').value.trim();
+      const phone = document.getElementById('buyer-phone').value.trim();
+
+      if (!name || !email || !phone) {
+        toggleCustomDialog(true, "Please complete all buyer contact fields (Name, Email, Phone) to secure your reservation.");
+        return null;
+      }
+
+      if (activeFulfillment === 'delivery') {
+        const street = document.getElementById('buyer-street').value.trim();
+        const city = document.getElementById('buyer-city').value.trim();
+        const state = document.getElementById('buyer-state').value.trim();
+        const zip = document.getElementById('buyer-zip').value.trim();
+
+        if (!street || !city || !state || !zip) {
+          toggleCustomDialog(true, "Delivery is selected. Please complete your physical shipping address details.");
+          return null;
+        }
+        return { name, email, phone, street, city, state, zip };
+      }
+
+      return { name, email, phone, pickup: true };
+    }
+
     function payViaVenmoDeepLink() {
       if (activeCartInventory.length === 0) {
         toggleCustomDialog(true, "Your portfolio selection is currently empty!");
         return;
       }
+
+      const buyer = validateBuyerIntake();
+      if (!buyer) return;
 
       let subtotal = 0;
       let orderSummaryList = [];
@@ -1106,11 +1264,14 @@
         orderSummaryList.push(`${item.quantity}x ${item.product.name}`);
       });
 
-      // Include shipping calculation inside final venmo target request
-      const finalTotal = subtotal + calculatedShippingValue;
-      const shippingDetail = calculatedShippingValue > 0 ? ` + Shipping (${computedShippingRegionName})` : " (Free Shipping)";
+      // Include CT sales tax and shipping calculation in grand total
+      const shippingCost = calculatedShippingValue;
+      const taxCost = (subtotal + shippingCost) * CT_TAX_RATE;
+      const finalTotal = subtotal + shippingCost + taxCost;
 
-      const sanitizedNote = `Omni by V Order: ${orderSummaryList.join(', ')}${shippingDetail}`.substring(0, 270);
+      const fulfillmentLabel = activeFulfillment === 'pickup' ? "Boutique Pickup" : `Delivering to ${buyer.zip}`;
+      const sanitizedNote = `Omni: ${orderSummaryList.join(', ')} | For ${buyer.name} (${buyer.phone}) | ${fulfillmentLabel} | Tot: $${finalTotal.toFixed(2)} (inc 6.35% Tax)`.substring(0, 270);
+      
       const venmoAppUri = `venmo://paycharge?txn=pay&recipients=${encodeURIComponent(VENMO_USERNAME)}&amount=${finalTotal.toFixed(2)}&note=${encodeURIComponent(sanitizedNote)}`;
       const venmoWebFallback = `https://venmo.com/${encodeURIComponent(VENMO_USERNAME)}?txn=pay&amount=${finalTotal.toFixed(2)}&note=${encodeURIComponent(sanitizedNote)}`;
 
@@ -1132,10 +1293,13 @@
         return;
       }
 
+      const buyer = validateBuyerIntake();
+      if (!buyer) return;
+
       const businessEmail = "vibhuti@omnibyv.com"; 
-      const subjectLine = "New Omni By V Inventory Reservation Request";
+      const subjectLine = `Omni Reservation: ${buyer.name} - ${activeFulfillment.toUpperCase()}`;
       
-      let emailBodyText = "Hello Omni By V,\n\nI would like to place a reservation request for the following pieces from your curated collection:\n\n";
+      let emailBodyText = `Hello Omni By V,\n\nI would like to place a secure reservation request for the following pieces:\n\n`;
       let calculatedSubtotal = 0;
 
       activeCartInventory.forEach((item, index) => {
@@ -1149,17 +1313,34 @@
         emailBodyText += `   Total for Item: $${itemTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}\n\n`;
       });
 
-      const grandTotal = calculatedSubtotal + calculatedShippingValue;
+      const shippingCost = calculatedShippingValue;
+      const taxCost = (calculatedSubtotal + shippingCost) * CT_TAX_RATE;
+      const grandTotal = calculatedSubtotal + shippingCost + taxCost;
 
       emailBodyText += `----------------------------------------\n`;
       emailBodyText += `💎 PORTFOLIO SUBTOTAL: $${calculatedSubtotal.toLocaleString(undefined, {minimumFractionDigits: 2})}\n`;
-      emailBodyText += `🚚 SHIPPING (${computedShippingRegionName}): $${calculatedShippingValue.toFixed(2)}\n`;
-      emailBodyText += `✨ ESTIMATED TOTAL VALUE: $${grandTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}\n`;
+      emailBodyText += `🚚 FULFILLMENT: ${activeFulfillment.toUpperCase()} (${activeFulfillment === 'pickup' ? 'Free' : computedShippingRegionName}: $${shippingCost.toFixed(2)})\n`;
+      emailBodyText += `🏛️ CONNECTICUT STATE TAX (6.35%): $${taxCost.toLocaleString(undefined, {minimumFractionDigits: 2})}\n`;
+      emailBodyText += `✨ ESTIMATED GRAND TOTAL: $${grandTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}\n`;
       emailBodyText += `----------------------------------------\n\n`;
-      if (enteredZipCode) {
-        emailBodyText += `Destination ZIP Code: ${enteredZipCode}\n\n`;
+
+      emailBodyText += `👤 CUSTOMER CONTACT DETAILS:\n`;
+      emailBodyText += `   Name: ${buyer.name}\n`;
+      emailBodyText += `   Email: ${buyer.email}\n`;
+      emailBodyText += `   Phone: ${buyer.phone}\n\n`;
+
+      if (activeFulfillment === 'delivery') {
+        emailBodyText += `📍 SHIPPING DELIVERY ADDRESS:\n`;
+        emailBodyText += `   Street: ${buyer.street}\n`;
+        emailBodyText += `   City: ${buyer.city}\n`;
+        emailBodyText += `   State: ${buyer.state}\n`;
+        emailBodyText += `   ZIP Code: ${buyer.zip}\n\n`;
+      } else {
+        emailBodyText += `📍 FULFILLMENT SELECTION: Boutique Store Pickup\n`;
+        emailBodyText += `   Pickup Location: 542 Gold Coast Blvd, West Haven, CT\n\n`;
       }
-      emailBodyText += `Please contact me using this email address to finalize payment instructions via Bank of America secure invoice and arrange secure delivery details.\n\nThank you!`;
+
+      emailBodyText += `Please contact me using this email address to finalize payment instructions via secure invoice and arrange secure delivery details.\n\nThank you!`;
 
       document.getElementById('fallback-body-textarea').value = emailBodyText;
 
