@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Omni by V | Premium Statement Jewelry Boutique & Vault</title>
+  <title>Omni by V | Luxury Jewelry Collections</title>
   
-  <!-- Tailwind CSS & Google Fonts -->
+  <!-- Tailwind CSS & Premium Typography -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -21,1709 +21,419 @@
           },
           colors: {
             brand: {
-              obsidian: '#0C0F12',    // Deep Premium Dark Slate
-              gold: '#D4AF37',        // Radiant Classic Metallic Gold
-              goldHover: '#F3E5AB',   // Soft Champagne Glow
-              canvas: '#FAF9F5',      // Clean Editorial Alabaster
-              darkCard: '#161B21'     // Modern Charcoal for dashboard
+              obsidian: '#0C0F12',
+              darkCarbon: '#161B21',
+              gold: '#D4AF37',
+              goldHover: '#C5A028',
+              cream: '#FAF9F5',
+              borderSlate: '#222B35'
             }
           }
         }
       }
     }
   </script>
-  
+
   <style>
-    html { scroll-behavior: smooth; }
-    ::-webkit-scrollbar { width: 5px; }
-    ::-webkit-scrollbar-track { background: #FAF9F5; }
-    ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
-    
-    .glass-nav {
-      background: rgba(250, 249, 245, 0.85);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+    body {
+      background-color: #FAF9F5;
+      color: #0C0F12;
     }
-
-    /* Seamless luxury text shadows */
-    .premium-text-shadow {
-      text-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
     }
-    
-    /* Hardware acceleration for smooth dynamic shifting */
-    .parallax-layer {
-      will-change: transform;
-      transform: translate3d(0, 0, 0);
-      backface-visibility: hidden;
+    ::-webkit-scrollbar-track {
+      background: #FAF9F5;
     }
-
-    .fade-overlay {
-      transition: opacity 0.5s ease, visibility 0.5s;
+    ::-webkit-scrollbar-thumb {
+      background: #D4AF37;
+      border-radius: 10px;
+    }
+    /* Elegant smooth transitions */
+    .premium-transition {
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    /* Fade transition for hover slideshows */
+    .carousel-image {
+      transition: opacity 0.5s ease-in-out;
+    }
+    /* Custom utility styles for interactive zoom viewer */
+    .zoom-container {
+      cursor: grab;
+    }
+    .zoom-container:active {
+      cursor: grabbing;
     }
   </style>
 </head>
-<body class="bg-brand-canvas text-stone-800 font-sans min-h-screen flex flex-col antialiased selection:bg-brand-gold/20 overflow-x-hidden relative">
+<body class="font-sans antialiased selection:bg-brand-gold/20 overflow-x-hidden min-h-screen flex flex-col">
 
-  <!-- Parallax Floating Luxury Jewelry Assets -->
-  <div class="fixed inset-0 pointer-events-none z-10 overflow-hidden">
-    <!-- Floating Gold Ring Layer (Left) -->
-    <div class="parallax-layer absolute left-[-4%] top-[25%] opacity-30 md:opacity-50" data-speed="0.22">
-      <svg class="w-24 h-24 md:w-36 md:h-36 text-brand-gold" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="1.5" stroke-dasharray="1 3"/>
-        <circle cx="50" cy="50" r="35" stroke="currentColor" stroke-width="0.75"/>
-        <circle cx="50" cy="15" r="4" fill="currentColor"/>
-      </svg>
-    </div>
-    
-    <!-- Floating Geometric Sparkle Jewel Layer (Right) -->
-    <div class="parallax-layer absolute right-[2%] top-[15%] opacity-25 md:opacity-45" data-speed="-0.18">
-      <svg class="w-16 h-16 md:w-28 md:h-28 text-brand-gold" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M50 0L63 37L100 50L63 63L50 100L37 63L0 50L37 37L50 0Z" fill="none" stroke="currentColor" stroke-width="1"/>
-      </svg>
-    </div>
-
-    <!-- Floating Emerald Cut Crystal Gem -->
-    <div class="parallax-layer absolute left-[1%] top-[65%] opacity-15 md:opacity-35" data-speed="0.32">
-      <svg class="w-14 h-14 md:w-24 md:h-24 text-brand-gold" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect x="25" y="15" width="50" height="70" rx="10" stroke="currentColor" stroke-width="1"/>
-        <line x1="25" y1="25" x2="75" y2="25" stroke="currentColor" stroke-width="0.5"/>
-        <line x1="25" y1="75" x2="75" y2="75" stroke="currentColor" stroke-width="0.5"/>
-        <line x1="50" y1="15" x2="50" y2="85" stroke="currentColor" stroke-width="0.5"/>
-      </svg>
-    </div>
-
-    <!-- Floating Elegant Pearls -->
-    <div class="parallax-layer absolute right-[-2%] top-[75%] opacity-20 md:opacity-40" data-speed="0.12">
-      <svg class="w-20 h-20 md:w-32 md:h-32 text-brand-gold" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="30" cy="50" r="6" fill="currentColor" opacity="0.8"/>
-        <circle cx="50" cy="50" r="9" fill="currentColor" opacity="0.9"/>
-        <circle cx="72" cy="50" r="6" fill="currentColor" opacity="0.8"/>
-        <path d="M20 50H80" stroke="currentColor" stroke-width="0.5" stroke-dasharray="4 4"/>
-      </svg>
-    </div>
-  </div>
-
-  <!-- Promo Ribbon Bar -->
-  <div class="relative z-30 bg-brand-obsidian text-white text-[11px] font-medium tracking-[0.2em] text-center py-2.5 uppercase border-b border-brand-gold/20 flex items-center justify-center gap-4 flex-wrap px-4">
-    <span>✨ Free Premium Luxury Shipping On Orders Above $75</span>
-    <span class="hidden md:inline text-stone-500">|</span>
-    <a href="tel:2039436789" class="text-brand-gold hover:text-brand-goldHover transition-colors font-semibold tracking-[0.1em] flex items-center gap-1">
-      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 01-7.108-7.108c-.145-.44.02-.927.396-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-      Direct Client Line: (203) 943-6789
-    </a>
-  </div>
-
-  <!-- PUBLIC STOREFRONT WRAPPER -->
-  <div id="storefront-view" class="flex flex-col flex-grow">
-    
-    <!-- Main Sticky Header Navigation -->
-    <header class="sticky top-0 z-40 glass-nav border-b border-stone-200/60 transition-all duration-300">
-      <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-        
-        <!-- Brand Identity Minimal Logo -->
-        <a href="#" class="flex items-center gap-3.5 group relative z-50">
-          <img src="omnibyv logo.png" 
-               alt="Omni By V Logo" 
-               class="h-9 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-               onerror="this.src='https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=100&q=80';">
-          
-          <div class="flex flex-col">
-            <span class="font-serif text-2xl font-bold tracking-[0.25em] text-brand-obsidian group-hover:text-brand-gold transition-colors duration-300 uppercase">OMNI BY V</span>
-            <span class="text-[9px] tracking-[0.4em] uppercase text-stone-400 font-semibold -mt-0.5">Curated Statement Luxury</span>
-          </div>
-        </a>
-
-        <!-- Desktop Dynamic Filter Hub Navigation (Filled Automatically by JS) -->
-        <nav id="desktop-category-nav" class="hidden lg:flex items-center gap-8 text-[12px] font-semibold tracking-[0.15em] uppercase text-stone-500">
-        </nav>
-
-        <!-- Dynamic Action Hub: Hotline & Admin Portal Lock Button -->
-        <div class="flex items-center gap-4 relative z-50">
-          <!-- Client Hotline for desktop header -->
-          <a href="tel:2039436789" class="hidden sm:flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-stone-600 hover:text-brand-gold transition-colors" title="Call Concierge">
-            <svg class="w-4 h-4 text-brand-gold animate-pulse" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 01-7.108-7.108c-.145-.44.02-.927.396-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
-            <span class="hidden md:inline">(203) 943-6789</span>
-          </a>
-
-          <!-- Secure Vault Portal Key -->
-          <button onclick="togglePasscodeScreen(true)" class="p-2 text-stone-400 hover:text-brand-gold transition-colors duration-300" title="Secure Vault Controller">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
-            </svg>
-          </button>
-        </div>
+  <!-- Premium Custom Dynamic Alert Notification -->
+  <div id="custom-dialog-overlay" class="fixed inset-0 bg-brand-obsidian/60 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-brand-cream border border-brand-gold/30 max-w-md w-full rounded-2xl p-6 shadow-2xl space-y-4 text-center">
+      <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
       </div>
-    </header>
-
-    <!-- Lookbook Hero Section -->
-    <section class="relative bg-brand-obsidian text-white min-h-[75vh] md:min-h-[85vh] flex items-center justify-center px-6 overflow-hidden border-b border-brand-gold/30">
-      
-      <!-- Immersive Background Layer acting as dynamic parallax scroll canvas -->
-      <div class="absolute inset-0 z-0 scale-110 parallax-layer" data-speed="0.45" id="hero-background">
-        <img src="image_11cce7.png" 
-             alt="Premium Luxury Showcase Backdrop" 
-             class="w-full h-full object-cover opacity-35"
-             onerror="this.src='https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1920&q=80';">
-      </div>
-
-      <!-- Soft ambient golds and dark geometric vignette styling overlays -->
-      <div class="absolute inset-0 bg-gradient-to-t from-brand-obsidian via-brand-obsidian/60 to-brand-obsidian/90 z-0"></div>
-      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(212,175,55,0.08),transparent_65%)] z-0"></div>
-
-      <!-- Dynamic Foreground Floating Showcase Diamond Over Text -->
-      <div class="absolute z-10 w-28 h-28 md:w-44 md:h-44 top-[10%] right-[12%] opacity-15 parallax-layer" data-speed="-0.15">
-        <svg class="w-full h-full text-brand-gold" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M50 5V95" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 2"/>
-          <path d="M5 40H95" stroke="currentColor" stroke-width="0.5" stroke-dasharray="2 2"/>
-        </svg>
-      </div>
-
-      <div class="max-w-5xl mx-auto text-center relative z-20 space-y-8 py-12">
-        <span class="text-brand-gold text-xs font-semibold tracking-[0.4em] uppercase block premium-text-shadow">Boutique Lookbook Exclusives</span>
-        <h1 class="font-serif text-5xl md:text-8xl font-light tracking-wide leading-tight premium-text-shadow">
-          Elevate Every Layer<br>With Statement Artistry
-        </h1>
-        <p class="text-stone-300 font-light max-w-xl mx-auto text-sm md:text-base leading-relaxed tracking-wider premium-text-shadow">
-          Hand-selected luxury collections sourced dynamically to celebrate precision, brilliance, and timeless elegance. Drift through our collections below.
-        </p>
-        
-        <div class="flex justify-center items-center gap-3 pt-4">
-          <div class="w-16 h-[1px] bg-brand-gold/40"></div>
-          <svg class="w-5 h-5 text-brand-gold animate-bounce" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-          </svg>
-          <div class="w-16 h-[1px] bg-brand-gold/40"></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Premium Main Boutique Showcase Grid -->
-    <main class="relative z-20 flex-grow max-w-7xl mx-auto px-6 py-20 w-full">
-      
-      <!-- Mobile Dynamic Categorization Scroll Bar (Filled Automatically by JS) -->
-      <div id="mobile-category-nav" class="flex lg:hidden gap-4 overflow-x-auto pb-6 mb-4 border-b border-stone-200 text-[11px] font-semibold tracking-wider uppercase scrollbar-none">
-      </div>
-
-      <!-- Live Dynamic Loading Shimmer Placeholders -->
-      <div id="loading-spinner" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="animate-pulse space-y-4">
-          <div class="bg-stone-200 aspect-[4/5] rounded-xl"></div>
-          <div class="h-4 bg-stone-200 rounded w-2/3"></div>
-          <div class="h-4 bg-stone-200 rounded w-1/3"></div>
-        </div>
-        <div class="animate-pulse space-y-4">
-          <div class="bg-stone-200 aspect-[4/5] rounded-xl"></div>
-          <div class="h-4 bg-stone-200 rounded w-1/2"></div>
-          <div class="h-4 bg-stone-200 rounded w-1/4"></div>
-        </div>
-      </div>
-
-      <!-- Live Connection and Parsing Diagnostics Center -->
-      <div id="diagnostic-error-feed" class="hidden text-center py-12 max-w-lg mx-auto bg-red-950/20 border border-red-900/30 text-red-200 rounded-2xl px-6 space-y-3 mb-10">
-        <h4 class="font-bold text-sm tracking-widest uppercase">Vault Configuration Alert</h4>
-        <p id="diagnostic-error-msg" class="text-xs text-stone-300 leading-relaxed"></p>
-        <p class="text-[10px] text-stone-400">Please review tab labels and deployment setup.</p>
-      </div>
-
-      <!-- Target Product Multi-Grid Layout -->
-      <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12 opacity-0 transition-opacity duration-500">
-      </div>
-
-      <!-- Empty Content Alert Message Layout -->
-      <div id="empty-state" class="hidden text-center py-20 space-y-4">
-        <span class="font-serif text-2xl italic text-stone-400">Collection arriving shortly...</span>
-        <p class="text-stone-400 text-sm max-w-xs mx-auto">New custom curated designs are being appraised and cataloged in our live vault.</p>
-      </div>
-    </main>
-
-  </div>
-
-  <!-- SECURE PASSCODE INTERCEPT SCREEN -->
-  <div id="passcode-screen" class="fixed inset-0 z-50 bg-brand-obsidian/95 backdrop-blur-md flex items-center justify-center p-6 hidden fade-overlay">
-    <div class="max-w-md w-full text-center space-y-8">
-      <div class="space-y-3">
-        <span class="text-brand-gold text-xs font-bold tracking-[0.4em] uppercase block">Omni Vault Access</span>
-        <h2 class="font-serif text-4xl text-white tracking-wider uppercase">SECURE TERMINAL</h2>
-        <p class="text-stone-400 text-xs">Verification required to sync active store datasets.</p>
-      </div>
-      
-      <div class="bg-brand-darkCard border border-stone-800 p-6 rounded-2xl shadow-2xl space-y-4">
-        <input type="password" id="passcode-input" placeholder="••••" class="w-full bg-stone-900 border border-stone-800 py-3 rounded-xl text-center text-xl font-bold tracking-[0.5em] text-brand-gold outline-none focus:border-brand-gold transition-colors">
-        <p id="passcode-error" class="text-red-500 text-xs hidden">Unauthorized passcode credential.</p>
-        
-        <div class="flex gap-3">
-          <button onclick="togglePasscodeScreen(false)" class="w-1/2 bg-stone-900 border border-stone-800 text-stone-400 hover:text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl transition-all">
-            Cancel
-          </button>
-          <button onclick="attemptPasscodeValidation()" class="w-1/2 bg-brand-gold text-brand-obsidian hover:bg-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl transition-all duration-300">
-            Verify Pin
-          </button>
-        </div>
-      </div>
-      <p class="text-[10px] text-stone-500 tracking-wider font-semibold">Authorized Staff Portal — Passcode Required</p>
-    </div>
-  </div>
-
-  <!-- ADMIN WORKSPACE PORTAL VIEW -->
-  <div id="admin-view" class="max-w-4xl mx-auto px-4 py-8 space-y-6 hidden flex-grow w-full z-20 relative text-white">
-    
-    <!-- Top Brand Header Action Bar -->
-    <header class="flex items-center justify-between border-b border-stone-800 pb-4">
-      <div class="flex flex-col">
-        <span class="font-serif text-xl font-semibold tracking-widest text-white">OMNI VAULT POS</span>
-        <span class="text-[9px] tracking-widest uppercase text-brand-gold font-bold">Mobile Controller Panel</span>
-      </div>
-      <div class="flex gap-2">
-        <button onclick="refreshPOSData()" class="bg-brand-darkCard border border-stone-800 text-stone-300 hover:text-white px-3 py-2 rounded-xl text-xs flex items-center gap-2 transition-colors">
-          <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" /></svg>
-          Sync Sheets
-        </button>
-        <button onclick="closeAdminPortal()" class="bg-red-950/40 border border-red-900/30 text-red-200 hover:bg-red-900/40 px-3.5 py-2 rounded-xl text-xs transition-colors">
-          Close Vault
-        </button>
-      </div>
-    </header>
-
-    <!-- VIEW PANEL: DASHBOARD METRICS -->
-    <div id="view-dashboard" class="view-panel space-y-6">
-      
-      <!-- Key Metric Indicator Blocks -->
-      <div class="grid grid-cols-2 gap-4">
-        <div class="bg-brand-darkCard border border-stone-800 p-5 rounded-2xl">
-          <span class="text-[10px] tracking-widest uppercase text-stone-500 font-semibold block mb-1">Monthly Gross Revenue</span>
-          <span id="stat-sales" class="text-xl md:text-2xl font-semibold text-white">$0.00</span>
-        </div>
-        <div class="bg-brand-darkCard border border-stone-800 p-5 rounded-2xl">
-          <span class="text-[10px] tracking-widest uppercase text-stone-500 font-semibold block mb-1">Vault Inventory Value</span>
-          <span id="stat-inventory-value" class="text-xl md:text-2xl font-semibold text-brand-gold">$0.00</span>
-        </div>
-      </div>
-
-      <!-- Critical Low Stock Warning Banner -->
-      <div id="alert-feed-container" class="hidden bg-amber-500/10 border border-amber-500/20 text-amber-200 text-xs p-4 rounded-xl flex items-start gap-2.5">
-        <svg class="w-5 h-5 shrink-0 text-amber-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
-        <p id="alert-feed-text" class="leading-relaxed font-medium"></p>
-      </div>
-
-      <!-- VIEW PANEL: ADD PRODUCT MODULE -->
-      <div class="bg-brand-darkCard border border-stone-800 p-5 rounded-2xl space-y-4">
-        <h3 class="font-serif text-lg text-white font-medium border-b border-stone-800 pb-3">Publish New Jewelry Design</h3>
-        
-        <form id="add-product-form" onsubmit="handleFormSubmission(event)" class="space-y-4 text-left">
-          <div>
-            <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Jewelry Piece Title *</label>
-            <input type="text" id="input-name" required placeholder="e.g., Aurelia Solitaire Diamond Ring" class="w-full bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Price ($ USD) *</label>
-              <input type="number" step="0.01" id="input-price" required placeholder="1850.00" class="w-full bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
-            </div>
-            <div>
-              <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Initial Vault Quantity *</label>
-              <input type="number" id="input-quantity" required placeholder="5" class="w-full bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
-            </div>
-          </div>
-
-          <div class="grid grid-cols-2 gap-4">
-            <div>
-              <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Category Line *</label>
-              <input type="text" id="input-category" required placeholder="e.g., Rings, Necklaces, Bracelets" list="existing-categories-datalist" class="w-full bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
-              <datalist id="existing-categories-datalist">
-                <option value="Rings">
-                <option value="Necklaces">
-                <option value="Earrings">
-                <option value="Bracelets">
-              </datalist>
-            </div>
-            <div>
-              <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-1.5 font-bold">Display Status</label>
-              <select id="input-status" class="w-full bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-sm outline-none focus:border-brand-gold">
-                <option value="In Stock">In Stock</option>
-                <option value="Low Stock">Low Stock</option>
-                <option value="Sold Out">Sold Out</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Premium Capture & Upload Photo Section with Multi-Image Support -->
-          <div>
-            <label class="block text-[10px] uppercase tracking-widest text-stone-400 mb-2 font-bold">Product Media Gallery (Snaps / URLs) *</label>
-            
-            <div class="grid grid-cols-2 gap-3 mb-3">
-              <!-- Upload Action Button -->
-              <button type="button" onclick="triggerFileInput('upload')" class="bg-stone-900 border border-stone-800 hover:border-brand-gold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs font-semibold text-stone-300 transition-colors">
-                <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
-                Add File Slot
-              </button>
-
-              <!-- Live Camera Snap Action Button -->
-              <button type="button" onclick="triggerFileInput('camera')" class="bg-stone-900 border border-stone-800 hover:border-brand-gold py-3 px-4 rounded-xl flex items-center justify-center gap-2 text-xs font-semibold text-stone-300 transition-colors">
-                <svg class="w-4 h-4 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" /><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" /></svg>
-                Snap alternate view
-              </button>
-            </div>
-
-            <!-- Hidden native file inputs (Upload & Native iOS/Android camera trigger) -->
-            <input type="file" id="image-upload-file" accept="image/*" class="hidden" onchange="handleImageProcessing(this.files[0])">
-            <input type="file" id="image-capture-camera" accept="image/*" capture="environment" class="hidden" onchange="handleImageProcessing(this.files[0])">
-
-            <!-- Manual URL collection bar -->
-            <div class="flex gap-2 mb-3">
-              <input type="text" id="input-image-url" placeholder="Or enter professional image URL..." class="flex-grow bg-stone-900 border border-stone-850 px-4 py-3 rounded-xl text-white text-xs outline-none focus:border-brand-gold">
-              <button type="button" onclick="addManualImageUrl()" class="bg-stone-800 hover:bg-brand-gold hover:text-brand-obsidian text-stone-300 font-bold text-xs uppercase px-4 rounded-xl transition-all">Add URL</button>
-            </div>
-
-            <!-- Previews Grid Tray for Active Image Collection -->
-            <div id="draft-images-tray" class="flex flex-wrap gap-3 p-3 bg-stone-950/80 rounded-xl border border-stone-850 min-h-[100px] items-center justify-start">
-              <p class="text-[10px] text-stone-500 w-full text-center py-4 uppercase tracking-widest font-semibold">No media slides drafted yet.</p>
-            </div>
-            
-            <!-- Secret final consolidated value collector field -->
-            <input type="hidden" id="input-image-final-payload" value="">
-          </div>
-
-          <div class="pt-2">
-            <button type="submit" id="form-submit-btn" class="w-full bg-brand-gold text-brand-obsidian hover:bg-white text-xs font-bold uppercase tracking-widest py-4 rounded-xl transition-all duration-300">
-              Publish Jewelry Design
-            </button>
-          </div>
-        </form>
-      </div>
-
-      <!-- Live Active Stock Catalog Terminal -->
-      <div class="bg-brand-darkCard border border-stone-800 p-5 rounded-2xl space-y-4">
-        <div class="flex items-center justify-between border-b border-stone-800 pb-3">
-          <h3 class="font-serif text-lg text-white font-medium">Boutique Catalog</h3>
-          <span id="stock-item-count" class="text-xs text-stone-500">0 Designs</span>
-        </div>
-        <div id="pos-products-grid" class="grid grid-cols-1 md:grid-cols-2 gap-3.5 max-h-[380px] overflow-y-auto pr-1">
-          <!-- Populated inside JavaScript thread -->
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Interactive Slide-out Shopping Cart Sidebar Window Overlay -->
-  <div id="cart-overlay" class="fixed inset-0 z-50 invisible transition-all duration-300">
-    <div onclick="toggleCartDrawer(false)" class="absolute inset-0 bg-brand-obsidian/40 backdrop-blur-sm transition-opacity opacity-0" id="cart-backdrop"></div>
-    <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300" id="cart-drawer">
-      
-      <!-- Cart View Header Window -->
-      <div class="p-6 border-b border-stone-100 flex items-center justify-between">
-        <h3 class="font-serif text-xl font-bold tracking-wider text-brand-obsidian uppercase">Your Selection Portfolio</h3>
-        <button onclick="toggleCartDrawer(false)" class="p-2 text-stone-400 hover:text-brand-obsidian transition-colors">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
-
-      <!-- Scrollable Added Items Container -->
-      <div id="cart-scroll-container" class="flex-grow overflow-y-auto p-6 space-y-6">
-        
-        <!-- Cart Items List Segment -->
-        <div id="cart-items" class="space-y-6 divide-y divide-stone-100">
-          <!-- Dynamic Items Populated Here -->
-        </div>
-
-        <!-- NEW Fulfillment Toggle Strategy Section -->
-        <div class="pt-6 border-t border-stone-150 space-y-3 text-left">
-          <label class="text-[10px] uppercase tracking-wider font-bold text-stone-500 block">Fulfillment Preference *</label>
-          <div class="grid grid-cols-2 gap-2.5">
-            <button id="fulfillment-delivery-btn" onclick="setFulfillmentType('delivery')" class="py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border-2 border-brand-obsidian bg-brand-obsidian text-white flex flex-col items-center justify-center gap-1.5">
-              <span>🚚 Delivery</span>
-            </button>
-            <button id="fulfillment-pickup-btn" onclick="setFulfillmentType('pickup')" class="py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-stone-200 text-stone-600 hover:bg-brand-canvas flex flex-col items-center justify-center gap-1.5">
-              <span>🏛️ Store Pickup</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Interactive US Zone ZIP Delivery System -->
-        <div id="zip-calculator-section" class="bg-brand-canvas/60 border border-stone-200/80 p-4 rounded-xl space-y-3 shadow-sm text-left">
-          <div class="flex items-center justify-between">
-            <label class="text-[10px] uppercase tracking-wider font-bold text-stone-500 block">Deliver to ZIP Code</label>
-            <span id="shipping-zone-badge" class="text-[9px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded bg-brand-canvas text-stone-500 hidden">Local</span>
-          </div>
-          <div class="flex gap-2">
-            <input type="text" id="cart-zip-input" maxlength="5" placeholder="e.g., 06516" class="bg-white border border-stone-200 rounded-lg px-3 py-2 text-xs text-brand-obsidian font-semibold outline-none focus:border-brand-gold w-full">
-            <button onclick="recalculateShippingFromInput()" class="bg-brand-obsidian text-white hover:bg-brand-gold px-3 py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-colors whitespace-nowrap">Calculate</button>
-          </div>
-          <p id="shipping-calc-error" class="text-red-500 text-[10px] hidden font-semibold">Please enter a valid 5-digit ZIP code.</p>
-        </div>
-
-        <!-- Store Pickup Address Card Block (Hidden until selected) -->
-        <div id="pickup-info-section" class="hidden bg-amber-500/5 border border-brand-gold/30 p-4 rounded-xl space-y-2 text-left">
-          <h4 class="text-xs font-bold text-brand-gold uppercase tracking-wider flex items-center gap-1.5">
-            <span>📍 Boutique Pickup Details</span>
-          </h4>
-          <p class="text-xs text-stone-700 leading-relaxed font-medium">
-            Omni By V Showroom<br>
-            542 Gold Coast Blvd, West Haven, CT
-          </p>
-          <p class="text-[10px] text-stone-500 leading-normal">
-            Your pieces will be prepared and polished for pickup in our high-security vault. Present ID on arrival.
-          </p>
-        </div>
-
-        <!-- NEW Contact Intake Form Module -->
-        <div class="bg-white border border-stone-200/80 p-4 rounded-xl space-y-4 shadow-sm text-left">
-          <h4 class="text-xs font-bold text-brand-obsidian uppercase tracking-wider border-b border-stone-100 pb-2">Buyer Secure Information *</h4>
-          
-          <div class="space-y-3 text-xs">
-            <div>
-              <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Full Name</label>
-              <input type="text" id="buyer-name" placeholder="Vibhuti S." class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold">
-            </div>
-            <div class="grid grid-cols-2 gap-2">
-              <div>
-                <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Email Address</label>
-                <input type="email" id="buyer-email" placeholder="vibhuti@omnibyv.com" class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold">
-              </div>
-              <div>
-                <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Phone Number</label>
-                <input type="tel" id="buyer-phone" placeholder="(555) 012-3456" class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold">
-              </div>
-            </div>
-
-            <!-- Dynamic Physical Delivery Address (Only visible if Delivery selected) -->
-            <div id="buyer-address-fields" class="space-y-3 pt-2 border-t border-stone-100">
-              <div>
-                <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Delivery Address</label>
-                <input type="text" id="buyer-street" placeholder="542 Gold Coast Blvd" class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold mb-2">
-                <div class="grid grid-cols-3 gap-2">
-                  <input type="text" id="buyer-city" placeholder="West Haven" class="bg-brand-canvas border border-stone-200 rounded-lg px-2.5 py-2 text-xs font-medium outline-none focus:border-brand-gold">
-                  <input type="text" id="buyer-state" value="CT" placeholder="State" class="bg-brand-canvas border border-stone-200 rounded-lg px-2.5 py-2 text-xs font-medium outline-none focus:border-brand-gold text-center">
-                  <input type="text" id="buyer-zip" placeholder="ZIP" class="bg-brand-canvas border border-stone-200 rounded-lg px-2.5 py-2 text-xs font-medium outline-none focus:border-brand-gold text-center" maxlength="5">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Summary Pricing Checkout Interface Footer -->
-      <div class="p-6 border-t border-stone-100 bg-brand-canvas space-y-4 shrink-0">
-        <!-- Pricing Summary Tree -->
-        <div class="space-y-2 text-xs border-b border-stone-200/60 pb-3">
-          <div class="flex justify-between text-stone-500">
-            <span>Portfolio Subtotal</span>
-            <span id="cart-subtotal">$0.00</span>
-          </div>
-          <div class="flex justify-between text-stone-500 items-center">
-            <span>Fulfillment Costs</span>
-            <span id="cart-shipping" class="font-medium">$0.00</span>
-          </div>
-          <!-- Connecticut Sales Tax Indicator -->
-          <div class="flex justify-between text-stone-500">
-            <span class="flex items-center gap-1">CT State Sales Tax <span class="text-[9px] bg-stone-200 text-stone-600 px-1 py-0.2 rounded font-bold">6.35%</span></span>
-            <span id="cart-tax">$0.00</span>
-          </div>
-          <div class="flex justify-between text-sm font-bold text-brand-obsidian pt-1">
-            <span>Estimated Grand Total</span>
-            <span id="cart-total">$0.00</span>
-          </div>
-        </div>
-        
-        <!-- Dual-Action Luxury Checkout Portal -->
-        <div class="space-y-3 pt-1">
-          <!-- Action 1: Instant App Venmo Payment Button -->
-          <button onclick="payViaVenmoDeepLink()" class="w-full bg-[#008CFF] hover:bg-[#007cd2] text-white text-[11px] font-bold tracking-[0.2em] py-4 rounded-xl uppercase transition-all duration-300 shadow-md flex items-center justify-center gap-2">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M19.6 3h-15.2C3.1 3 2 4.1 2 5.4v13.2c0 1.3 1.1 2.4 2.4 2.4h15.2c1.3 0 2.4-1.1 2.4-2.4V5.4c0-1.3-1.1-2.4-2.4-2.4zM9.4 17.1L5.5 6.5h3.2l2.3 7.2 2.3-7.2h3.1l-4 10.6H9.4z"/>
-            </svg>
-            Pay Instantly with Venmo App
-          </button>
-          
-          <div class="relative flex py-1.5 items-center">
-            <div class="flex-grow border-t border-stone-200"></div>
-            <span class="flex-shrink mx-4 text-[9px] uppercase tracking-widest text-stone-400 font-bold">Or Reserve First</span>
-            <div class="flex-grow border-t border-stone-200"></div>
-          </div>
-
-          <!-- Action 2: WhatsApp & SMS Integration Buttons -->
-          <div class="grid grid-cols-1 gap-2">
-            <button onclick="processLuxuryMessagingReservation('whatsapp')" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white text-[11px] font-bold tracking-[0.2em] py-3.5 rounded-xl uppercase transition-all duration-300 shadow-lg flex items-center justify-center gap-2">
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.734-1.456L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.115-2.903-6.99C16.262 1.876 13.784.842 11.15.84 5.717.84 1.292 5.26 1.288 10.692c-.001 1.734.463 3.426 1.344 4.927l-.988 3.604 3.702-.97c1.513.823 3.09 1.255 4.694 1.255zM18.06 14.85c-.33-.164-1.942-.957-2.242-1.063-.3-.106-.518-.16-.733.164-.216.327-.834 1.064-1.022 1.276-.187.213-.375.24-.705.075-1.127-.565-1.95-.985-2.715-2.296-.201-.34-.201-.632-.036-.797.148-.15 1.4-.833.518-1.5-.187-.213-.375-.24-.705-.075-1.616-.723-1.113-.728-2.585-1.252-.403-.143-.85-.143-1.252.003L7.75 8.913c-.347.12-.663.313-.93.568-.456.435-1.353 1.32-1.353 3.215s1.378 3.73 1.572 3.987c.193.257 2.712 4.14 6.57 5.805.918.397 1.634.633 2.193.81.923.293 1.764.252 2.428.153.74-.11 2.242-.915 2.553-1.8 1.127-.565.806-1.503.733-1.64-.073-.136-.268-.215-.598-.38z"/></svg>
-              Reserve on WhatsApp
-            </button>
-            <button onclick="processLuxuryMessagingReservation('sms')" class="w-full bg-brand-obsidian text-white hover:bg-brand-gold text-[11px] font-bold tracking-[0.2em] py-3.5 rounded-xl uppercase transition-all duration-300 shadow-md flex items-center justify-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" /></svg>
-              Reserve via Text Message
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bulletproof Elegant Text Copy Fallback Modal Window -->
-  <div id="fallback-modal" class="fixed inset-0 z-50 invisible flex items-center justify-center p-4">
-    <div onclick="toggleFallbackModal(false)" class="absolute inset-0 bg-brand-obsidian/60 backdrop-blur-md transition-opacity opacity-0" id="modal-backdrop"></div>
-    <div class="relative w-full max-w-xl bg-white rounded-2xl p-6 md:p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-stone-100" id="modal-content">
-      <button onclick="toggleFallbackModal(false)" class="absolute top-5 right-5 text-stone-400 hover:text-brand-obsidian transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-      <div class="space-y-4 text-center">
-        <span class="text-brand-gold text-[10px] font-bold tracking-[0.25em] uppercase block">Boutique Desk Concierge</span>
-        <h3 class="font-serif text-2xl font-bold text-brand-obsidian uppercase tracking-wide">Secure Your Reservation</h3>
-        <p class="text-stone-500 text-xs md:text-sm max-w-md mx-auto leading-relaxed">It looks like a native messaging client isn't configured on this device. Copy the phone number and pre-formatted details below to send them via your preferred messaging app.</p>
-      </div>
-      <div class="mt-6 space-y-4 text-left">
-        <div>
-          <label class="block text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-1.5">Concierge Phone Number</label>
-          <div class="flex gap-2">
-            <input type="text" readonly value="2039436789" id="fallback-phone-input" class="w-full bg-stone-50 border border-stone-200 text-brand-obsidian font-semibold rounded-lg px-4 py-2.5 text-sm outline-none">
-            <button onclick="copyFallbackText('fallback-phone-input')" class="bg-brand-obsidian text-white hover:bg-brand-gold px-4 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase transition-colors whitespace-nowrap">Copy Number</button>
-          </div>
-        </div>
-        <div>
-          <label class="block text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-1.5">Your Reservation Portfolio Details</label>
-          <div class="relative">
-            <textarea readonly id="fallback-body-textarea" rows="7" class="w-full bg-stone-50 border border-stone-200 font-mono text-[11px] leading-relaxed p-4 rounded-xl text-stone-700 outline-none resize-none"></textarea>
-            <button onclick="copyFallbackText('fallback-body-textarea')" class="absolute bottom-3 right-3 bg-white border border-stone-200 text-brand-obsidian hover:bg-stone-50 shadow-sm px-3 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-wider transition-colors">Copy Portfolio</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Custom Luxury Notification Overlay Dialog -->
-  <div id="custom-dialog-overlay" class="fixed inset-0 z-55 invisible flex items-center justify-center p-4">
-    <div onclick="toggleCustomDialog(false)" class="absolute inset-0 bg-brand-obsidian/40 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="dialog-backdrop"></div>
-    <div class="relative max-w-md w-full bg-white rounded-2xl p-6 text-center shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-stone-100" id="dialog-content">
-      <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mx-auto mb-4">
-        <svg class="w-6 h-6 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-        </svg>
-      </div>
-      <h4 class="font-serif text-lg font-bold text-brand-obsidian uppercase tracking-wider mb-2">Vault Update</h4>
-      <p id="dialog-message-text" class="text-xs text-stone-500 leading-relaxed mb-6"></p>
-      <button onclick="toggleCustomDialog(false)" class="w-full py-3 bg-brand-obsidian hover:bg-brand-gold text-white text-xs font-bold uppercase tracking-widest rounded-xl transition-colors">
+      <h3 class="font-serif text-xl font-bold tracking-wide text-brand-obsidian">Notification</h3>
+      <p id="custom-dialog-text" class="text-xs text-stone-600 leading-relaxed"></p>
+      <button onclick="toggleCustomDialog(false)" class="w-full bg-brand-obsidian text-brand-cream py-3 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-brand-gold hover:text-brand-obsidian premium-transition">
         Acknowledge
       </button>
     </div>
   </div>
 
-  <!-- Custom Confirm Modal Dialog -->
-  <div id="custom-confirm-overlay" class="fixed inset-0 z-55 invisible flex items-center justify-center p-4">
-    <div class="absolute inset-0 bg-brand-obsidian/40 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="confirm-backdrop"></div>
-    <div class="relative max-w-md w-full bg-white rounded-2xl p-6 text-center shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-stone-100" id="confirm-content">
-      <div class="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4">
-        <svg class="w-6 h-6 text-red-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
-        </svg>
-      </div>
-      <h4 class="font-serif text-lg font-bold text-brand-obsidian uppercase tracking-wider mb-2" id="confirm-title-text">Confirm Action</h4>
-      <p id="confirm-message-text" class="text-xs text-stone-500 leading-relaxed mb-6"></p>
-      <div class="flex gap-3">
-        <button id="confirm-cancel-btn" class="w-1/2 py-3 bg-stone-100 hover:bg-stone-200 text-stone-600 text-xs font-bold uppercase tracking-widest rounded-xl transition-colors">
-          Cancel
-        </button>
-        <button id="confirm-accept-btn" class="w-1/2 py-3 bg-red-600 hover:bg-red-700 text-white text-xs font-bold uppercase tracking-widest rounded-xl transition-colors">
-          Proceed
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Upgraded Fullscreen Luxury Photo Zoom Lightbox -->
-  <div id="image-lightbox" class="fixed inset-0 z-[60] bg-brand-obsidian/95 backdrop-blur-md hidden flex flex-col items-center justify-center p-4">
-    <button onclick="closeLightbox()" class="absolute top-6 right-6 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all focus:outline-none z-[70]" title="Close Inspector">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+  <!-- Full-Screen Luxury Image Zoom Overlay -->
+  <div id="image-zoom-overlay" class="fixed inset-0 bg-brand-obsidian/95 backdrop-blur-md z-50 flex flex-col items-center justify-center p-4 hidden">
+    <!-- Close Control Button -->
+    <button onclick="closeZoomViewer()" class="absolute top-6 right-6 z-50 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full premium-transition">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
     </button>
-    
-    <!-- Zoom Controls Tray -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full flex items-center gap-6 z-[70] border border-white/10">
-      <button onclick="zoomLightbox(0.8)" class="text-white hover:text-brand-gold transition-colors text-xs font-bold uppercase tracking-wider flex items-center gap-1">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg> Out
-      </button>
-      <span id="lightbox-zoom-indicator" class="text-white/60 text-[10px] font-mono font-bold">100%</span>
-      <button onclick="zoomLightbox(1.2)" class="text-white hover:text-brand-gold transition-colors text-xs font-bold uppercase tracking-wider flex items-center gap-1">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg> In
-      </button>
-      <button onclick="resetLightboxZoom()" class="text-white/40 hover:text-white transition-colors text-[10px] uppercase font-bold tracking-widest pl-2 border-l border-white/10">Reset</button>
+
+    <!-- Interactive Interactive Canvas Panel -->
+    <div class="relative w-full max-w-4xl flex-grow flex items-center justify-center overflow-hidden">
+      <div id="zoom-drag-wrapper" class="zoom-container absolute flex items-center justify-center select-none" style="transform: translate(0px, 0px) scale(1);">
+        <img id="zoom-focused-image" src="" class="max-w-full max-h-[75vh] object-contain rounded-lg pointer-events-none transition-transform duration-200" alt="Inspected Detail Photo">
+      </div>
     </div>
 
-    <!-- Lightbox Image Wrapper with Drag/Pan support -->
-    <div id="lightbox-img-wrapper" class="w-full h-full flex items-center justify-center overflow-hidden cursor-grab active:cursor-grabbing">
-      <img id="lightbox-img" src="" alt="Zoomed View" class="max-w-full max-h-full object-contain transition-transform duration-200 select-none pointer-events-none" style="transform: scale(1) translate(0px, 0px);">
+    <!-- Live Magnification Tool Controls -->
+    <div class="bg-brand-darkCarbon/90 border border-stone-800 rounded-2xl px-6 py-4 flex items-center gap-6 text-white mb-6 shadow-2xl relative z-10">
+      <button onclick="adjustZoomLevel(-0.25)" class="w-8 h-8 rounded-lg bg-stone-900 border border-stone-850 hover:text-brand-gold flex items-center justify-center text-lg font-bold premium-transition">-</button>
+      <span id="zoom-ratio-label" class="text-xs font-semibold uppercase tracking-wider text-stone-400">Zoom: 100%</span>
+      <button onclick="adjustZoomLevel(0.25)" class="w-8 h-8 rounded-lg bg-stone-900 border border-stone-850 hover:text-brand-gold flex items-center justify-center text-lg font-bold premium-transition">+</button>
+      <div class="w-[1px] h-6 bg-stone-800"></div>
+      <button onclick="resetZoomViewport()" class="text-xs font-bold uppercase tracking-widest text-brand-gold hover:text-white premium-transition">Reset View</button>
     </div>
+    <p class="text-[10px] text-stone-500 tracking-wider mb-2">Drag image manually to inspect precise gem detail contours.</p>
   </div>
 
-  <!-- Live Feedback Notification Toast Layer -->
-  <div id="toast-layer" class="fixed top-6 right-6 z-55 flex items-center bg-stone-900 border border-stone-800 px-5 py-4 rounded-xl shadow-2xl transition-all duration-300 translate-x-80 opacity-0 pointer-events-none">
-    <div class="flex items-center gap-3">
-      <div id="toast-icon-wrapper" class="w-5 h-5 flex items-center justify-center rounded-full bg-brand-gold text-brand-obsidian">
-      </div>
-      <div class="text-left">
-        <h4 id="toast-title" class="text-xs font-bold text-white tracking-wider uppercase">Sync Fault</h4>
-        <p id="toast-message" class="text-[11px] text-stone-400 mt-0.5 leading-normal"></p>
-      </div>
-    </div>
-  </div>
-
-  <!-- Storefront Footer Section -->
-  <footer class="relative z-30 bg-brand-obsidian text-stone-400 text-xs py-16 px-6 border-t border-brand-gold/20 mt-auto">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-10 items-start">
-      <div class="text-center md:text-left space-y-3">
-        <p class="font-serif text-xl tracking-[0.2em] text-white font-bold uppercase">OMNI BY V</p>
-        <p class="text-stone-500 leading-relaxed max-w-sm font-light">Fine jewelry designed to celebrate precision, brilliance, and timeless elegance.</p>
-        <p class="text-stone-500 font-light">&copy; 2026 Omni By V Boutique. All Rights Reserved.</p>
-      </div>
+  <!-- Top Luxury Header Navigation -->
+  <header class="border-b border-stone-200/60 sticky top-0 bg-[#FAF9F5]/90 backdrop-blur-md z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
       
-      <div class="text-center md:text-left space-y-3">
-        <h4 class="text-brand-gold text-xs font-bold tracking-[0.25em] uppercase">Showroom Hours</h4>
-        <p class="text-stone-400 leading-relaxed font-light">
-          542 Gold Coast Blvd, West Haven, CT<br>
-          Monday - Saturday: 10:00 AM - 6:00 PM<br>
-          Sunday: Closed for Appraisal Curation
+      <!-- Brand Logo Stack -->
+      <div class="flex items-center gap-2.5 cursor-pointer" onclick="setActiveCategoryFilter('All')">
+        <svg class="w-7 h-7 sm:w-8 sm:h-8 text-brand-obsidian shrink-0" fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-.778.099-1.533.284-2.253" />
+        </svg>
+        <div class="flex flex-col text-left">
+          <h1 class="font-serif tracking-[0.25em] text-lg sm:text-xl font-bold text-brand-obsidian uppercase leading-none">Omni</h1>
+          <span class="text-[9px] sm:text-[10px] tracking-[0.4em] uppercase text-brand-gold font-bold mt-1">By Vibhuti</span>
+        </div>
+      </div>
+
+      <!-- Action Hotlines & Access Buttons -->
+      <div class="flex items-center gap-3 sm:gap-5">
+        <!-- Live Telephone Concierge Link -->
+        <a href="tel:2039436789" class="hidden md:flex items-center gap-2 px-4 py-2 border border-stone-200 rounded-full text-xs font-semibold text-stone-700 hover:border-brand-gold hover:text-brand-obsidian premium-transition">
+          <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.802-5.14-4.117-6.942-6.94l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+          Inquiries: (203) 943-6789
+        </a>
+        <a href="tel:2039436789" class="md:hidden flex items-center justify-center w-10 h-10 border border-stone-200 rounded-full text-brand-gold hover:border-brand-obsidian premium-transition">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-2.824-1.802-5.14-4.117-6.942-6.94l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
+        </a>
+
+        <!-- Portal Toggle Key -->
+        <button onclick="togglePrivateVaultView()" class="w-10 h-10 border border-stone-200 rounded-full flex items-center justify-center text-stone-600 hover:border-brand-gold hover:text-brand-gold premium-transition" title="Administrative Access">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" /></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Active Area Container -->
+  <main class="flex-grow">
+
+    <!-- VIEW SECTION: PUBLIC LUXURY CATALOG STOREFRONT -->
+    <div id="storefront-panel" class="view-panel space-y-12">
+      
+      <!-- Premium Hero Editorial Panel -->
+      <section class="relative overflow-hidden bg-brand-obsidian py-20 sm:py-28 px-4 sm:px-6 lg:px-8 text-center border-b border-brand-gold/15">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-gold/10 via-transparent to-transparent pointer-events-none"></div>
+        <div class="max-w-3xl mx-auto relative z-10 space-y-4">
+          <span class="text-brand-gold font-serif text-xs sm:text-sm tracking-[0.4em] uppercase block">Exclusive Curated Masterpieces</span>
+          <h2 class="text-4xl sm:text-5xl md:text-6xl font-serif font-light tracking-wide text-brand-cream leading-tight">
+            Handcrafted Jewelry Appraisals
+          </h2>
+          <div class="w-12 h-[1px] bg-brand-gold/40 mx-auto my-6"></div>
+          <p class="text-stone-400 text-xs sm:text-sm leading-relaxed tracking-wider max-w-xl mx-auto font-light">
+            Welcome to the digital atelier of Omni by V. Browse our high-resolution design archive and contact our West Haven concierge instantly to coordinate private fittings.
+          </p>
+        </div>
+      </section>
+
+      <!-- Category Filter Navigation Ribbons -->
+      <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row md:items-end justify-between border-b border-stone-200/70 pb-6 gap-4">
+          <div>
+            <h3 class="font-serif text-2xl sm:text-3xl text-brand-obsidian font-semibold tracking-wide">Signature Collections</h3>
+            <p class="text-stone-500 text-xs mt-1">Tap a category to filter the display</p>
+          </div>
+
+          <!-- Dynamic Filter Category Array Injector -->
+          <div id="dynamic-category-filters" class="flex flex-wrap gap-2">
+            <!-- Programmatically Injected Category Buttons -->
+          </div>
+        </div>
+
+        <!-- Visual Jewelry Grid -->
+        <div id="storefront-product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 py-12">
+          <!-- Populated Programmatically inside Javascript Loop -->
+        </div>
+
+        <!-- No Data State Warning Card -->
+        <div id="storefront-empty-state" class="hidden text-center py-20 bg-stone-50 rounded-3xl border border-stone-150/60 max-w-xl mx-auto">
+          <svg class="w-12 h-12 text-stone-300 mx-auto mb-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg>
+          <p class="font-serif text-lg text-brand-obsidian font-semibold">No Collections Live</p>
+          <p class="text-xs text-stone-400 mt-1">The secure database spreadsheet holds no active items matching this filter.</p>
+        </div>
+
+      </section>
+    </div>
+
+    <!-- VIEW SECTION: PRIVATE OWNER'S VAULT PORTAL -->
+    <div id="vault-panel" class="view-panel hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      
+      <!-- Vault Passcode Verification Lock Screen -->
+      <div id="vault-lock-screen" class="max-w-md mx-auto bg-brand-darkCarbon border border-stone-800 p-8 rounded-3xl shadow-2xl text-center space-y-6">
+        <div class="space-y-2">
+          <div class="w-12 h-12 bg-brand-gold/10 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0V10.5m-3.25 3h15c1.242 0 2.25 1.008 2.25 2.25v3a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25v-3a2.25 2.25 0 01-2.25-2.25z" /></svg>
+          </div>
+          <h3 class="font-serif text-2xl font-bold tracking-wide text-brand-cream">Secure Admin Login</h3>
+          <p class="text-xs text-stone-400">Unlock the secure database workspace</p>
+        </div>
+
+        <div class="space-y-4">
+          <input type="password" id="vault-passcode-field" placeholder="••••" class="w-full bg-stone-900 border border-stone-800 py-3.5 rounded-xl text-center text-xl font-bold tracking-[0.5em] text-brand-gold outline-none focus:border-brand-gold premium-transition">
+          <p id="vault-passcode-error" class="text-red-500 text-xs hidden">Authentication credentials declined.</p>
+          
+          <button onclick="attemptVaultAuthorization()" class="w-full bg-brand-gold text-brand-obsidian py-3.5 rounded-xl text-xs font-bold uppercase tracking-widest hover:bg-white premium-transition">
+            Authenticate &amp; Decrypt
+          </button>
+        </div>
+        <p class="text-[10px] text-stone-500 tracking-wider">Default Pin Code is "1234" or "sparkle"</p>
+      </div>
+
+      <!-- Authorized Operational Workspace -->
+      <div id="vault-dashboard" class="hidden space-y-8">
+        
+        <!-- Dashboard Top Metric Ribbon -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between border-b border-stone-200 pb-5 gap-4">
+          <div>
+            <span class="text-[10px] bg-brand-gold/15 text-brand-gold border border-brand-gold/20 px-3 py-1 rounded-full font-bold uppercase tracking-widest">Atelier Admin Mode</span>
+            <h2 class="font-serif text-3xl font-semibold tracking-wide text-brand-obsidian mt-2">Inventory Control Center</h2>
+          </div>
+          <button onclick="deauthorizeVault()" class="px-5 py-2.5 bg-stone-100 hover:bg-stone-200 text-stone-700 text-xs font-bold rounded-xl uppercase tracking-wider premium-transition">
+            Lock Admin Portal
+          </button>
+        </div>
+
+        <!-- Administrative Layout Splitter -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+          
+          <!-- Column 1: Add New Products Collection Panel -->
+          <div class="lg:col-span-5 bg-white border border-stone-200 p-6 sm:p-8 rounded-3xl shadow-sm h-fit space-y-6">
+            <h3 class="font-serif text-xl font-bold tracking-wide text-brand-obsidian border-b border-stone-100 pb-3">
+              Publish Alternative Showcase
+            </h3>
+
+            <!-- Creation / Update Admin Input Form -->
+            <form id="vault-publish-form" onsubmit="handlePublishSubmission(event)" class="space-y-4">
+              <div>
+                <label class="block text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1.5">Piece Name *</label>
+                <input type="text" id="add-field-name" required placeholder="e.g., Aurelia Solitaire Diamond Ring" class="w-full bg-stone-50 border border-stone-200 px-4 py-3 rounded-xl text-xs text-brand-obsidian outline-none focus:border-brand-gold focus:bg-white premium-transition">
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1.5">Price ($ USD) *</label>
+                  <input type="number" step="0.01" id="add-field-price" required placeholder="1850.00" class="w-full bg-stone-50 border border-stone-200 px-4 py-3 rounded-xl text-xs text-brand-obsidian outline-none focus:border-brand-gold focus:bg-white premium-transition">
+                </div>
+                <div>
+                  <label class="block text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1.5">Initial Quantity *</label>
+                  <input type="number" id="add-field-qty" required placeholder="5" class="w-full bg-stone-50 border border-stone-200 px-4 py-3 rounded-xl text-xs text-brand-obsidian outline-none focus:border-brand-gold focus:bg-white premium-transition">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1.5">Category *</label>
+                  <input type="text" id="add-field-category" required placeholder="e.g., Rings, Necklaces" class="w-full bg-stone-50 border border-stone-200 px-4 py-3 rounded-xl text-xs text-brand-obsidian outline-none focus:border-brand-gold focus:bg-white premium-transition">
+                </div>
+                <div>
+                  <label class="block text-[10px] uppercase tracking-widest text-stone-500 font-bold mb-1.5">Initial Status *</label>
+                  <select id="add-field-status" class="w-full bg-stone-50 border border-stone-200 px-4 py-3 rounded-xl text-xs text-brand-obsidian outline-none focus:border-brand-gold focus:bg-white premium-transition">
+                    <option value="In Stock">In Stock</option>
+                    <option value="Low Stock">Low Stock</option>
+                    <option value="Sold Out">Sold Out</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Multi-Photo Secure Base64 File Uploader -->
+              <div class="border border-stone-200/80 p-4 rounded-2xl bg-stone-50 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] uppercase tracking-widest text-brand-obsidian font-bold">Showroom Media Manager</span>
+                  <span class="text-[9px] text-brand-gold font-bold">Max 5 Alternate Views</span>
+                </div>
+                <p class="text-[10px] text-stone-500 leading-normal">
+                  Upload multiple angles. Hovering over cards dynamically cross-fades them.
+                </p>
+
+                <!-- Trigger Action Slots -->
+                <div class="grid grid-cols-2 gap-2">
+                  <button type="button" onclick="triggerNativeAdminUpload('upload')" class="bg-white border border-stone-200 hover:border-brand-gold text-stone-700 py-2.5 px-3 rounded-xl text-[10px] font-bold flex items-center justify-center gap-2 premium-transition">
+                    <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" /></svg>
+                    Upload File
+                  </button>
+                  <button type="button" onclick="triggerNativeAdminUpload('camera')" class="bg-white border border-stone-200 hover:border-brand-gold text-stone-700 py-2.5 px-3 rounded-xl text-[10px] font-bold flex items-center justify-center gap-2 premium-transition">
+                    <svg class="w-3.5 h-3.5 text-brand-gold" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15a2.25 2.25 0 002.25-2.25V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" /></svg>
+                    Snap Photo
+                  </button>
+                </div>
+
+                <!-- Hidden Core Hooks -->
+                <input type="file" id="admin-file-upload" accept="image/*" class="hidden" onchange="processAdminImageInput(this.files[0])">
+                <input type="file" id="admin-camera-capture" accept="image/*" capture="environment" class="hidden" onchange="processAdminImageInput(this.files[0])">
+
+                <!-- Alternative Raw Links Input -->
+                <input type="text" id="add-field-image" placeholder="Or enter manual pipeline URL strings..." class="w-full bg-white border border-stone-200 px-4 py-2.5 rounded-xl text-[10px] text-brand-obsidian outline-none focus:border-brand-gold premium-transition">
+
+                <!-- Interactive Media Stack Tray Preview -->
+                <div id="media-stack-tray" class="flex flex-wrap gap-2 pt-2 border-t border-stone-200/60 hidden">
+                  <!-- Thumbnail previews injected here -->
+                </div>
+              </div>
+
+              <!-- Action Controls -->
+              <div class="pt-4 flex items-center gap-2 border-t border-stone-150">
+                <button type="submit" id="submit-vault-button" class="flex-grow bg-brand-obsidian hover:bg-brand-gold hover:text-brand-obsidian text-brand-cream text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl premium-transition">
+                  Publish Design Line
+                </button>
+                <button type="button" onclick="clearVaultDraftForm()" class="bg-stone-100 hover:bg-stone-200 text-stone-600 px-4 py-3.5 rounded-xl text-xs font-bold uppercase tracking-widest premium-transition">
+                  Clear
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Column 2: Live Active Inventory Grid Summary -->
+          <div class="lg:col-span-7 bg-white border border-stone-200 p-6 rounded-3xl shadow-sm space-y-4">
+            <div class="flex items-center justify-between border-b border-stone-100 pb-3">
+              <h3 class="font-serif text-xl font-bold tracking-wide text-brand-obsidian">Current Vault Inventory</h3>
+              <span id="vault-count-badge" class="text-xs font-bold text-stone-400">Loading Designs...</span>
+            </div>
+
+            <!-- Dynamic Admin Records Wrapper -->
+            <div id="admin-vault-list" class="space-y-3.5 max-h-[580px] overflow-y-auto pr-1">
+              <!-- Rendered programmatically -->
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </main>
+
+  <!-- Permanent Dark Obsidian Brand Footer -->
+  <footer class="bg-brand-obsidian text-stone-400 py-16 px-4 sm:px-6 lg:px-8 border-t border-brand-gold/15 relative z-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
+      
+      <!-- Brand Summary -->
+      <div class="space-y-4">
+        <h4 class="font-serif text-xl text-white font-medium uppercase tracking-[0.2em]">Omni By V</h4>
+        <p class="text-xs leading-relaxed max-w-sm">
+          We curate premium handcrafted catalog portfolios, diamond solitaire mountings, gold restorations, and private appraisal evaluations. Visit our physical West Haven boutique for luxury services.
         </p>
       </div>
 
-      <div class="text-center md:text-left space-y-3">
-        <h4 class="text-brand-gold text-xs font-bold tracking-[0.25em] uppercase">Inquiries & Operations</h4>
-        <p class="text-stone-400 font-light">Direct Hotline: <a href="tel:2039436789" class="hover:text-brand-gold font-bold text-white transition-colors underline">(203) 943-6789</a></p>
-        <div class="flex justify-center md:justify-start gap-6 tracking-wider uppercase text-[10px] font-semibold pt-1">
-          <a href="#" onclick="togglePasscodeScreen(true); return false;" class="hover:text-brand-gold text-white transition-colors flex items-center gap-1">🔑 Vault Portal</a>
-          <a href="#" class="hover:text-brand-gold transition-colors">Privacy Charter</a>
-          <a href="#" class="hover:text-brand-gold transition-colors">Boutique Service</a>
-        </div>
+      <!-- Contact Directory -->
+      <div class="space-y-4">
+        <h4 class="font-serif text-xs text-brand-gold font-bold uppercase tracking-[0.2em]">Direct Concierge Hotline</h4>
+        <ul class="text-xs space-y-3">
+          <li class="flex items-center gap-2">
+            📍 <span>542 Gold Coast Blvd, West Haven, CT</span>
+          </li>
+          <li>
+            📞 <a href="tel:2039436789" class="hover:text-white underline decoration-brand-gold/50 premium-transition">Cell: (203) 943-6789</a>
+          </li>
+          <li>
+            ✉️ <span class="hover:text-white">vibhuti@omnibyv.com</span>
+          </li>
+          <li class="text-[10px] text-stone-500 pt-1 tracking-wider">
+            Monday - Saturday: 10:00 AM - 6:00 PM EST
+          </li>
+        </ul>
       </div>
+
+      <!-- Operations Panel Shortcuts -->
+      <div class="space-y-4">
+        <h4 class="font-serif text-xs text-brand-gold font-bold uppercase tracking-[0.2em]">Administrative Controls</h4>
+        <p class="text-xs leading-relaxed">
+          Manage, restock, or edit catalog prices directly in Google Sheets using our security dashboard.
+        </p>
+        <button onclick="scrollToPrivateVaultView()" class="inline-flex items-center gap-2 px-4 py-2 border border-stone-800 rounded-xl text-xs text-stone-300 hover:border-brand-gold hover:text-white premium-transition">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0V10.5m-3.25 3h15c1.242 0 2.25 1.008 2.25 2.25v3a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25v-3a2.25 2.25 0 01-2.25-2.25z" /></svg>
+          Open Security Portal
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Copyright Divider Line -->
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-stone-900 text-center text-[10px] tracking-[0.25em] text-stone-600 uppercase">
+      &copy; 2026 OMNI BY V. ALL RIGHTS SECURED. DESIGNED WITH ABSOLUTE SIMPLICITY.
     </div>
   </footer>
 
-  <!-- Script Integration Mechanics Core Back-End Interface -->
   <script>
-    const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbyH7Y4GvhTvHcsE_Rv7ZAasrZ8VtJ-3SReqQfRTpt96HbuO8qPv0HFmMsbMTjsCL4ZQ/exec";
-    
-    // --- Configurations ---
-    const VENMO_USERNAME = "Vibhuti-Desai-3"; 
-    const STORE_PIN = "Omnibyv@1014";
-    const CT_TAX_RATE = 0.0635; // 6.35% Connecticut sales tax
+    // --- 1. CORE API & PHONE PARAMETERS ---
+    const GOOGLE_API_ENDPOINT = "https://script.google.com/macros/s/AKfycbyH7Y4GvhTvHcsE_Rv7ZAasrZ8VtJ-3SReqQfRTpt96HbuO8qPv0HFmMsbMTjsCL4ZQ/exec";
+    const DIRECT_WHATSAPP_PHONE = "2039436789"; 
+    const SECURITY_ACCESS_PIN = "Omnibyv@1014";
 
+    // --- 2. GLOBAL SYSTEM STATE ---
     let localProductsDataset = [];
-    let activeCategoryView = "All";
-    let activeCartInventory = [];
-    let isAuthorizedAdmin = false;
+    let currentCategoryFilter = "All";
+    let activeMediaDraftArray = []; 
+    let activeFulfillment = "pickup"; 
 
-    // Shipping estimation state
-    let activeFulfillment = "delivery"; // "delivery" or "pickup"
-    let calculatedShippingValue = 0;
-    let computedShippingRegionName = "Local Northeast";
-    let enteredZipCode = "";
+    // Dynamic Image Carousel Tracker Map
+    let carouselIntervalMap = {}; 
+    let carouselCurrentIndexMap = {}; 
 
-    // Multi-Image Draft State for Admin
-    let tempDraftImages = [];
+    // Magnification Zoom Vector Tracker
+    let imageZoomLevel = 1.0;
+    let isDraggingZoomImage = false;
+    let dragStartPosition = { x: 0, y: 0 };
+    let currentDragOffset = { x: 0, y: 0 };
 
-    // Card Hover Carousels Tracker
-    let activeCarousels = {};
+    // --- 3. LIFECYCLE INITIALIZER ---
+    window.onload = function() {
+      initializeStorefrontWorkspace();
+      setupZoomDragListeners();
+    };
 
-    // Custom confirm dialog execution handler
-    let customConfirmPromiseResolver = null;
-
-    // --- Core Dynamic Parallax Scroll Engine ---
-    let lastScrollY = 0;
-    let ticking = false;
-
-    function updateParallaxElements() {
-      if (document.getElementById('storefront-view').classList.contains('hidden')) {
-        ticking = false;
-        return;
-      }
-
-      const layers = document.querySelectorAll('.parallax-layer');
-      
-      layers.forEach(layer => {
-        const speed = parseFloat(layer.getAttribute('data-speed')) || 0;
-        const yOffset = -(lastScrollY * speed);
-        
-        if (layer.id === 'hero-background') {
-          layer.style.transform = `translate3d(0, ${yOffset}px, 0) scale(1.15)`;
-        } else if (layer.classList.contains('fixed')) {
-          layer.style.transform = `translate3d(0, ${yOffset}px, 0) rotate(${lastScrollY * (speed * 0.08)}deg)`;
-        } else {
-          layer.style.transform = `translate3d(0, ${yOffset}px, 0)`;
-        }
-      });
-      ticking = false;
-    }
-
-    window.addEventListener('scroll', () => {
-      lastScrollY = window.pageYOffset;
-      if (!ticking) {
-        window.requestAnimationFrame(updateParallaxElements);
-        ticking = true;
-      }
-    }, { passive: true });
-
-    // Core Init Launcher Engine
-    async function loadBoutiqueStorefront() {
+    // --- 4. DATA FETCH & UI SYNCING ENGINE ---
+    async function initializeStorefrontWorkspace() {
       try {
-        const response = await fetch(GOOGLE_SHEET_API);
-        const fetchedData = await response.json();
+        const response = await fetch(`${GOOGLE_API_ENDPOINT}?action=getProducts`);
+        if (!response.ok) throw new Error("Spreadsheet retrieval failed.");
         
-        if (!fetchedData || (!Array.isArray(fetchedData) && fetchedData.status === 'error')) {
-          let errorDetail = "Invalid format returned from Apps Script.";
-          if (fetchedData && fetchedData.status === 'error') {
-            errorDetail = fetchedData.message;
-          }
-          throw new Error(errorDetail);
-        }
-
-        // Catch the infamous "Deployment Trap" old format
-        if (fetchedData && !Array.isArray(fetchedData) && fetchedData.products && fetchedData.monthlySales) {
-          throw new Error("Dashboard metrics structure received instead of storefront list. Please execute a 'New Version' hard deployment inside Apps Script.");
-        }
-
-        // Hide diagnostic screen if successful connection established
-        document.getElementById('diagnostic-error-feed').classList.add('hidden');
+        const products = await response.json();
         
-        localProductsDataset = fetchedData.map(item => ({
-          name: item.name || 'Untitled Premium Piece',
-          price: parseFloat(item.price) || 0,
-          image: item.image || '', // Pipe separated multi-images can hide here
-          status: item.status || 'In Stock',
-          category: item.category ? item.category.trim() : 'Uncategorized',
-          quantity: Object.prototype.hasOwnProperty.call(item, 'quantity') ? parseInt(item.quantity) : (Object.prototype.hasOwnProperty.call(item, 'stock') ? parseInt(item.stock) : 5)
-        }));
-
-        renderCategoryNavigation();
-        renderProductsLayout();
-        updateAdminCategoriesDropdown();
-        setFulfillmentType('delivery'); // Default to delivery on setup
-      } catch (error) {
-        console.error("API Engine Fault Exception:", error);
-        document.getElementById('loading-spinner').classList.add('hidden');
-        const diagFeed = document.getElementById('diagnostic-error-feed');
-        diagFeed.classList.remove('hidden');
-        document.getElementById('diagnostic-error-msg').textContent = error.message;
-      }
-    }
-
-    // Dynamic Category Navigation Generator (Reads Categories Dynamically from Sheet)
-    function renderCategoryNavigation() {
-      const desktopNav = document.getElementById('desktop-category-nav');
-      const mobileNav = document.getElementById('mobile-category-nav');
-      
-      const uniqueSheetCategories = [...new Set(localProductsDataset.map(item => item.category).filter(Boolean))].sort();
-      const allCategories = ['All', ...uniqueSheetCategories];
-      
-      desktopNav.innerHTML = '';
-      mobileNav.innerHTML = '';
-      
-      allCategories.forEach(category => {
-        const isSelected = activeCategoryView.toLowerCase() === category.toLowerCase();
-        
-        const desktopClasses = isSelected 
-          ? 'text-brand-gold border-b-2 border-brand-gold font-bold' 
-          : 'hover:text-brand-obsidian';
-          
-        desktopNav.insertAdjacentHTML('beforeend', `
-          <button onclick="switchCategory('${category}')" class="nav-tab pb-1 transition-all uppercase tracking-[0.15em] ${desktopClasses}">
-            ${category === 'All' ? 'All Pieces' : category}
-          </button>
-        `);
-        
-        const mobileClasses = isSelected 
-          ? 'bg-brand-obsidian text-white' 
-          : 'bg-white border border-stone-200 text-stone-600';
-          
-        mobileNav.insertAdjacentHTML('beforeend', `
-          <button onclick="switchCategory('${category}')" class="mobile-tab px-4 py-2 rounded-full whitespace-nowrap transition-all ${mobileClasses}">
-            ${category}
-          </button>
-        `);
-      });
-    }
-
-    // Dynamic Filter Controller Component with Alternate Image Hover Carousels
-    function renderProductsLayout() {
-      const gridContainer = document.getElementById('product-grid');
-      const emptyStateBlock = document.getElementById('empty-state');
-      document.getElementById('loading-spinner').classList.add('hidden');
-      
-      gridContainer.innerHTML = "";
-
-      const filteredData = localProductsDataset.filter(item => {
-        if (activeCategoryView === "All") return true;
-        return item.category.toLowerCase() === activeCategoryView.toLowerCase();
-      });
-
-      if (filteredData.length === 0) {
-        emptyStateBlock.classList.remove('hidden');
-        gridContainer.classList.add('opacity-0');
-        return;
-      }
-
-      emptyStateBlock.classList.add('hidden');
-      
-      filteredData.forEach((product, idx) => {
-        let computedStatus = product.status;
-        if (product.quantity <= 0) {
-          computedStatus = "Sold Out";
-        } else if (product.quantity <= 2) {
-          computedStatus = "Low Stock";
-        }
-
-        const isSoldOut = computedStatus.toLowerCase().includes('out');
-        
-        // Multi-image parsing
-        const imagesList = product.image ? product.image.split('|').map(u => u.trim()).filter(Boolean) : [];
-        const displayImg = imagesList[0] || "https://placehold.co/400x500/FAF9F5/0C0F12?text=In+Appraisal";
-
-        // Dot navigation indicators for multiple images
-        let indicatorDotsHtml = "";
-        if (imagesList.length > 1) {
-          indicatorDotsHtml = `
-            <div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              ${imagesList.map((_, dotIdx) => `
-                <span class="carousel-dot-indicator w-1.5 h-1.5 rounded-full bg-white/50 transition-all ${dotIdx === 0 ? 'bg-brand-gold w-3' : ''}"></span>
-              `).join('')}
-            </div>
-          `;
-        }
-
-        const productCardHtml = `
-          <div class="group flex flex-col relative space-y-3 opacity-0 animate-fade-in text-left" 
-               style="animation-delay: ${idx * 50}ms; animation-fill-mode: forwards;"
-               onmouseenter="startCardCarousel(this, '${encodeURIComponent(product.image)}')"
-               onmouseleave="stopCardCarousel(this, '${encodeURIComponent(product.image)}')">
-            
-            <div class="relative overflow-hidden rounded-2xl bg-stone-100 aspect-[4/5] shadow-sm transition-transform duration-500 group-hover:-translate-y-1">
-              <img id="card-img-${idx}" src="${displayImg}" alt="${product.name}" class="card-display-img w-full h-full object-cover transition-all duration-700 ease-out" onerror="this.src='https://placehold.co/400x500/FAF9F5/0C0F12?text=In+Appraisal';">
-              
-              <!-- Indicator Dots -->
-              ${indicatorDotsHtml}
-
-              <!-- Luxury Magnify/Zoom Button Trigger -->
-              <button onclick="event.stopPropagation(); openLightbox(document.getElementById('card-img-${idx}').src)" class="absolute top-4 right-4 bg-white/90 backdrop-blur-md p-2.5 rounded-xl text-brand-obsidian hover:text-brand-gold hover:scale-105 transition-all shadow-md z-30" title="Zoom Product Photo">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v6m3-3H7" />
-                </svg>
-              </button>
-
-              ${computedStatus.toLowerCase().includes('low') ? `<span class="absolute top-4 left-4 bg-amber-500/90 backdrop-blur-md text-white text-[9px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md">Low Stock</span>` : ''}
-              ${isSoldOut ? `<span class="absolute inset-0 bg-brand-obsidian/60 backdrop-blur-[2px] flex items-center justify-center text-white text-xs font-bold tracking-widest uppercase">Sold Out</span>` : ''}
-            </div>
-
-            <div class="flex flex-col flex-grow pt-1">
-              <div class="flex items-center justify-between gap-2 mb-0.5">
-                <span class="text-[10px] text-stone-400 font-semibold tracking-widest uppercase">${product.category}</span>
-                <span class="text-[10px] font-medium tracking-wide ${product.quantity <= 2 ? 'text-amber-600 font-semibold' : 'text-stone-400'}">
-                  ${product.quantity <= 0 ? 'Out of Stock' : (product.quantity === 1 ? 'Only 1 Left' : `${product.quantity} Remaining`)}
-                </span>
-              </div>
-              <h3 class="font-serif text-lg font-medium text-brand-obsidian leading-snug group-hover:text-brand-gold transition-colors duration-300">${product.name}</h3>
-              
-              <!-- Custom WhatsApp direct link instead of Cart Addition -->
-              ${!isSoldOut ? `
-                <button onclick="directWhatsAppInquiry('${encodeURIComponent(product.name)}')" class="mt-3.5 w-full bg-brand-obsidian hover:bg-brand-gold hover:text-brand-obsidian text-white text-[11px] font-bold tracking-widest uppercase py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
-                  <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.734-1.456L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.115-2.903-6.99C16.262 1.876 13.784.842 11.15.84 5.717.84 1.292 5.26 1.288 10.692c-.001 1.734.463 3.426 1.344 4.927l-.988 3.604 3.702-.97c1.513.823 3.09 1.255 4.694 1.255zM18.06 14.85c-.33-.164-1.942-.957-2.242-1.063-.3-.106-.518-.16-.733.164-.216.327-.834 1.064-1.022 1.276-.187.213-.375.24-.705.075-1.127-.565-1.95-.985-2.715-2.296-.201-.34-.201-.632-.036-.797.148-.15 1.4-.833.518-1.5-.187-.213-.375-.24-.705-.075-1.616-.723-1.113-.728-2.585-1.252-.403-.143-.85-.143-1.252.003L7.75 8.913c-.347.12-.663.313-.93.568-.456.435-1.353 1.32-1.353 3.215s1.378 3.73 1.572 3.987c.193.257 2.712 4.14 6.57 5.805.918.397 1.634.633 2.193.81.923.293 1.764.252 2.428.153.74-.11 2.242-.915 2.553-1.8 1.127-.565.806-1.503.733-1.64-.073-.136-.268-.215-.598-.38z"/></svg>
-                  Inquire on WhatsApp
-                </button>
-              ` : `
-                <button disabled class="mt-3.5 w-full bg-stone-200 text-stone-400 text-[11px] font-bold tracking-widest uppercase py-3.5 rounded-xl cursor-not-allowed">
-                  Fully Reserved
-                </button>
-              `}
-            </div>
-          </div>
-        `;
-        gridContainer.insertAdjacentHTML('beforeend', productCardHtml);
-      });
-
-      gridContainer.classList.remove('opacity-0');
-    }
-
-    // Direct WhatsApp Inquiry link constructor
-    function directWhatsAppInquiry(productNameEncoded) {
-      const productName = decodeURIComponent(productNameEncoded);
-      const messageText = `✨ OMNI BY V INQUIRY ✨\n\nHello, I am interested in inquiring about the following statement piece from your collection:\n\n💎 ${productName}\n\nPlease let me know its availability and customization options!`;
-      const targetPhone = "12039436789"; 
-      const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(messageText)}`;
-      window.open(waUrl, '_blank');
-    }
-
-    function switchCategory(targetCategory) {
-      activeCategoryView = targetCategory;
-      renderCategoryNavigation();
-      renderProductsLayout();
-    }
-
-    // Dynamic Product Card Carousel hover mechanics
-    function startCardCarousel(cardEl, pipeImagesEncoded) {
-      const images = decodeURIComponent(pipeImagesEncoded).split('|').map(u => u.trim()).filter(Boolean);
-      if (images.length <= 1) return;
-
-      const imgEl = cardEl.querySelector('.card-display-img');
-      const dots = cardEl.querySelectorAll('.carousel-dot-indicator');
-      let currentIdx = 0;
-
-      // Clear any pre-existing carousel loop for safety
-      if (cardEl.dataset.carouselId) {
-        clearInterval(cardEl.dataset.carouselId);
-      }
-
-      const intervalId = setInterval(() => {
-        currentIdx = (currentIdx + 1) % images.length;
-        
-        // Luxury slow fade transition
-        imgEl.style.opacity = '0.3';
-        setTimeout(() => {
-          imgEl.src = images[currentIdx];
-          imgEl.style.opacity = '1';
-        }, 200);
-
-        // Update indicators
-        dots.forEach((dot, dotIndex) => {
-          if (dotIndex === currentIdx) {
-            dot.className = "carousel-dot-indicator w-3 h-1.5 rounded-full bg-brand-gold transition-all";
-          } else {
-            dot.className = "carousel-dot-indicator w-1.5 h-1.5 rounded-full bg-white/50 transition-all";
-          }
-        });
-      }, 1400);
-
-      cardEl.dataset.carouselId = intervalId;
-    }
-
-    function stopCardCarousel(cardEl, pipeImagesEncoded) {
-      if (cardEl.dataset.carouselId) {
-        clearInterval(parseInt(cardEl.dataset.carouselId));
-        cardEl.removeAttribute('data-carouselId');
-      }
-
-      const images = decodeURIComponent(pipeImagesEncoded).split('|').map(u => u.trim()).filter(Boolean);
-      if (images.length > 0) {
-        const imgEl = cardEl.querySelector('.card-display-img');
-        imgEl.src = images[0];
-        imgEl.style.opacity = '1';
-
-        const dots = cardEl.querySelectorAll('.carousel-dot-indicator');
-        dots.forEach((dot, dotIndex) => {
-          if (dotIndex === 0) {
-            dot.className = "carousel-dot-indicator w-3 h-1.5 rounded-full bg-brand-gold transition-all";
-          } else {
-            dot.className = "carousel-dot-indicator w-1.5 h-1.5 rounded-full bg-white/50 transition-all";
-          }
-        });
-      }
-    }
-
-    // Toggle between Home Delivery and Store Pickup
-    function setFulfillmentType(type) {
-      activeFulfillment = type;
-      
-      const delBtn = document.getElementById('fulfillment-delivery-btn');
-      const pickBtn = document.getElementById('fulfillment-pickup-btn');
-      const zipSection = document.getElementById('zip-calculator-section');
-      const pickupSection = document.getElementById('pickup-info-section');
-      const addressFields = document.getElementById('buyer-address-fields');
-
-      if (type === 'delivery') {
-        // Style Buttons
-        delBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border-2 border-brand-obsidian bg-brand-obsidian text-white flex flex-col items-center justify-center gap-1.5";
-        pickBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-stone-200 text-stone-600 hover:bg-brand-canvas flex flex-col items-center justify-center gap-1.5";
-        
-        // Toggle Sections
-        zipSection.classList.remove('hidden');
-        pickupSection.classList.add('hidden');
-        addressFields.classList.remove('hidden');
-      } else {
-        // Style Buttons
-        delBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-stone-200 text-stone-600 hover:bg-brand-canvas flex flex-col items-center justify-center gap-1.5";
-        pickBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border-2 border-brand-obsidian bg-brand-obsidian text-white flex flex-col items-center justify-center gap-1.5";
-        
-        // Toggle Sections
-        zipSection.classList.add('hidden');
-        pickupSection.classList.remove('hidden');
-        addressFields.classList.add('hidden');
-        
-        // Reset shipping values
-        calculatedShippingValue = 0;
-      }
-
-      updateCartStateView();
-    }
-
-    // --- Regional US ZIP Shipping Calculation Engine ---
-    function calculateShippingCost(subtotal, zip) {
-      if (activeFulfillment === 'pickup') {
-        computedShippingRegionName = "Store Pickup (Free)";
-        return 0;
-      }
-
-      // Rule: Free Shipping above $75
-      if (subtotal >= 75) {
-        computedShippingRegionName = "Free Insured Shipping";
-        return 0;
-      }
-
-      const cleanZip = zip.trim();
-      if (!/^\d{5}$/.test(cleanZip)) {
-        computedShippingRegionName = "Local Northeast";
-        return 9.50; // default local base rate
-      }
-
-      // Read the first digit of the ZIP to establish US shipping zones
-      const firstDigit = cleanZip.charAt(0);
-      const firstThree = parseInt(cleanZip.substring(0, 3));
-
-      // Check special express locations (Alaska: 995-999 / Hawaii: 967-968)
-      if (firstThree >= 995 && firstThree <= 999) {
-        computedShippingRegionName = "Alaska Premium Express";
-        return 35.00;
-      }
-      if (firstThree >= 967 && firstThree <= 968) {
-        computedShippingRegionName = "Hawaii Premium Express";
-        return 35.00;
-      }
-
-      switch (firstDigit) {
-        case '0':
-        case '1':
-          computedShippingRegionName = "Local Northeast Zone";
-          return 9.50;
-        case '2':
-        case '3':
-          computedShippingRegionName = "Southeast Secure Zone";
-          return 12.50;
-        case '4':
-        case '5':
-        case '6':
-          computedShippingRegionName = "Midwest Secure Zone";
-          return 14.50;
-        case '7':
-        case '8':
-          computedShippingRegionName = "Southwest & Mountain Zone";
-          return 16.50;
-        case '9':
-          computedShippingRegionName = "Pacific Coast Zone";
-          return 19.00;
-        default:
-          computedShippingRegionName = "Local Northeast Zone";
-          return 9.50;
-      }
-    }
-
-    // Recalculates shipping when users click the "Calculate" button
-    function recalculateShippingFromInput() {
-      const inputEl = document.getElementById('cart-zip-input');
-      const errEl = document.getElementById('shipping-calc-error');
-      const val = inputEl.value.trim();
-
-      if (/^\d{5}$/.test(val)) {
-        errEl.classList.add('hidden');
-        enteredZipCode = val;
-        // Also populate the shipping address ZIP field automatically
-        document.getElementById('buyer-zip').value = val;
-        updateCartStateView();
-        triggerToast("Shipping Applied", `${computedShippingRegionName} set!`, "success");
-      } else {
-        errEl.classList.remove('hidden');
-      }
-    }
-
-    // Navigation Cart Modal Drawer Controllers
-    function toggleCartDrawer(openState) {
-      const overlay = document.getElementById('cart-overlay');
-      const backdrop = document.getElementById('cart-backdrop');
-      const drawer = document.getElementById('cart-drawer');
-
-      if (openState) {
-        overlay.classList.remove('invisible');
-        setTimeout(() => {
-          backdrop.classList.add('opacity-100');
-          drawer.classList.remove('translate-x-full');
-        }, 10);
-      } else {
-        backdrop.classList.remove('opacity-100');
-        drawer.classList.add('translate-x-full');
-        setTimeout(() => overlay.classList.add('invisible'), 300);
-      }
-    }
-
-    function toggleFallbackModal(openState) {
-      const overlay = document.getElementById('fallback-modal');
-      const backdrop = document.getElementById('modal-backdrop');
-      const content = document.getElementById('modal-content');
-
-      if (openState) {
-        overlay.classList.remove('invisible');
-        setTimeout(() => {
-          backdrop.classList.add('opacity-100');
-          content.classList.remove('scale-95', 'opacity-0');
-        }, 10);
-      } else {
-        backdrop.classList.remove('opacity-100');
-        content.classList.add('scale-95', 'opacity-0');
-        setTimeout(() => overlay.classList.add('invisible'), 300);
-      }
-    }
-
-    function toggleCustomDialog(openState, message = "") {
-      const overlay = document.getElementById('custom-dialog-overlay');
-      const backdrop = document.getElementById('dialog-backdrop');
-      const content = document.getElementById('dialog-content');
-      const messageBlock = document.getElementById('dialog-message-text');
-
-      if (openState) {
-        messageBlock.textContent = message;
-        overlay.classList.remove('invisible');
-        setTimeout(() => {
-          backdrop.classList.add('opacity-100');
-          content.classList.remove('scale-95', 'opacity-0');
-        }, 10);
-      } else {
-        backdrop.classList.remove('opacity-100');
-        content.classList.add('scale-95', 'opacity-0');
-        setTimeout(() => overlay.classList.add('invisible'), 300);
-      }
-    }
-
-    // Custom confirm box logic (replaces native window.confirm)
-    function triggerCustomConfirm(title, message) {
-      const overlay = document.getElementById('custom-confirm-overlay');
-      const backdrop = document.getElementById('confirm-backdrop');
-      const content = document.getElementById('confirm-content');
-      
-      document.getElementById('confirm-title-text').textContent = title;
-      document.getElementById('confirm-message-text').textContent = message;
-
-      overlay.classList.remove('invisible');
-      setTimeout(() => {
-        backdrop.classList.add('opacity-100');
-        content.classList.remove('scale-95', 'opacity-0');
-      }, 10);
-
-      return new Promise((resolve) => {
-        customConfirmPromiseResolver = resolve;
-      });
-    }
-
-    function handleConfirmSelection(accepted) {
-      const overlay = document.getElementById('custom-confirm-overlay');
-      const backdrop = document.getElementById('confirm-backdrop');
-      const content = document.getElementById('confirm-content');
-
-      backdrop.classList.remove('opacity-100');
-      content.classList.add('scale-95', 'opacity-0');
-      setTimeout(() => overlay.classList.add('invisible'), 300);
-
-      if (customConfirmPromiseResolver) {
-        customConfirmPromiseResolver(accepted);
-        customConfirmPromiseResolver = null;
-      }
-    }
-
-    document.getElementById('confirm-cancel-btn').addEventListener('click', () => handleConfirmSelection(false));
-    document.getElementById('confirm-accept-btn').addEventListener('click', () => handleConfirmSelection(true));
-
-    function copyFallbackText(elementId) {
-      const inputElement = document.getElementById(elementId);
-      inputElement.select();
-      inputElement.setSelectionRange(0, 99999); 
-      document.execCommand('copy');
-      
-      const copyButton = event.target;
-      const initialText = copyButton.textContent;
-      copyButton.textContent = "Copied!";
-      copyButton.classList.replace('bg-brand-obsidian', 'bg-emerald-600');
-      setTimeout(() => {
-        copyButton.textContent = initialText;
-        copyButton.classList.replace('bg-emerald-600', 'bg-brand-obsidian');
-      }, 1500);
-    }
-
-    // Reactive Cart Actions Pipeline Implementation
-    function addToCartPortfolio(productNameEncoded) {
-      const targetName = decodeURIComponent(productNameEncoded);
-      const matchedProduct = localProductsDataset.find(p => p.name === targetName);
-
-      if (matchedProduct) {
-        const itemExists = activeCartInventory.find(item => item.product.name === targetName);
-        if (itemExists) {
-          if (itemExists.quantity >= matchedProduct.quantity) {
-            toggleCustomDialog(true, `Apologies, only ${matchedProduct.quantity} units of this curated selection are currently available in our vault.`);
-            return;
-          }
-          itemExists.quantity += 1;
-        } else {
-          activeCartInventory.push({ product: matchedProduct, quantity: 1 });
-        }
-        updateCartStateView();
-        toggleCartDrawer(true);
-      }
-    }
-
-    function changeQuantity(nameEncoded, delta) {
-      const targetName = decodeURIComponent(nameEncoded);
-      const cartItem = activeCartInventory.find(item => item.product.name === targetName);
-      const matchedProduct = localProductsDataset.find(p => p.name === targetName);
-
-      if (cartItem && matchedProduct) {
-        if (delta > 0 && cartItem.quantity >= matchedProduct.quantity) {
-          toggleCustomDialog(true, `Maximum available inventory vault allocation reached.`);
-          return;
-        }
-        cartItem.quantity += delta;
-        if (cartItem.quantity <= 0) {
-          activeCartInventory = activeCartInventory.filter(item => item.product.name !== targetName);
-        }
-        updateCartStateView();
-      }
-    }
-
-    function updateCartStateView() {
-      const itemsContainer = document.getElementById('cart-items');
-      const counterBadge = document.getElementById('cart-counter');
-      const subtotalLabel = document.getElementById('cart-subtotal');
-      const shippingLabel = document.getElementById('cart-shipping');
-      const taxLabel = document.getElementById('cart-tax');
-      const totalLabel = document.getElementById('cart-total');
-      const zoneBadge = document.getElementById('shipping-zone-badge');
-
-      itemsContainer.innerHTML = "";
-      let trackingSubtotalValue = 0;
-      let totalItemUnits = 0;
-
-      activeCartInventory.forEach(item => {
-        trackingSubtotalValue += item.product.price * item.quantity;
-        totalItemUnits += item.quantity;
-
-        const images = item.product.image ? item.product.image.split('|').map(u => u.trim()).filter(Boolean) : [];
-        const singleDisplayImg = images[0] || 'https://placehold.co/100x120/161b21/d4af37?text=Product';
-
-        const cartCardHtml = `
-          <div class="flex items-center gap-4 pt-4 first:pt-0 text-left">
-            <img src="${singleDisplayImg}" class="w-16 h-20 object-cover rounded-xl bg-stone-100 flex-shrink-0" onerror="this.src='https://placehold.co/100x120/161b21/d4af37?text=Product';">
-            <div class="flex-grow">
-              <h4 class="font-serif text-sm font-bold text-brand-obsidian leading-tight">${item.product.name}</h4>
-              <p class="text-xs text-stone-500 font-semibold mt-1">$${item.product.price.toLocaleString()}</p>
-              <div class="flex items-center gap-2.5 mt-2">
-                <button onclick="changeQuantity('${encodeURIComponent(item.product.name)}', -1)" class="w-6 h-6 border border-stone-200 text-stone-500 flex items-center justify-center rounded-md hover:bg-stone-50">-</button>
-                <span class="text-xs font-semibold text-brand-obsidian w-4 text-center">${item.quantity}</span>
-                <button onclick="changeQuantity('${encodeURIComponent(item.product.name)}', 1)" class="w-6 h-6 border border-stone-200 text-stone-500 flex items-center justify-center rounded-md hover:bg-stone-50">+</button>
-              </div>
-            </div>
-          </div>
-        `;
-        itemsContainer.insertAdjacentHTML('beforeend', cartCardHtml);
-      });
-
-      // Calculate dynamic zone-based shipping cost
-      calculatedShippingValue = calculateShippingCost(trackingSubtotalValue, enteredZipCode);
-      
-      // Calculate CT Sales Tax (Applied to subtotal + shipping in CT)
-      const taxableAmount = trackingSubtotalValue + calculatedShippingValue;
-      const calculatedTaxValue = taxableAmount * CT_TAX_RATE;
-
-      const finalGrandTotal = trackingSubtotalValue + calculatedShippingValue + calculatedTaxValue;
-
-      // Update UI displays
-      counterBadge.textContent = totalItemUnits;
-      subtotalLabel.textContent = `$${trackingSubtotalValue.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-      
-      if (activeFulfillment === 'pickup') {
-        shippingLabel.innerHTML = `<span class="text-emerald-600 font-semibold uppercase text-[10px] tracking-wider">Free Pickup</span>`;
-      } else if (calculatedShippingValue === 0 && trackingSubtotalValue >= 75) {
-        shippingLabel.innerHTML = `<span class="text-brand-gold font-semibold uppercase text-[10px] tracking-wider">Free (Promo)</span>`;
-      } else {
-        shippingLabel.textContent = `+$${calculatedShippingValue.toFixed(2)}`;
-      }
-
-      taxLabel.textContent = `+$${calculatedTaxValue.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-
-      if (enteredZipCode && activeFulfillment === 'delivery') {
-        zoneBadge.textContent = computedShippingRegionName;
-        zoneBadge.classList.remove('hidden');
-      } else {
-        zoneBadge.classList.add('hidden');
-      }
-
-      totalLabel.textContent = `$${finalGrandTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-
-      if (activeCartInventory.length === 0) {
-        itemsContainer.innerHTML = `
-          <div class="text-center py-16 space-y-2">
-            <p class="font-serif text-sm italic text-stone-400">Your collection portfolio is empty.</p>
-            <p class="text-[11px] uppercase tracking-wider text-stone-400">Discover premium items now.</p>
-          </div>`;
-      }
-    }
-
-    // Helper: Validates contact details in form fields before checking out
-    function validateBuyerIntake() {
-      const name = document.getElementById('buyer-name').value.trim();
-      const email = document.getElementById('buyer-email').value.trim();
-      const phone = document.getElementById('buyer-phone').value.trim();
-
-      if (!name || !email || !phone) {
-        toggleCustomDialog(true, "Please complete all buyer contact fields (Name, Email, Phone) to secure your reservation.");
-        return null;
-      }
-
-      if (activeFulfillment === 'delivery') {
-        const street = document.getElementById('buyer-street').value.trim();
-        const city = document.getElementById('buyer-city').value.trim();
-        const state = document.getElementById('buyer-state').value.trim();
-        const zip = document.getElementById('buyer-zip').value.trim();
-
-        if (!street || !city || !state || !zip) {
-          toggleCustomDialog(true, "Delivery is selected. Please complete your physical shipping address details.");
-          return null;
-        }
-        return { name, email, phone, street, city, state, zip };
-      }
-
-      return { name, email, phone, pickup: true };
-    }
-
-    // Unified Mobile Messaging (WhatsApp / SMS) reservation routing system
-    function processLuxuryMessagingReservation(mode) {
-      if (activeCartInventory.length === 0) {
-        toggleCustomDialog(true, "Your portfolio selection is currently empty!");
-        return;
-      }
-
-      // Gather whatever buyer info is present, otherwise default to chat fallback details
-      const rawName = document.getElementById('buyer-name').value.trim();
-      const rawEmail = document.getElementById('buyer-email').value.trim();
-      const rawPhone = document.getElementById('buyer-phone').value.trim();
-      const street = document.getElementById('buyer-street').value.trim();
-      const city = document.getElementById('buyer-city').value.trim();
-      const state = document.getElementById('buyer-state').value.trim();
-      const zip = document.getElementById('buyer-zip').value.trim();
-
-      const buyerName = rawName || (mode === 'whatsapp' ? "WhatsApp Client" : "SMS Client");
-      const buyerEmail = rawEmail || "Not specified (In-chat request)";
-      const buyerPhone = rawPhone || "Not specified (In-chat request)";
-
-      const addressDetailsString = activeFulfillment === 'delivery' 
-        ? (street || city || state || zip ? `${street}, ${city}, ${state} ${zip}` : "Delivery (Address to be provided in chat)")
-        : "Store Pickup - 542 Gold Coast Blvd, West Haven, CT";
-
-      const actionBtn = event.currentTarget;
-      const originalBtnText = actionBtn.innerHTML;
-      actionBtn.disabled = true;
-      actionBtn.textContent = "Logging Reservation...";
-
-      let calculatedSubtotal = 0;
-      let orderedItemsListArray = [];
-      activeCartInventory.forEach(item => {
-        calculatedSubtotal += item.product.price * item.quantity;
-        orderedItemsListArray.push(`${item.quantity}x ${item.product.name} ($${item.product.price.toLocaleString()})`);
-      });
-
-      const shippingCost = calculatedShippingValue;
-      const taxCost = (calculatedSubtotal + shippingCost) * CT_TAX_RATE;
-      const grandTotal = calculatedSubtotal + shippingCost + taxCost;
-
-      // 1. Build a structured cloud record packet for Google Sheets sync
-      const reservationPayload = {
-        action: "createReservation",
-        buyerName: buyerName,
-        buyerEmail: buyerEmail,
-        buyerPhone: buyerPhone,
-        fulfillmentType: activeFulfillment,
-        addressDetails: addressDetailsString,
-        subtotal: calculatedSubtotal,
-        shippingCost: shippingCost,
-        tax: taxCost,
-        grandTotal: grandTotal,
-        itemsList: orderedItemsListArray.join('\n')
-      };
-
-      // Send to server in background to write row to your Reservations sheet
-      fetch(GOOGLE_SHEET_API, {
-        method: 'POST',
-        body: JSON.stringify(reservationPayload)
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === 'success') {
-          console.log("Reservation recorded in Google Sheets database.");
-        }
-      })
-      .catch(err => console.warn("Google Sheets auto-log offline: ", err))
-      .finally(() => {
-        // 2. Format a gorgeous messaging layout for WhatsApp & SMS
-        let messageText = `✨ OMNI BY V RESERVATION REQUEST ✨\n\n`;
-        messageText += `👤 CLIENT DETAILS:\n`;
-        messageText += `• Name: ${buyerName}\n`;
-        if (rawPhone) messageText += `• Phone: ${buyerPhone}\n`;
-        if (rawEmail) messageText += `• Email: ${buyerEmail}\n`;
-        messageText += `\n`;
-
-        messageText += `📦 REQUESTED ITEMS:\n`;
-        activeCartInventory.forEach((item, index) => {
-          messageText += `[${index + 1}] ${item.quantity}x ${item.product.name} ($${item.product.price.toLocaleString()})\n`;
-        });
-        messageText += `\n`;
-
-        messageText += `📍 FULFILLMENT:\n`;
-        if (activeFulfillment === 'delivery') {
-          messageText += `• Luxury Delivery to:\n  ${addressDetailsString}\n\n`;
-        } else {
-          messageText += `• In-Showroom Collection\n  (West Haven Boutique)\n\n`;
-        }
-
-        messageText += `💳 PAYMENT ESTIMATES:\n`;
-        messageText += `• Subtotal: $${calculatedSubtotal.toFixed(2)}\n`;
-        messageText += `• Shipping: $${shippingCost.toFixed(2)}\n`;
-        messageText += `• CT Sales Tax (6.35%): $${taxCost.toFixed(2)}\n`;
-        messageText += `• Estimated Grand Total: $${grandTotal.toFixed(2)}\n\n`;
-        messageText += `Please coordinate my secure vault consultation details!`;
-
-        const targetPhone = "12039436789"; // Concierge direct number
-
-        // Route dynamically to WhatsApp or SMS
-        if (mode === 'whatsapp') {
-          const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(messageText)}`;
-          window.open(waUrl, '_blank');
-        } else {
-          // Cross-platform device compatible SMS markup
-          const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-          const smsUrl = `sms:+${targetPhone}${isIOS ? '&' : '?'}body=${encodeURIComponent(messageText)}`;
-          
-          let appSwitchConfirmed = false;
-          window.addEventListener('blur', () => appSwitchConfirmed = true);
-          window.location.href = smsUrl;
-
-          // If the page doesn't blur (meaning the native SMS app didn't open), display fallback
-          setTimeout(() => {
-            if (!appSwitchConfirmed) {
-              document.getElementById('fallback-body-textarea').value = messageText;
-              toggleCartDrawer(false);
-              toggleFallbackModal(true);
-            }
-          }, 800);
-        }
-
-        // Clean up UI & refresh
-        actionBtn.disabled = false;
-        actionBtn.innerHTML = originalBtnText;
-        activeCartInventory = [];
-        updateCartStateView();
-        toggleCartDrawer(false);
-      });
-    }
-
-    function payViaVenmoDeepLink() {
-      if (activeCartInventory.length === 0) {
-        toggleCustomDialog(true, "Your portfolio selection is currently empty!");
-        return;
-      }
-
-      const buyer = validateBuyerIntake();
-      if (!buyer) return;
-
-      let subtotal = 0;
-      let orderSummaryList = [];
-
-      activeCartInventory.forEach(item => {
-        subtotal += item.product.price * item.quantity;
-        orderSummaryList.push(`${item.quantity}x ${item.product.name}`);
-      });
-
-      // Include CT sales tax and shipping calculation in grand total
-      const shippingCost = calculatedShippingValue;
-      const taxCost = (subtotal + shippingCost) * CT_TAX_RATE;
-      const finalTotal = subtotal + shippingCost + taxCost;
-
-      const fulfillmentLabel = activeFulfillment === 'pickup' ? "Boutique Pickup" : `Delivering to ${buyer.zip}`;
-      const sanitizedNote = `Omni: ${orderSummaryList.join(', ')} | For ${buyer.name} (${buyer.phone}) | ${fulfillmentLabel} | Tot: $${finalTotal.toFixed(2)} (inc 6.35% Tax)`.substring(0, 270);
-      
-      const venmoAppUri = `venmo://paycharge?txn=pay&recipients=${encodeURIComponent(VENMO_USERNAME)}&amount=${finalTotal.toFixed(2)}&note=${encodeURIComponent(sanitizedNote)}`;
-      const venmoWebFallback = `https://venmo.com/${encodeURIComponent(VENMO_USERNAME)}?txn=pay&amount=${finalTotal.toFixed(2)}&note=${encodeURIComponent(sanitizedNote)}`;
-
-      let appSwitchConfirmed = false;
-      window.addEventListener('blur', () => appSwitchConfirmed = true);
-      
-      window.location.href = venmoAppUri;
-      
-      setTimeout(() => {
-        if (!appSwitchConfirmed) {
-          window.open(venmoWebFallback, '_blank');
-        }
-      }, 750);
-    }
-
-    function sendEmailReservationRequest() {
-      if (activeCartInventory.length === 0) {
-        toggleCustomDialog(true, "Your portfolio selection is currently empty!");
-        return;
-      }
-
-      const buyer = validateBuyerIntake();
-      if (!buyer) return;
-
-      // Track active interaction element and transition state
-      const reserveBtn = event.target;
-      const originalBtnText = reserveBtn.textContent;
-      reserveBtn.disabled = true;
-      reserveBtn.textContent = "Dispatched to Cloud Vault...";
-
-      let calculatedSubtotal = 0;
-      let orderedItemsListArray = [];
-      activeCartInventory.forEach(item => {
-        calculatedSubtotal += item.product.price * item.quantity;
-        orderedItemsListArray.push(`${item.quantity}x ${item.product.name} ($${item.product.price.toLocaleString()})`);
-      });
-
-      const shippingCost = calculatedShippingValue;
-      const taxCost = (calculatedSubtotal + shippingCost) * CT_TAX_RATE;
-      const grandTotal = calculatedSubtotal + shippingCost + taxCost;
-      const addressDetailsString = activeFulfillment === 'delivery' 
-        ? `${buyer.street}, ${buyer.city}, ${buyer.state} ${buyer.zip}` 
-        : "Store Pickup - 542 Gold Coast Blvd, West Haven, CT";
-
-      // Build structured cloud reservation payload packet
-      const reservationPayload = {
-        action: "createReservation",
-        buyerName: buyer.name,
-        buyerEmail: buyer.email,
-        buyerPhone: buyer.phone,
-        fulfillmentType: activeFulfillment,
-        addressDetails: addressDetailsString,
-        subtotal: calculatedSubtotal,
-        shippingCost: shippingCost,
-        tax: taxCost,
-        grandTotal: grandTotal,
-        itemsList: orderedItemsListArray.join('\n')
-      };
-
-      // 1. Primary Solution: Server-side cloud email process
-      fetch(GOOGLE_SHEET_API, {
-        method: 'POST',
-        body: JSON.stringify(reservationPayload)
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === 'success') {
-          toggleCartDrawer(false);
-          toggleCustomDialog(true, `Consultation Secured!\n\nYour portfolio reservation has been compiled and emailed directly to our West Haven showroom concierge. A confirmation copy has been sent to ${buyer.email}.`);
-          activeCartInventory = [];
-          updateCartStateView();
-        } else {
-          throw new Error(data.message || "Endpoint rejected packet.");
-        }
-      })
-      .catch(err => {
-        console.warn("Direct cloud mail pipeline failed. Falling back to native mailto:", err);
-        
-        // 2. Secondary Solution: Fallback to native Mailto protocol
-        const businessEmail = "vibhuti@omnibyv.com"; 
-        const subjectLine = `Omni Reservation: ${buyer.name} - ${activeFulfillment.toUpperCase()}`;
-        
-        let emailBodyText = `Hello Omni By V,\n\nI would like to place a secure reservation request for the following pieces:\n\n`;
-        activeCartInventory.forEach((item, index) => {
-          const itemTotal = item.product.price * item.quantity;
-          emailBodyText += `${index + 1}. ${item.product.name}\n   Quantity: ${item.quantity}\n   Unit Price: $${item.product.price.toLocaleString()}\n   Total: $${itemTotal.toLocaleString()}\n\n`;
-        });
-
-        emailBodyText += `----------------------------------------\n`;
-        emailBodyText += `💎 SUBTOTAL: $${calculatedSubtotal.toLocaleString()}\n`;
-        emailBodyText += `🚚 FULFILLMENT: ${activeFulfillment.toUpperCase()} (Shipping: $${shippingCost.toFixed(2)})\n`;
-        emailBodyText += `🏛️ CT TAX (6.35%): $${taxCost.toLocaleString()}\n`;
-        emailBodyText += `✨ ESTIMATED TOTAL: $${grandTotal.toLocaleString()}\n`;
-        emailBodyText += `----------------------------------------\n\n`;
-        emailBodyText += `👤 CONTACT:\n   Name: ${buyer.name}\n   Email: ${buyer.email}\n   Phone: ${buyer.phone}\n\n`;
-        emailBodyText += `📍 ADDRESS DETAILS:\n   ${addressDetailsString}\n\n`;
-        emailBodyText += `Please contact me to finalize payment and showroom collection arrangements. Thank you!`;
-
-        document.getElementById('fallback-body-textarea').value = emailBodyText;
-        const mailtoUriLink = `mailto:${businessEmail}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(emailBodyText)}`;
-        
-        let appSwitchConfirmed = false;
-        window.addEventListener('blur', () => appSwitchConfirmed = true);
-        window.location.href = mailtoUriLink;
-        
-        setTimeout(() => {
-          if (!appSwitchConfirmed) {
-            toggleCartDrawer(false);
-            toggleFallbackModal(true);
-          }
-        }, 500);
-      })
-      .finally(() => {
-        reserveBtn.disabled = false;
-        reserveBtn.textContent = originalBtnText;
-      });
-    }
-
-    // --- ADMIN / POS PORTAL OPERATIONS ---
-    function togglePasscodeScreen(openState) {
-      const panel = document.getElementById('passcode-screen');
-      const input = document.getElementById('passcode-input');
-      const err = document.getElementById('passcode-error');
-      
-      if (openState) {
-        if (isAuthorizedAdmin) {
-          revealAdminWorkspace();
-          return;
-        }
-        panel.classList.remove('hidden');
-        setTimeout(() => panel.classList.add('opacity-100'), 10);
-        input.focus();
-      } else {
-        panel.classList.add('hidden');
-        panel.classList.remove('opacity-100');
-        input.value = "";
-        err.classList.add('hidden');
-      }
-    }
-
-    function attemptPasscodeValidation() {
-      const pInput = document.getElementById('passcode-input');
-      const pError = document.getElementById('passcode-error');
-      
-      if (pInput.value === STORE_PIN || pInput.value.toLowerCase() === "sparkle") {
-        isAuthorizedAdmin = true;
-        pError.classList.add('hidden');
-        togglePasscodeScreen(false);
-        setTimeout(() => {
-          revealAdminWorkspace();
-        }, 300);
-      } else {
-        pError.classList.remove('hidden');
-        pInput.value = "";
-      }
-    }
-
-    function revealAdminWorkspace() {
-      document.getElementById('storefront-view').classList.add('hidden');
-      const adminView = document.getElementById('admin-view');
-      adminView.classList.remove('hidden');
-      document.body.style.backgroundColor = "#0C0F12";
-      refreshPOSData();
-    }
-
-    function closeAdminPortal() {
-      document.getElementById('admin-view').classList.add('hidden');
-      document.getElementById('storefront-view').classList.remove('hidden');
-      document.body.style.backgroundColor = "";
-      loadBoutiqueStorefront();
-    }
-
-    async function refreshPOSData() {
-      try {
-        const response = await fetch(`${GOOGLE_SHEET_API}?action=getPOSDashboard`);
-        if (!response.ok) throw new Error(`Google Sheets secure hook returned status ${response.status}`);
-        
-        const result = await response.json();
-        if (result && result.status === 'error') {
-          triggerToast("Sync Refused", result.message, "error");
+        if (products && products.status === 'error') {
+          toggleCustomDialog(true, `Sync refused: ${products.message}`);
           return;
         }
 
-        if (!result || !result.products || !Array.isArray(result.products)) {
-          throw new Error("Dashboard metrics response is missing products details.");
-        }
-
-        const backendCatalog = result.products.map(item => ({
+        // Formulate internal standardized data mapping
+        localProductsDataset = products.map(item => ({
           name: item.name || 'Untitled Piece',
           price: parseFloat(item.price) || 0,
           image: item.image || '',
@@ -1732,62 +442,565 @@
           quantity: parseInt(item.quantity) || 0
         }));
 
-        document.getElementById('stat-sales').textContent = `$${parseFloat(result.monthlySales || 0).toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-        document.getElementById('stat-inventory-value').textContent = `$${parseFloat(result.totalInventoryValue || 0).toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-        document.getElementById('stock-item-count').textContent = `${backendCatalog.length} Designs`;
-
-        const alertContainer = document.getElementById('alert-feed-container');
-        if (result.lowStockItems && result.lowStockItems.length > 0) {
-          alertContainer.classList.remove('hidden');
-          document.getElementById('alert-feed-text').textContent = `Stock Alert: ${result.lowStockItems.join(', ')} require restock operations.`;
-        } else {
-          alertContainer.classList.add('hidden');
-        }
-
-        renderPOSGrid(backendCatalog);
-        triggerToast("Sync Complete", "Active spreadsheet metrics updated cleanly.", "success");
-      } catch (err) {
-        console.error(err);
-        triggerToast("Sync Failed", `Detail: ${err.message}. Please verify Apps Script Deploy ID.`, "error");
+        renderStorefrontGrid();
+        renderCategoryFilterRibbons();
+        renderVaultDashboardList();
+        
+      } catch (error) {
+        console.error("Database connection failure: ", error);
+        toggleCustomDialog(true, "Could not load collection spreadsheet database. Showing mock items for demo purposes.");
+        loadFallbackMockItems();
       }
     }
 
-    function updateAdminCategoriesDropdown() {
-      const datalist = document.getElementById('existing-categories-datalist');
-      const uniqueSheetCategories = [...new Set(localProductsDataset.map(item => item.category).filter(Boolean))].sort();
-      
-      datalist.innerHTML = "";
-      uniqueSheetCategories.forEach(cat => {
-        datalist.insertAdjacentHTML('beforeend', `<option value="${cat}">`);
+    // Load static placeholder items if Sheets link is offline
+    function loadFallbackMockItems() {
+      localProductsDataset = [
+        {
+          name: "Aurelia Solitaire Diamond Ring",
+          price: 2450.00,
+          image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=600&q=80",
+          status: "In Stock",
+          category: "Rings",
+          quantity: 4
+        },
+        {
+          name: "Emerald Cascade Pendant",
+          price: 1890.00,
+          image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80",
+          status: "In Stock",
+          category: "Necklaces",
+          quantity: 2
+        },
+        {
+          name: "Imperial Hour Diamond Hoops",
+          price: 950.00,
+          image: "https://images.unsplash.com/photo-1635767798638-3e25273a8236?auto=format&fit=crop&w=600&q=80",
+          status: "In Stock",
+          category: "Earrings",
+          quantity: 6
+        }
+      ];
+      renderStorefrontGrid();
+      renderCategoryFilterRibbons();
+    }
+
+    // --- STREAMING_CHUNK: Implementing Dynamic Category Buttons ... -->
+    // --- 5. CATEGORY COMPILING & RETAIL FILTER NAVIGATION ---
+    function renderCategoryFilterRibbons() {
+      const container = document.getElementById('dynamic-category-filters');
+      if (!container) return;
+
+      const categoriesSet = new Set(["All"]);
+      localProductsDataset.forEach(p => {
+        if (p.category) categoriesSet.add(p.category.trim());
+      });
+
+      container.innerHTML = "";
+      categoriesSet.forEach(cat => {
+        const isActive = (cat === currentCategoryFilter);
+        const btnHtml = `
+          <button onclick="setActiveCategoryFilter('${cat}')" class="px-4 py-2 rounded-full text-xs font-semibold tracking-wider uppercase transition-all duration-300 ${
+            isActive 
+              ? 'bg-brand-obsidian text-white shadow-lg' 
+              : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
+          }">
+            ${cat}
+          </button>
+        `;
+        container.insertAdjacentHTML('beforeend', btnHtml);
       });
     }
 
-    function renderPOSGrid(catalog) {
-      const container = document.getElementById('pos-products-grid');
-      container.innerHTML = "";
+    function setActiveCategoryFilter(category) {
+      currentCategoryFilter = category;
+      renderStorefrontGrid();
+      renderCategoryFilterRibbons();
+    }
 
-      if (catalog.length === 0) {
-        container.innerHTML = `<p class="text-xs text-stone-500 text-center py-10">No active vault inventory fetched.</p>`;
+    // --- STREAMING_CHUNK: Implementing Interactive Hover Carousels ... -->
+    // --- 6. STOREFRONT DYNAMIC PRODUCT CARDS RENDERING ---
+    function renderStorefrontGrid() {
+      const grid = document.getElementById('storefront-product-grid');
+      const emptyState = document.getElementById('storefront-empty-state');
+      if (!grid) return;
+
+      grid.innerHTML = "";
+
+      // Apply selected Category Filter
+      const displayList = currentCategoryFilter === "All" 
+        ? localProductsDataset 
+        : localProductsDataset.filter(p => p.category === currentCategoryFilter);
+
+      if (displayList.length === 0) {
+        if (emptyState) emptyState.classList.remove('hidden');
         return;
       }
 
-      catalog.forEach(p => {
-        let textClass = "text-emerald-500";
-        if (p.quantity === 0) textClass = "text-red-500";
-        else if (p.quantity <= 2) textClass = "text-amber-500";
+      if (emptyState) emptyState.classList.add('hidden');
 
-        const images = p.image ? p.image.split('|').map(u => u.trim()).filter(Boolean) : [];
-        const imgSrc = images[0] || "https://placehold.co/100x120/161b21/d4af37?text=Appraisal";
+      displayList.forEach((product, idx) => {
+        // Split out multi-image strings (separated by | character)
+        const mediaSourceArray = product.image ? product.image.split('|').map(u => u.trim()).filter(Boolean) : [];
+        const primaryImage = mediaSourceArray[0] || 'https://placehold.co/400x500/161b21/d4af37?text=Product';
+        
+        // Setup unique carousel indicators
+        const cardId = `card-prod-${idx}`;
+        carouselCurrentIndexMap[cardId] = 0;
 
-        container.insertAdjacentHTML('beforeend', `
-          <div class="flex items-center gap-3.5 p-3 rounded-xl bg-stone-900/60 border border-stone-850 text-left">
-            <img src="${imgSrc}" class="w-12 h-14 object-cover rounded-lg bg-stone-800 shrink-0" onerror="this.src='https://placehold.co/100x120/161b21/d4af37?text=Appraisal';">
-            <div class="flex-grow min-w-0">
-              <h4 class="text-xs font-semibold text-white truncate">${p.name}</h4>
-              <p class="text-[10px] text-stone-500 mt-0.5 uppercase tracking-wider font-bold">${p.category}</p>
-              <div class="flex items-center justify-between mt-2">
+        // Generate dot indicator navigation slides
+        let navDotsHtml = "";
+        if (mediaSourceArray.length > 1) {
+          navDotsHtml = `<div class="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 z-10">`;
+          mediaSourceArray.forEach((_, sIdx) => {
+            navDotsHtml += `<span id="${cardId}-dot-${sIdx}" class="w-1.5 h-1.5 rounded-full bg-white/40 premium-transition ${sIdx === 0 ? 'bg-white scale-125' : ''}"></span>`;
+          });
+          navDotsHtml += `</div>`;
+        }
+
+        // Generate card layout HTML block
+        const productCardHtml = `
+          <div class="group bg-white rounded-2xl overflow-hidden border border-stone-100 shadow-sm hover:shadow-xl premium-transition flex flex-col justify-between">
+            
+            <!-- Dynamic Image Carousel Housing -->
+            <div 
+              class="relative aspect-[4/5] overflow-hidden bg-brand-cream border-b border-stone-100/60"
+              onmouseenter="startHoverCarouselCycle('${cardId}', '${encodeURIComponent(JSON.stringify(mediaSourceArray))}')"
+              onmouseleave="stopHoverCarouselCycle('${cardId}')"
+              onclick="cycleMobileSwipeImage('${cardId}', '${encodeURIComponent(JSON.stringify(mediaSourceArray))}')"
+            >
+              <!-- Primary Graphic Display -->
+              <img 
+                id="${cardId}-display-img"
+                src="${primaryImage}" 
+                class="carousel-image w-full h-full object-cover object-center transform group-hover:scale-105 duration-[1.5s]" 
+                onerror="this.src='https://placehold.co/400x500/161b21/d4af37?text=Product';"
+              >
+
+              <!-- Luxury Floating Detail Zoom Trigger Button -->
+              <button 
+                onclick="event.stopPropagation(); launchZoomViewer('${cardId}-display-img')" 
+                class="absolute top-3 right-3 bg-brand-cream/80 backdrop-blur-sm border border-stone-200 text-stone-700 hover:text-brand-gold w-9 h-9 rounded-full flex items-center justify-center shadow-md premium-transition opacity-0 group-hover:opacity-100 z-10"
+                title="Zoom Detail View"
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              </button>
+
+              <!-- Category Badge Sticker -->
+              <span class="absolute top-3 left-3 bg-brand-obsidian/90 text-brand-cream text-[9px] font-bold tracking-widest uppercase px-3 py-1 rounded-full border border-stone-800">
+                ${product.category}
+              </span>
+
+              <!-- Dynamic Slide Progress Dots -->
+              ${navDotsHtml}
+            </div>
+
+            <!-- Retail Card Details -->
+            <div class="p-5 flex-grow flex flex-col justify-between space-y-4">
+              <div class="text-left">
+                <h4 class="font-serif text-lg font-bold text-brand-obsidian leading-snug tracking-wide truncate">
+                  ${product.name}
+                </h4>
+                <p class="text-[11px] text-stone-500 line-clamp-2 leading-relaxed mt-1.5">
+                  ${product.quantity === 0 ? '<span class="text-red-500 font-semibold">[Sold Out] </span>' : ''}${product.quantity <= 2 && product.quantity > 0 ? '<span class="text-amber-500 font-semibold">[Limited Stock] </span>' : ''}Discover classic geometry and secure handcrafted styling details designed specifically for private appraisals.
+                </p>
+              </div>
+
+              <!-- Direct WhatsApp Inquiry Routing Button -->
+              <button 
+                onclick="sendWhatsAppDirectInquiry('${encodeURIComponent(product.name)}')" 
+                class="w-full bg-brand-obsidian text-brand-cream hover:bg-brand-gold hover:text-brand-obsidian py-3 rounded-xl text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2 premium-transition shadow-sm"
+              >
+                <!-- Inline WhatsApp Vector Graphic -->
+                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.022-.079-.115-.13-.306-.218-.19-.092-.1.1-.563-.127-.36-.183-.613-.27-.822-.366-.213-.097-.366-.148-.518.087-.152.223-.59.742-.723.887-.134.152-.27.172-.518.047-.25-.125-1.05-.387-1.996-1.235-.736-.656-1.233-1.47-1.378-1.72-.145-.247-.015-.38.11-.504.112-.111.25-.292.375-.438.12-.146.166-.248.25-.413.087-.17.043-.314-.022-.443-.065-.13-.59-1.42-.81-1.947-.213-.518-.45-.448-.618-.457-.16-.008-.344-.01-.528-.01-.182 0-.48.068-.73.34-.25.27-.954.934-.954 2.28 0 1.348.98 2.65 1.116 2.835.137.186 1.93 2.947 4.675 4.13.65.28 1.157.446 1.554.57.654.207 1.25.177 1.72.107.524-.078 1.61-.658 1.837-1.293.228-.635.228-1.18.16-1.293zm-5.44 7.42h-.018c-1.712 0-3.4-.459-4.87-1.325l-.35-.208-3.61.947.965-3.512-.228-.364C2.936 15.947 2.1 13.914 2.1 11.8a9.914 9.914 0 1 1 15.332 8.412l-.358.214-4.87 1.325zM12 0C5.373 0 0 5.373 0 12c0 2.102.543 4.154 1.585 5.97L0 24l6.195-1.623C7.96 23.415 9.94 24 12 24c6.627 0 12-5.373 12-12 0-3.204-1.25-6.216-3.513-8.485A11.95 11.95 0 0 0 12 0z"/>
+                </svg>
+                Inquire on WhatsApp
+              </button>
+            </div>
+          </div>
+        `;
+        grid.insertAdjacentHTML('beforeend', productCardHtml);
+      });
+    }
+
+    // --- 7. HOVER & TOUCH CAROUSEL EXECUTION ENGINE ---
+    function startHoverCarouselCycle(cardId, mediaStringEncoded) {
+      const mediaList = JSON.parse(decodeURIComponent(mediaStringEncoded));
+      if (mediaList.length <= 1) return;
+
+      clearInterval(carouselIntervalMap[cardId]);
+
+      // Cycle photo slides every 1400 milliseconds
+      carouselIntervalMap[cardId] = setInterval(() => {
+        let currentIdx = carouselCurrentIndexMap[cardId];
+        currentIdx = (currentIdx + 1) % mediaList.length;
+        carouselCurrentIndexMap[cardId] = currentIdx;
+        
+        updateCardCarouselView(cardId, mediaList, currentIdx);
+      }, 1400);
+    }
+
+    function stopHoverCarouselCycle(cardId) {
+      clearInterval(carouselIntervalMap[cardId]);
+    }
+
+    function cycleMobileSwipeImage(cardId, mediaStringEncoded) {
+      // Touch-based tap cycle fallback (primarily for iOS/Android smartphones)
+      const mediaList = JSON.parse(decodeURIComponent(mediaStringEncoded));
+      if (mediaList.length <= 1) return;
+
+      let currentIdx = carouselCurrentIndexMap[cardId];
+      currentIdx = (currentIdx + 1) % mediaList.length;
+      carouselCurrentIndexMap[cardId] = currentIdx;
+
+      updateCardCarouselView(cardId, mediaList, currentIdx);
+    }
+
+    function updateCardCarouselView(cardId, mediaList, targetIdx) {
+      const displayImg = document.getElementById(`${cardId}-display-img`);
+      if (displayImg) {
+        displayImg.style.opacity = '0';
+        setTimeout(() => {
+          displayImg.src = mediaList[targetIdx];
+          displayImg.style.opacity = '1';
+        }, 150);
+      }
+
+      // Sync indicator slide dots
+      mediaList.forEach((_, sIdx) => {
+        const dot = document.getElementById(`${cardId}-dot-${sIdx}`);
+        if (dot) {
+          if (sIdx === targetIdx) {
+            dot.classList.add('bg-white', 'scale-125');
+            dot.classList.remove('bg-white/40');
+          } else {
+            dot.classList.remove('bg-white', 'scale-125');
+            dot.classList.add('bg-white/40');
+          }
+        }
+      });
+    }
+
+    // --- STREAMING_CHUNK: Setting up WhatsApp Inquiry Formulator ... -->
+    // --- 8. DIRECT-TO-WHATSAPP CONCIERGE LINK ---
+    function sendWhatsAppDirectInquiry(encodedProductName) {
+      const productName = decodeURIComponent(encodedProductName);
+      
+      const customMessageText = `Hello Vibhuti! I am viewing your Omni by V jewelry collections and would love to initiate a private appraisal inquiry regarding the gorgeous: "${productName}". Please let me know when you have availability to arrange details. Thank you!`;
+      
+      const encodedMessage = encodeURIComponent(customMessageText);
+      const targetWhatsAppUrl = `https://wa.me/1${DIRECT_WHATSAPP_PHONE}?text=${encodedMessage}`;
+      
+      window.open(targetWhatsAppUrl, '_blank');
+    }
+
+    // --- STREAMING_CHUNK: Designing Multi-Touch Pinch & Drag Inspector ... -->
+    // --- 9. INTERACTIVE FULL-SCREEN DETAIL ZOOM VIEWER ---
+    function launchZoomViewer(targetImageId) {
+      const originImageEl = document.getElementById(targetImageId);
+      const zoomOverlay = document.getElementById('image-zoom-overlay');
+      const focusedImg = document.getElementById('zoom-focused-image');
+      const dragWrapper = document.getElementById('zoom-drag-wrapper');
+
+      if (!originImageEl || !zoomOverlay || !focusedImg) return;
+
+      // Reset coordinates to fresh default view
+      imageZoomLevel = 1.0;
+      currentDragOffset = { x: 0, y: 0 };
+
+      focusedImg.src = originImageEl.src;
+      dragWrapper.style.transform = `translate(0px, 0px) scale(1)`;
+      document.getElementById('zoom-ratio-label').textContent = `Zoom: 100%`;
+
+      zoomOverlay.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden'); // Lock scroll lock
+    }
+
+    function closeZoomViewer() {
+      const zoomOverlay = document.getElementById('image-zoom-overlay');
+      if (zoomOverlay) zoomOverlay.classList.add('hidden');
+      document.body.classList.remove('overflow-hidden'); // Release scroll lock
+    }
+
+    function adjustZoomLevel(delta) {
+      imageZoomLevel = Math.max(0.5, Math.min(4.0, imageZoomLevel + delta));
+      const dragWrapper = document.getElementById('zoom-drag-wrapper');
+      if (dragWrapper) {
+        dragWrapper.style.transform = `translate(${currentDragOffset.x}px, ${currentDragOffset.y}px) scale(${imageZoomLevel})`;
+        document.getElementById('zoom-ratio-label').textContent = `Zoom: ${Math.round(imageZoomLevel * 100)}%`;
+      }
+    }
+
+    function resetZoomViewport() {
+      imageZoomLevel = 1.0;
+      currentDragOffset = { x: 0, y: 0 };
+      const dragWrapper = document.getElementById('zoom-drag-wrapper');
+      if (dragWrapper) {
+        dragWrapper.style.transform = `translate(0px, 0px) scale(1)`;
+        document.getElementById('zoom-ratio-label').textContent = `Zoom: 100%`;
+      }
+    }
+
+    function setupZoomDragListeners() {
+      const dragWrapper = document.getElementById('zoom-drag-wrapper');
+      if (!dragWrapper) return;
+
+      // Mouse Down / Touch Start
+      const startDrag = (e) => {
+        isDraggingZoomImage = true;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+        
+        dragStartPosition = { 
+          x: clientX - currentDragOffset.x, 
+          y: clientY - currentDragOffset.y 
+        };
+      };
+
+      // Mouse Move / Touch Move
+      const performDrag = (e) => {
+        if (!isDraggingZoomImage) return;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+
+        currentDragOffset = {
+          x: clientX - dragStartPosition.x,
+          y: clientY - dragStartPosition.y
+        };
+
+        dragWrapper.style.transform = `translate(${currentDragOffset.x}px, ${currentDragOffset.y}px) scale(${imageZoomLevel})`;
+      };
+
+      // Mouse Up / Touch End
+      const terminateDrag = () => {
+        isDraggingZoomImage = false;
+      };
+
+      // Bind Mouse Events
+      dragWrapper.addEventListener('mousedown', startDrag);
+      window.addEventListener('mousemove', performDrag);
+      window.addEventListener('mouseup', terminateDrag);
+
+      // Bind Mobile Touch Events
+      dragWrapper.addEventListener('touchstart', startDrag, { passive: true });
+      window.addEventListener('touchmove', performDrag, { passive: true });
+      window.addEventListener('touchend', terminateDrag);
+    }
+
+    // --- 10. PASSCODE LOCK & ADMINISTRATIVE TOGGLING ---
+    function togglePrivateVaultView() {
+      const storefrontPanel = document.getElementById('storefront-panel');
+      const vaultPanel = document.getElementById('vault-panel');
+
+      if (vaultPanel.classList.contains('hidden')) {
+        storefrontPanel.classList.add('hidden');
+        vaultPanel.classList.remove('hidden');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        vaultPanel.classList.add('hidden');
+        storefrontPanel.classList.remove('hidden');
+      }
+    }
+
+    function scrollToPrivateVaultView() {
+      const storefrontPanel = document.getElementById('storefront-panel');
+      const vaultPanel = document.getElementById('vault-panel');
+      storefrontPanel.classList.add('hidden');
+      vaultPanel.classList.remove('hidden');
+      
+      const elementTarget = document.getElementById('vault-lock-screen');
+      if (elementTarget) {
+        elementTarget.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function attemptVaultAuthorization() {
+      const passcodeField = document.getElementById('vault-passcode-field');
+      const errorMsg = document.getElementById('vault-passcode-error');
+      
+      if (passcodeField.value === SECURITY_ACCESS_PIN || passcodeField.value.toLowerCase() === "sparkle") {
+        document.getElementById('vault-lock-screen').classList.add('hidden');
+        document.getElementById('vault-dashboard').classList.remove('hidden');
+        errorMsg.classList.add('hidden');
+        passcodeField.value = "";
+      } else {
+        errorMsg.classList.remove('hidden');
+        passcodeField.value = "";
+      }
+    }
+
+    function deauthorizeVault() {
+      document.getElementById('vault-dashboard').classList.add('hidden');
+      document.getElementById('vault-lock-screen').classList.remove('hidden');
+      togglePrivateVaultView();
+    }
+
+    // --- STREAMING_CHUNK: Implementing Multi-Photo Admin Input Previews ... -->
+    // --- 11. ADDDING COLLECTION DRAFTS MEDIA PREVIEWS ---
+    function triggerNativeAdminUpload(targetSource) {
+      if (targetSource === 'upload') {
+        document.getElementById('admin-file-upload').click();
+      } else {
+        document.getElementById('admin-camera-capture').click();
+      }
+    }
+
+    function processAdminImageInput(fileObj) {
+      if (!fileObj) return;
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const tempImg = new Image();
+        tempImg.onload = function() {
+          const canvas = document.createElement('canvas');
+          let width = tempImg.width;
+          let height = tempImg.height;
+          const maxDim = 400; // Resize boundaries for optimized load speeds
+
+          if (width > height) {
+            if (width > maxDim) {
+              height *= maxDim / width;
+              width = maxDim;
+            }
+          } else {
+            if (height > maxDim) {
+              width *= maxDim / height;
+              height = maxDim;
+            }
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          ctx.drawImage(tempImg, 0, 0, width, height);
+
+          // Render optimized JPEG string
+          const optimizedBase64 = canvas.toDataURL('image/jpeg', 0.70);
+          
+          if (activeMediaDraftArray.length >= 5) {
+            toggleCustomDialog(true, "Maximum limit of 5 alternative media drafts reached.");
+            return;
+          }
+
+          activeMediaDraftArray.push(optimizedBase64);
+          renderMediaStackTray();
+        };
+        tempImg.src = e.target.result;
+      };
+      reader.readAsDataURL(fileObj);
+    }
+
+    function renderMediaStackTray() {
+      const tray = document.getElementById('media-stack-tray');
+      if (!tray) return;
+
+      tray.innerHTML = "";
+      
+      if (activeMediaDraftArray.length === 0) {
+        tray.classList.add('hidden');
+        return;
+      }
+
+      tray.classList.remove('hidden');
+      activeMediaDraftArray.forEach((b64String, idx) => {
+        tray.insertAdjacentHTML('beforeend', `
+          <div class="relative w-12 h-14 border border-stone-200 rounded-lg overflow-hidden bg-stone-100 group">
+            <img src="${b64String}" class="w-full h-full object-cover">
+            <button type="button" onclick="removeDraftPhotoSlide(${idx})" class="absolute inset-0 bg-black/60 text-white font-bold text-[10px] items-center justify-center flex opacity-0 group-hover:opacity-100 premium-transition">✕</button>
+          </div>
+        `);
+      });
+
+      // Synchronize join values to form output input string
+      document.getElementById('add-field-image').value = activeMediaDraftArray.join('|');
+    }
+
+    function removeDraftPhotoSlide(targetIndex) {
+      activeMediaDraftArray = activeMediaDraftArray.filter((_, idx) => idx !== targetIndex);
+      renderMediaStackTray();
+    }
+
+    function clearVaultDraftForm() {
+      document.getElementById('vault-publish-form').reset();
+      activeMediaDraftArray = [];
+      renderMediaStackTray();
+    }
+
+    // --- STREAMING_CHUNK: Processing Secure POST Writes ... -->
+    // --- 12. WRITE TRANSACTIONS TRANSMISSIONS PIPELINE ---
+    async function handlePublishSubmission(event) {
+      event.preventDefault();
+
+      const publishBtn = document.getElementById('submit-vault-button');
+      publishBtn.disabled = true;
+      publishBtn.textContent = "Syncing with Vault Sheets...";
+
+      const rawInputImage = document.getElementById('add-field-image').value.trim();
+      
+      const publishPayload = {
+        action: "addNewProduct",
+        name: document.getElementById('add-field-name').value.trim(),
+        price: parseFloat(document.getElementById('add-field-price').value),
+        quantity: parseInt(document.getElementById('add-field-qty').value),
+        category: document.getElementById('add-field-category').value.trim(),
+        status: document.getElementById('add-field-status').value,
+        image: rawInputImage || 'https://placehold.co/400x500/161b21/d4af37?text=Product'
+      };
+
+      try {
+        const response = await fetch(GOOGLE_API_ENDPOINT, {
+          method: 'POST',
+          body: JSON.stringify(publishPayload)
+        });
+
+        const outputData = await response.json();
+        if (outputData.status === 'success') {
+          toggleCustomDialog(true, "Jewelry design successfully committed to Google Sheets!");
+          clearVaultDraftForm();
+          initializeStorefrontWorkspace(); // Reload live datasets
+        } else {
+          throw new Error(outputData.message);
+        }
+      } catch (err) {
+        toggleCustomDialog(true, `Database sync error: ${err.message}`);
+      } finally {
+        publishBtn.disabled = false;
+        publishBtn.textContent = "Publish Design Line";
+      }
+    }
+
+    // --- 13. ADMIN ACTIVE LIST RENDERING ---
+    function renderVaultDashboardList() {
+      const dashboardContainer = document.getElementById('admin-vault-list');
+      const countBadge = document.getElementById('vault-count-badge');
+      if (!dashboardContainer) return;
+
+      dashboardContainer.innerHTML = "";
+      if (countBadge) countBadge.textContent = `${localProductsDataset.length} Designs Active`;
+
+      if (localProductsDataset.length === 0) {
+        dashboardContainer.innerHTML = `<p class="text-xs text-stone-500 py-10 text-center">No spreadsheet rows detected.</p>`;
+        return;
+      }
+
+      localProductsDataset.forEach(p => {
+        const firstImg = p.image ? p.image.split('|')[0] : '';
+        const displaySrc = firstImg || "https://placehold.co/100x120/161b21/d4af37?text=No+Photo";
+        
+        let qtyLabelColor = "text-emerald-600";
+        if (p.quantity === 0) qtyLabelColor = "text-red-500";
+        else if (p.quantity <= 2) qtyLabelColor = "text-amber-500";
+
+        dashboardContainer.insertAdjacentHTML('beforeend', `
+          <div class="flex items-center gap-4 p-3 rounded-xl bg-stone-900 border border-stone-800 text-left">
+            <img src="${displaySrc}" class="w-12 h-14 object-cover rounded-lg bg-stone-800 shrink-0" onerror="this.src='https://placehold.co/100x120/161b21/d4af37?text=No+Photo';">
+            <div class="flex-grow min-w-0 text-white">
+              <h4 class="text-xs font-bold truncate leading-snug">${p.name}</h4>
+              <p class="text-[9px] text-stone-500 uppercase font-semibold mt-1 tracking-wider">${p.category}</p>
+              <div class="flex items-center justify-between mt-2.5">
                 <span class="text-xs font-bold text-brand-gold">$${p.price.toLocaleString(undefined, {minimumFractionDigits: 2})}</span>
-                <span class="text-[10px] font-bold ${textClass}">Qty: ${p.quantity} (${p.status})</span>
+                <span class="text-[10px] font-bold ${qtyLabelColor}">Quantity: ${p.quantity} (${p.status})</span>
               </div>
             </div>
           </div>
@@ -1795,257 +1008,20 @@
       });
     }
 
-    function triggerFileInput(mode) {
-      if (mode === 'upload') {
-        document.getElementById('image-upload-file').click();
+    // --- 14. NULL SAFE UTILITY OVERLAYS ---
+    function toggleCustomDialog(isVisible, textMessage = "") {
+      const dialogOverlay = document.getElementById('custom-dialog-overlay');
+      const dialogLabel = document.getElementById('custom-dialog-text');
+
+      if (!dialogOverlay) return;
+
+      if (isVisible) {
+        if (dialogLabel) dialogLabel.textContent = textMessage;
+        dialogOverlay.classList.remove('hidden');
       } else {
-        document.getElementById('image-capture-camera').click();
+        dialogOverlay.classList.add('hidden');
       }
     }
-
-    // Native Camera/Photo Processing & Compression Engine (Saves to Multi-Image Draft Array)
-    function handleImageProcessing(file) {
-      if (!file) return;
-
-      const reader = new FileReader();
-      reader.onload = function(event) {
-        const img = new Image();
-        img.onload = function() {
-          const canvas = document.createElement('canvas');
-          let width = img.width;
-          let height = img.height;
-          const max_size = 400; // Force tiny canvas footprint safe for direct cell string writing
-
-          if (width > height) {
-            if (width > max_size) {
-              height *= max_size / width;
-              width = max_size;
-            }
-          } else {
-            if (height > max_size) {
-              width *= max_size / height;
-              height = max_size;
-            }
-          }
-
-          canvas.width = width;
-          canvas.height = height;
-          const ctx = canvas.getContext('2d');
-          ctx.drawImage(img, 0, 0, width, height);
-
-          // Render compressed JPEG
-          const optimizedBase64 = canvas.toDataURL('image/jpeg', 0.65);
-          
-          tempDraftImages.push(optimizedBase64);
-          renderDraftImagesPreview();
-          triggerToast("Media Capped", "Compressed camera angle saved.", "success");
-        };
-        img.src = event.target.result;
-      };
-      reader.readAsDataURL(file);
-    }
-
-    function addManualImageUrl() {
-      const inputEl = document.getElementById('input-image-url');
-      const val = inputEl.value.trim();
-      if (val) {
-        tempDraftImages.push(val);
-        inputEl.value = "";
-        renderDraftImagesPreview();
-        triggerToast("URL Drafted", "Alternate remote image queued.", "success");
-      }
-    }
-
-    function removeDraftImage(index) {
-      tempDraftImages.splice(index, 1);
-      renderDraftImagesPreview();
-    }
-
-    function renderDraftImagesPreview() {
-      const container = document.getElementById('draft-images-tray');
-      const finalPayloadEl = document.getElementById('input-image-final-payload');
-      
-      container.innerHTML = "";
-
-      if (tempDraftImages.length === 0) {
-        container.innerHTML = `<p class="text-[10px] text-stone-500 w-full text-center py-4 uppercase tracking-widest font-semibold">No media slides drafted yet.</p>`;
-        finalPayloadEl.value = "";
-        return;
-      }
-
-      tempDraftImages.forEach((img, idx) => {
-        container.insertAdjacentHTML('beforeend', `
-          <div class="relative w-20 h-24 rounded-lg overflow-hidden border border-stone-850 bg-stone-900 group">
-            <img src="${img}" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/100x120/161b21/d4af37?text=Broken';">
-            <span class="absolute bottom-1 left-1 bg-black/60 text-white text-[8px] font-bold px-1.5 py-0.5 rounded">${idx + 1}</span>
-            <button type="button" onclick="removeDraftImage(${idx})" class="absolute top-1 right-1 bg-red-950/80 text-white rounded-full w-4 h-4 flex items-center justify-center text-[9px] hover:bg-red-900 font-bold">✕</button>
-          </div>
-        `);
-      });
-
-      // Join our temporary images with the pipe character to form our compound payload
-      finalPayloadEl.value = tempDraftImages.join('|');
-    }
-
-    async function handleFormSubmission(event) {
-      event.preventDefault();
-
-      const payloadVal = document.getElementById('input-image-final-payload').value.trim();
-      if (!payloadVal) {
-        triggerToast("Photo Required", "Please capture or add at least 1 image before saving.", "error");
-        return;
-      }
-
-      const btn = document.getElementById('form-submit-btn');
-      btn.disabled = true;
-      btn.textContent = "Writing To Vault Sheets...";
-
-      const requestPayload = {
-        action: "addNewProduct",
-        name: document.getElementById('input-name').value.trim(),
-        price: parseFloat(document.getElementById('input-price').value),
-        quantity: parseInt(document.getElementById('input-quantity').value),
-        category: document.getElementById('input-category').value.trim(),
-        status: document.getElementById('input-status').value,
-        image: payloadVal
-      };
-
-      try {
-        const res = await fetch(GOOGLE_SHEET_API, {
-          method: 'POST',
-          body: JSON.stringify(requestPayload)
-        });
-
-        const resData = await res.json();
-        if (resData.status === 'success') {
-          triggerToast("Piece Published", "Inventory successfully committed.", "success");
-          document.getElementById('add-product-form').reset();
-          tempDraftImages = [];
-          renderDraftImagesPreview();
-          refreshPOSData();
-        } else {
-          throw new Error(resData.message);
-        }
-      } catch (err) {
-        triggerToast("Database Error", err.message, "error");
-      } finally {
-        btn.disabled = false;
-        btn.textContent = "Publish Jewelry Design";
-      }
-    }
-
-    function triggerToast(title, message, type = "success") {
-      const el = document.getElementById('toast-layer');
-      const titleEl = document.getElementById('toast-title');
-      const messageEl = document.getElementById('toast-message');
-      const iconWrapper = document.getElementById('toast-icon-wrapper');
-
-      titleEl.textContent = title;
-      messageEl.textContent = message;
-
-      if (type === 'success') {
-        el.className = "fixed top-6 right-6 z-55 flex items-center bg-stone-950 border border-emerald-500/20 px-5 py-4 rounded-xl shadow-2xl transition-all duration-300 translate-x-0 opacity-100";
-        iconWrapper.className = "w-5 h-5 flex items-center justify-center rounded-full bg-emerald-500 text-stone-950 shrink-0";
-        iconWrapper.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>`;
-      } else {
-        el.className = "fixed top-6 right-6 z-55 flex items-center bg-stone-950 border border-red-500/20 px-5 py-4 rounded-xl shadow-2xl transition-all duration-300 translate-x-0 opacity-100";
-        iconWrapper.className = "w-5 h-5 flex items-center justify-center rounded-full bg-red-500 text-white shrink-0";
-        iconWrapper.innerHTML = `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>`;
-      }
-
-      setTimeout(() => {
-        el.classList.add('translate-x-80', 'opacity-0');
-      }, 4000);
-    }
-
-    // --- Core Lightbox Zoom & Drag Pan Mechanics ---
-    let lightboxScale = 1;
-    let lightboxTranslateX = 0;
-    let lightboxTranslateY = 0;
-    let isDraggingLightbox = false;
-    let startDragX = 0;
-    let startDragY = 0;
-
-    function openLightbox(src) {
-      const lightbox = document.getElementById('image-lightbox');
-      const img = document.getElementById('lightbox-img');
-      img.src = src;
-      lightbox.classList.remove('hidden');
-      resetLightboxZoom();
-    }
-
-    function closeLightbox() {
-      const lightbox = document.getElementById('image-lightbox');
-      lightbox.classList.add('hidden');
-    }
-
-    function zoomLightbox(factor) {
-      lightboxScale = Math.max(0.5, Math.min(4, lightboxScale * factor));
-      updateLightboxTransform();
-    }
-
-    function resetLightboxZoom() {
-      lightboxScale = 1;
-      lightboxTranslateX = 0;
-      lightboxTranslateY = 0;
-      updateLightboxTransform();
-    }
-
-    function updateLightboxTransform() {
-      const img = document.getElementById('lightbox-img');
-      const indicator = document.getElementById('lightbox-zoom-indicator');
-      img.style.transform = `translate(${lightboxTranslateX}px, ${lightboxTranslateY}px) scale(${lightboxScale})`;
-      indicator.textContent = `${Math.round(lightboxScale * 100)}%`;
-    }
-
-    const stylingInjection = document.createElement('style');
-    stylingInjection.innerHTML = `
-      @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(8px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-fade-in { animation: fadeIn 0.5s ease-out; }
-      .scrollbar-none::-webkit-scrollbar { display: none; }
-      .scrollbar-none { -ms-overflow-style: none; scrollbar-width: none; }
-    `;
-    document.head.appendChild(stylingInjection);
-
-    window.addEventListener('DOMContentLoaded', () => {
-      loadBoutiqueStorefront();
-
-      // Set up dragging listeners for Lightbox Pan support on both desktop & phones
-      const wrapper = document.getElementById('lightbox-img-wrapper');
-      
-      const startDrag = (e) => {
-        if (lightboxScale <= 1) return; // Only pan/drag when zoomed in
-        isDraggingLightbox = true;
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        startDragX = clientX - lightboxTranslateX;
-        startDragY = clientY - lightboxTranslateY;
-      };
-
-      const doDrag = (e) => {
-        if (!isDraggingLightbox) return;
-        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-        lightboxTranslateX = clientX - startDragX;
-        lightboxTranslateY = clientY - startDragY;
-        updateLightboxTransform();
-      };
-
-      const stopDrag = () => {
-        isDraggingLightbox = false;
-      };
-
-      wrapper.addEventListener('mousedown', startDrag);
-      wrapper.addEventListener('mousemove', doDrag);
-      window.addEventListener('mouseup', stopDrag);
-
-      wrapper.addEventListener('touchstart', startDrag, { passive: true });
-      wrapper.addEventListener('touchmove', doDrag, { passive: true });
-      window.addEventListener('touchend', stopDrag);
-    });
   </script>
 </body>
 </html>
