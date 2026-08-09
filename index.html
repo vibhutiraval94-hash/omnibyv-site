@@ -1755,11 +1755,12 @@
       }
     }
 
-    // Native Camera/Photo Processing Engine — adaptive compression:
-    // starts sharp and only steps size/quality down as far as needed to
-    // guarantee the result still fits inside a single Google Sheets cell
-    // (50,000 char limit). This replaces the old fixed 400px/0.65 preset,
-    // which was throwing away detail even on photos that didn't need it.
+    // Native Camera/Photo Processing Engine.
+    // Photos are now uploaded to Google Drive by the Apps Script backend
+    // (which stores just the resulting link in the sheet), so this no longer
+    // needs to squeeze under the old ~50,000-character sheet-cell ceiling.
+    // A generous resize + high JPEG quality is enough — the POST body to
+    // Apps Script comfortably handles images in this range.
     function handleImageProcessing(file) {
       if (!file) return;
 
@@ -1767,7 +1768,7 @@
       reader.onload = function(event) {
         const img = new Image();
         img.onload = function() {
-          const optimizedBase64 = compressImageToFit(img, 45000); // safety margin under the 50,000-char cell cap
+          const optimizedBase64 = compressImageForUpload(img, 1600, 0.9);
           tempDraftImages.push(optimizedBase64);
           renderDraftImagesPreview();
           triggerToast("Media Captured", "Photo optimized and saved.", "success");
@@ -1777,38 +1778,23 @@
       reader.readAsDataURL(file);
     }
 
-    function compressImageToFit(img, maxBase64Length) {
-      const sizeSteps = [900, 700, 550, 400, 300];
-      const qualitySteps = [0.82, 0.75, 0.68, 0.6];
-
-      for (const maxDim of sizeSteps) {
-        let width = img.width, height = img.height;
-        if (width > height) {
-          if (width > maxDim) { height *= maxDim / width; width = maxDim; }
-        } else {
-          if (height > maxDim) { width *= maxDim / height; height = maxDim; }
-        }
-
-        const canvas = document.createElement('canvas');
-        canvas.width = width;
-        canvas.height = height;
-        const ctx = canvas.getContext('2d');
-        ctx.imageSmoothingEnabled = true;
-        ctx.imageSmoothingQuality = 'high';
-        ctx.drawImage(img, 0, 0, width, height);
-
-        for (const quality of qualitySteps) {
-          const candidate = canvas.toDataURL('image/jpeg', quality);
-          if (candidate.length <= maxBase64Length) return candidate;
-        }
+    function compressImageForUpload(img, maxDim, quality) {
+      let width = img.width, height = img.height;
+      if (width > height) {
+        if (width > maxDim) { height *= maxDim / width; width = maxDim; }
+      } else {
+        if (height > maxDim) { width *= maxDim / height; height = maxDim; }
       }
 
-      // Absolute last resort — guaranteed to fit even for unusually dense source images
       const canvas = document.createElement('canvas');
-      canvas.width = 300;
-      canvas.height = 300;
-      canvas.getContext('2d').drawImage(img, 0, 0, 300, 300);
-      return canvas.toDataURL('image/jpeg', 0.5);
+      canvas.width = width;
+      canvas.height = height;
+      const ctx = canvas.getContext('2d');
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = 'high';
+      ctx.drawImage(img, 0, 0, width, height);
+
+      return canvas.toDataURL('image/jpeg', quality);
     }
 
     function addManualImageUrl() {
