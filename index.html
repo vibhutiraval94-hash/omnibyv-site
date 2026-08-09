@@ -105,7 +105,7 @@
 
   <!-- Promo Ribbon Bar -->
   <div class="relative z-30 bg-brand-obsidian text-white text-[11px] font-medium tracking-[0.2em] text-center py-2.5 uppercase border-b border-brand-gold/20 flex items-center justify-center gap-4 flex-wrap px-4">
-    <span>✨ Free Premium Luxury Shipping On Orders Above $75</span>
+    <span>✨ Reach Out Directly For Pricing & Availability</span>
     <span class="hidden md:inline text-stone-500">|</span>
     <a href="tel:2039436789" class="text-brand-gold hover:text-brand-goldHover transition-colors font-semibold tracking-[0.1em] flex items-center gap-1">
       <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.387a12.035 12.035 0 01-7.108-7.108c-.145-.44.02-.927.396-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"/></svg>
@@ -150,11 +150,6 @@
             <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 5.25a3 3 0 013 3m3 0a6 6 0 01-7.029 5.912c-.563-.097-1.159.026-1.563.43L10.5 17.25H8.25v2.25H6v2.25H2.25v-2.818c0-.597.237-1.17.659-1.591l6.499-6.499c.404-.404.527-1 .43-1.563A6 6 0 1121.75 8.25z" />
             </svg>
-          </button>
-          
-          <button onclick="toggleCartDrawer(true)" class="relative p-2 text-brand-obsidian hover:text-brand-gold transition-colors duration-300" title="Your Selection Portfolio">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"/></svg>
-            <span id="cart-counter" class="absolute -top-0.5 -right-0.5 bg-brand-gold text-brand-obsidian font-bold text-[10px] w-4 h-4 rounded-full flex items-center justify-center shadow-sm">0</span>
           </button>
         </div>
       </div>
@@ -410,190 +405,6 @@
     </div>
   </div>
 
-  <!-- Interactive Slide-out Shopping Cart Sidebar Window Overlay -->
-  <div id="cart-overlay" class="fixed inset-0 z-50 invisible transition-all duration-300">
-    <div onclick="toggleCartDrawer(false)" class="absolute inset-0 bg-brand-obsidian/40 backdrop-blur-sm transition-opacity opacity-0" id="cart-backdrop"></div>
-    <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col transform translate-x-full transition-transform duration-300" id="cart-drawer">
-      
-      <!-- Cart View Header Window -->
-      <div class="p-6 border-b border-stone-100 flex items-center justify-between">
-        <h3 class="font-serif text-xl font-bold tracking-wider text-brand-obsidian uppercase">Your Selection Portfolio</h3>
-        <button onclick="toggleCartDrawer(false)" class="p-2 text-stone-400 hover:text-brand-obsidian transition-colors">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-        </button>
-      </div>
-
-      <!-- Scrollable Added Items Container -->
-      <div id="cart-scroll-container" class="flex-grow overflow-y-auto p-6 space-y-6">
-        
-        <!-- Cart Items List Segment -->
-        <div id="cart-items" class="space-y-6 divide-y divide-stone-100">
-          <!-- Dynamic Items Populated Here -->
-        </div>
-
-        <!-- NEW Fulfillment Toggle Strategy Section -->
-        <div class="pt-6 border-t border-stone-150 space-y-3 text-left">
-          <label class="text-[10px] uppercase tracking-wider font-bold text-stone-500 block">Fulfillment Preference *</label>
-          <div class="grid grid-cols-2 gap-2.5">
-            <button id="fulfillment-delivery-btn" onclick="setFulfillmentType('delivery')" class="py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border-2 border-brand-obsidian bg-brand-obsidian text-white flex flex-col items-center justify-center gap-1.5">
-              <span>🚚 Delivery</span>
-            </button>
-            <button id="fulfillment-pickup-btn" onclick="setFulfillmentType('pickup')" class="py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-stone-200 text-stone-600 hover:bg-brand-canvas flex flex-col items-center justify-center gap-1.5">
-              <span>🏛️ Store Pickup</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Interactive US Zone ZIP Delivery System -->
-        <div id="zip-calculator-section" class="bg-brand-canvas/60 border border-stone-200/80 p-4 rounded-xl space-y-3 shadow-sm text-left">
-          <div class="flex items-center justify-between">
-            <label class="text-[10px] uppercase tracking-wider font-bold text-stone-500 block">Deliver to ZIP Code</label>
-            <span id="shipping-zone-badge" class="text-[9px] uppercase tracking-widest font-semibold px-2 py-0.5 rounded bg-brand-canvas text-stone-500 hidden">Local</span>
-          </div>
-          <div class="flex gap-2">
-            <input type="text" id="cart-zip-input" maxlength="5" placeholder="e.g., 06516" class="bg-white border border-stone-200 rounded-lg px-3 py-2 text-xs text-brand-obsidian font-semibold outline-none focus:border-brand-gold w-full">
-            <button onclick="recalculateShippingFromInput()" class="bg-brand-obsidian text-white hover:bg-brand-gold px-3 py-2 rounded-lg text-[10px] font-bold uppercase tracking-wider transition-colors whitespace-nowrap">Calculate</button>
-          </div>
-          <p id="shipping-calc-error" class="text-red-500 text-[10px] hidden font-semibold">Please enter a valid 5-digit ZIP code.</p>
-        </div>
-
-        <!-- Store Pickup Address Card Block (Hidden until selected) -->
-        <div id="pickup-info-section" class="hidden bg-amber-500/5 border border-brand-gold/30 p-4 rounded-xl space-y-2 text-left">
-          <h4 class="text-xs font-bold text-brand-gold uppercase tracking-wider flex items-center gap-1.5">
-            <span>📍 Boutique Pickup Details</span>
-          </h4>
-          <p class="text-xs text-stone-700 leading-relaxed font-medium">
-            Omni By V Showroom<br>
-            542 Gold Coast Blvd, West Haven, CT
-          </p>
-          <p class="text-[10px] text-stone-500 leading-normal">
-            Your pieces will be prepared and polished for pickup in our high-security vault. Present ID on arrival.
-          </p>
-        </div>
-
-        <!-- NEW Contact Intake Form Module -->
-        <div class="bg-white border border-stone-200/80 p-4 rounded-xl space-y-4 shadow-sm text-left">
-          <h4 class="text-xs font-bold text-brand-obsidian uppercase tracking-wider border-b border-stone-100 pb-2">Buyer Secure Information *</h4>
-          
-          <div class="space-y-3 text-xs">
-            <div>
-              <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Full Name</label>
-              <input type="text" id="buyer-name" placeholder="Vibhuti S." class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold">
-            </div>
-            <div class="grid grid-cols-2 gap-2">
-              <div>
-                <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Email Address</label>
-                <input type="email" id="buyer-email" placeholder="vibhuti@omnibyv.com" class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold">
-              </div>
-              <div>
-                <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Phone Number</label>
-                <input type="tel" id="buyer-phone" placeholder="(555) 012-3456" class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold">
-              </div>
-            </div>
-
-            <!-- Dynamic Physical Delivery Address (Only visible if Delivery selected) -->
-            <div id="buyer-address-fields" class="space-y-3 pt-2 border-t border-stone-100">
-              <div>
-                <label class="block text-[10px] uppercase tracking-wider font-bold text-stone-500 mb-1">Delivery Address</label>
-                <input type="text" id="buyer-street" placeholder="542 Gold Coast Blvd" class="w-full bg-brand-canvas border border-stone-200 rounded-lg px-3 py-2.5 text-xs font-medium outline-none focus:border-brand-gold mb-2">
-                <div class="grid grid-cols-3 gap-2">
-                  <input type="text" id="buyer-city" placeholder="West Haven" class="bg-brand-canvas border border-stone-200 rounded-lg px-2.5 py-2 text-xs font-medium outline-none focus:border-brand-gold">
-                  <input type="text" id="buyer-state" value="CT" placeholder="State" class="bg-brand-canvas border border-stone-200 rounded-lg px-2.5 py-2 text-xs font-medium outline-none focus:border-brand-gold text-center">
-                  <input type="text" id="buyer-zip" placeholder="ZIP" class="bg-brand-canvas border border-stone-200 rounded-lg px-2.5 py-2 text-xs font-medium outline-none focus:border-brand-gold text-center" maxlength="5">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Summary Pricing Checkout Interface Footer -->
-      <div class="p-6 border-t border-stone-100 bg-brand-canvas space-y-4 shrink-0">
-        <!-- Pricing Summary Tree -->
-        <div class="space-y-2 text-xs border-b border-stone-200/60 pb-3">
-          <div class="flex justify-between text-stone-500">
-            <span>Portfolio Subtotal</span>
-            <span id="cart-subtotal">$0.00</span>
-          </div>
-          <div class="flex justify-between text-stone-500 items-center">
-            <span>Fulfillment Costs</span>
-            <span id="cart-shipping" class="font-medium">$0.00</span>
-          </div>
-          <!-- Connecticut Sales Tax Indicator -->
-          <div class="flex justify-between text-stone-500">
-            <span class="flex items-center gap-1">CT State Sales Tax <span class="text-[9px] bg-stone-200 text-stone-600 px-1 py-0.2 rounded font-bold">6.35%</span></span>
-            <span id="cart-tax">$0.00</span>
-          </div>
-          <div class="flex justify-between text-sm font-bold text-brand-obsidian pt-1">
-            <span>Estimated Grand Total</span>
-            <span id="cart-total">$0.00</span>
-          </div>
-        </div>
-        
-        <!-- Dual-Action Luxury Checkout Portal -->
-        <div class="space-y-3 pt-1">
-          <!-- Action 1: Instant App Venmo Payment Button -->
-          <button onclick="payViaVenmoDeepLink()" class="w-full bg-[#008CFF] hover:bg-[#007cd2] text-white text-[11px] font-bold tracking-[0.2em] py-4 rounded-xl uppercase transition-all duration-300 shadow-md flex items-center justify-center gap-2">
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M19.6 3h-15.2C3.1 3 2 4.1 2 5.4v13.2c0 1.3 1.1 2.4 2.4 2.4h15.2c1.3 0 2.4-1.1 2.4-2.4V5.4c0-1.3-1.1-2.4-2.4-2.4zM9.4 17.1L5.5 6.5h3.2l2.3 7.2 2.3-7.2h3.1l-4 10.6H9.4z"/>
-            </svg>
-            Pay Instantly with Venmo App
-          </button>
-          
-          <div class="relative flex py-1.5 items-center">
-            <div class="flex-grow border-t border-stone-200"></div>
-            <span class="flex-shrink mx-4 text-[9px] uppercase tracking-widest text-stone-400 font-bold">Or Reserve First</span>
-            <div class="flex-grow border-t border-stone-200"></div>
-          </div>
-
-          <!-- Action 2: WhatsApp & SMS Integration Buttons -->
-          <div class="grid grid-cols-1 gap-2">
-            <button onclick="processLuxuryMessagingReservation('whatsapp')" class="w-full bg-[#25D366] hover:bg-[#20ba5a] text-white text-[11px] font-bold tracking-[0.2em] py-3.5 rounded-xl uppercase transition-all duration-300 shadow-lg flex items-center justify-center gap-2">
-              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.734-1.456L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.42 9.864-9.864.002-2.637-1.03-5.115-2.903-6.99C16.262 1.876 13.784.842 11.15.84 5.717.84 1.292 5.26 1.288 10.692c-.001 1.734.463 3.426 1.344 4.927l-.988 3.604 3.702-.97c1.513.823 3.09 1.255 4.694 1.255zM18.06 14.85c-.33-.164-1.942-.957-2.242-1.063-.3-.106-.518-.16-.733.164-.216.327-.834 1.064-1.022 1.276-.187.213-.375.24-.705.075-1.127-.565-1.95-.985-2.715-2.296-.201-.34-.201-.632-.036-.797.148-.15 1.4-.833.518-1.5-.187-.213-.375-.24-.705-.075-1.616-.723-1.113-.728-2.585-1.252-.403-.143-.85-.143-1.252.003L7.75 8.913c-.347.12-.663.313-.93.568-.456.435-1.353 1.32-1.353 3.215s1.378 3.73 1.572 3.987c.193.257 2.712 4.14 6.57 5.805.918.397 1.634.633 2.193.81.923.293 1.764.252 2.428.153.74-.11 2.242-.915 2.553-1.8 1.127-.565.806-1.503.733-1.64-.073-.136-.268-.215-.598-.38z"/></svg>
-              Reserve on WhatsApp
-            </button>
-            <button onclick="processLuxuryMessagingReservation('sms')" class="w-full bg-brand-obsidian text-white hover:bg-brand-gold text-[11px] font-bold tracking-[0.2em] py-3.5 rounded-xl uppercase transition-all duration-300 shadow-md flex items-center justify-center gap-2">
-              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z" /></svg>
-              Reserve via Text Message
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Bulletproof Elegant Text Copy Fallback Modal Window -->
-  <div id="fallback-modal" class="fixed inset-0 z-50 invisible flex items-center justify-center p-4">
-    <div onclick="toggleFallbackModal(false)" class="absolute inset-0 bg-brand-obsidian/60 backdrop-blur-md transition-opacity opacity-0" id="modal-backdrop"></div>
-    <div class="relative w-full max-w-xl bg-white rounded-2xl p-6 md:p-8 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 border border-stone-100" id="modal-content">
-      <button onclick="toggleFallbackModal(false)" class="absolute top-5 right-5 text-stone-400 hover:text-brand-obsidian transition-colors">
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
-      <div class="space-y-4 text-center">
-        <span class="text-brand-gold text-[10px] font-bold tracking-[0.25em] uppercase block">Boutique Desk Concierge</span>
-        <h3 class="font-serif text-2xl font-bold text-brand-obsidian uppercase tracking-wide">Secure Your Reservation</h3>
-        <p class="text-stone-500 text-xs md:text-sm max-w-md mx-auto leading-relaxed">It looks like a native messaging client isn't configured on this device. Copy the phone number and pre-formatted details below to send them via your preferred messaging app.</p>
-      </div>
-      <div class="mt-6 space-y-4 text-left">
-        <div>
-          <label class="block text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-1.5">Concierge Phone Number</label>
-          <div class="flex gap-2">
-            <input type="text" readonly value="2039436789" id="fallback-phone-input" class="w-full bg-stone-50 border border-stone-200 text-brand-obsidian font-semibold rounded-lg px-4 py-2.5 text-sm outline-none">
-            <button onclick="copyFallbackText('fallback-phone-input')" class="bg-brand-obsidian text-white hover:bg-brand-gold px-4 py-2.5 rounded-lg text-xs font-bold tracking-wider uppercase transition-colors whitespace-nowrap">Copy Number</button>
-          </div>
-        </div>
-        <div>
-          <label class="block text-[10px] uppercase tracking-widest font-bold text-stone-400 mb-1.5">Your Reservation Portfolio Details</label>
-          <div class="relative">
-            <textarea readonly id="fallback-body-textarea" rows="7" class="w-full bg-stone-50 border border-stone-200 font-mono text-[11px] leading-relaxed p-4 rounded-xl text-stone-700 outline-none resize-none"></textarea>
-            <button onclick="copyFallbackText('fallback-body-textarea')" class="absolute bottom-3 right-3 bg-white border border-stone-200 text-brand-obsidian hover:bg-stone-50 shadow-sm px-3 py-1.5 rounded-md text-[10px] font-bold uppercase tracking-wider transition-colors">Copy Portfolio</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- Custom Luxury Notification Overlay Dialog -->
   <div id="custom-dialog-overlay" class="fixed inset-0 z-55 invisible flex items-center justify-center p-4">
     <div onclick="toggleCustomDialog(false)" class="absolute inset-0 bg-brand-obsidian/40 backdrop-blur-sm opacity-0 transition-opacity duration-300" id="dialog-backdrop"></div>
@@ -671,20 +482,12 @@
     const GOOGLE_SHEET_API = "https://script.google.com/macros/s/AKfycbxZ1C3gCq0IrkkObqa4DJExL_vuTmOOEOcwAfAgw4rdUl28zR_uPwL1s6Quu5OCO_Na/exec";
     
     // --- Configurations ---
-    const VENMO_USERNAME = "Vibhuti-Desai-3"; 
     const STORE_PIN = "Omnibyv@1014";
-    const CT_TAX_RATE = 0.0635; // 6.35% Connecticut sales tax
+    const CONCIERGE_WHATSAPP_PHONE = "12039436789";
 
     let localProductsDataset = [];
     let activeCategoryView = "All";
-    let activeCartInventory = [];
     let isAuthorizedAdmin = false;
-
-    // Shipping estimation state
-    let activeFulfillment = "delivery"; // "delivery" or "pickup"
-    let calculatedShippingValue = 0;
-    let computedShippingRegionName = "Local Northeast";
-    let enteredZipCode = "";
 
     // Multi-Image Draft State for Admin
     let tempDraftImages = [];
@@ -764,7 +567,6 @@
         renderCategoryNavigation();
         renderProductsLayout();
         updateAdminCategoriesDropdown();
-        setFulfillmentType('delivery'); // Default to delivery on setup
       } catch (error) {
         console.error("API Engine Fault Exception:", error);
         document.getElementById('loading-spinner').classList.add('hidden');
@@ -870,14 +672,7 @@
               ${indicatorDotsHtml}
 
               ${computedStatus.toLowerCase().includes('low') ? `<span class="absolute top-4 left-4 bg-amber-500/90 backdrop-blur-md text-white text-[9px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md">Low Stock</span>` : ''}
-              ${isSoldOut ? `<span class="absolute inset-0 bg-brand-obsidian/60 backdrop-blur-[2px] flex items-center justify-center text-white text-xs font-bold tracking-widest uppercase">Sold Out</span>` : ''}
-
-              ${!isSoldOut ? `
-                <div class="absolute inset-x-4 bottom-4 translate-y-8 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
-                  <button onclick="addToCartPortfolio('${encodeURIComponent(product.name)}')" class="w-full bg-white/90 hover:bg-white text-brand-obsidian text-[11px] font-bold tracking-widest uppercase py-3 rounded-xl shadow-md transition-all">
-                    + Add To Portfolio
-                  </button>
-                </div>` : ''}
+              ${isSoldOut ? `<span class="absolute top-4 left-4 bg-brand-obsidian/85 backdrop-blur-md text-white text-[9px] font-bold tracking-wider uppercase px-2.5 py-1 rounded-md">Sold Out</span>` : ''}
             </div>
 
             <div class="flex flex-col flex-grow pt-1">
@@ -888,7 +683,10 @@
                 </span>
               </div>
               <h3 class="font-serif text-lg font-medium text-brand-obsidian leading-snug group-hover:text-brand-gold transition-colors duration-300">${product.name}</h3>
-              <p class="text-stone-600 font-semibold text-sm mt-1">$${product.price.toLocaleString(undefined, {minimumFractionDigits: 2})}</p>
+              <button onclick="sendWhatsAppInquiry('${encodeURIComponent(product.name)}')" class="mt-3 w-full bg-brand-obsidian hover:bg-brand-gold text-white hover:text-brand-obsidian text-[11px] font-bold tracking-widest uppercase py-3 rounded-xl shadow-sm transition-all duration-300 flex items-center justify-center gap-2">
+                <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M17.472 14.382c-.022-.079-.115-.13-.306-.218-.19-.092-.1.1-.563-.127-.36-.183-.613-.27-.822-.366-.213-.097-.366-.148-.518.087-.152.223-.59.742-.723.887-.134.152-.27.172-.518.047-.25-.125-1.05-.387-1.996-1.235-.736-.656-1.233-1.47-1.378-1.72-.145-.247-.015-.38.11-.504.112-.111.25-.292.375-.438.12-.146.166-.248.25-.413.087-.17.043-.314-.022-.443-.065-.13-.59-1.42-.81-1.947-.213-.518-.45-.448-.618-.457-.16-.008-.344-.01-.528-.01-.182 0-.48.068-.73.34-.25.27-.954.934-.954 2.28 0 1.348.98 2.65 1.116 2.835.137.186 1.93 2.947 4.675 4.13.65.28 1.157.446 1.554.57.654.207 1.25.177 1.72.107.524-.078 1.61-.658 1.837-1.293.228-.635.228-1.18.16-1.293zm-5.44 7.42h-.018c-1.712 0-3.4-.459-4.87-1.325l-.35-.208-3.61.947.965-3.512-.228-.364C2.936 15.947 2.1 13.914 2.1 11.8a9.914 9.914 0 1 1 15.332 8.412l-.358.214-4.87 1.325zM12 0C5.373 0 0 5.373 0 12c0 2.102.543 4.154 1.585 5.97L0 24l6.195-1.623C7.96 23.415 9.94 24 12 24c6.627 0 12-5.373 12-12 0-3.204-1.25-6.216-3.513-8.485A11.95 11.95 0 0 0 12 0z"/></svg>
+                Inquire on WhatsApp
+              </button>
             </div>
           </div>
         `;
@@ -902,6 +700,14 @@
       activeCategoryView = targetCategory;
       renderCategoryNavigation();
       renderProductsLayout();
+    }
+
+    // Opens a pre-filled WhatsApp chat for a single product inquiry
+    function sendWhatsAppInquiry(productNameEncoded) {
+      const productName = decodeURIComponent(productNameEncoded);
+      const messageText = `Hello Omni By V! I'm interested in the "${productName}" from your collection. Could you share more details, pricing, and availability? Thank you!`;
+      const waUrl = `https://wa.me/${CONCIERGE_WHATSAPP_PHONE}?text=${encodeURIComponent(messageText)}`;
+      window.open(waUrl, '_blank');
     }
 
     // Dynamic Product Card Carousel hover mechanics
@@ -964,156 +770,6 @@
       }
     }
 
-    // Toggle between Home Delivery and Store Pickup
-    function setFulfillmentType(type) {
-      activeFulfillment = type;
-      
-      const delBtn = document.getElementById('fulfillment-delivery-btn');
-      const pickBtn = document.getElementById('fulfillment-pickup-btn');
-      const zipSection = document.getElementById('zip-calculator-section');
-      const pickupSection = document.getElementById('pickup-info-section');
-      const addressFields = document.getElementById('buyer-address-fields');
-
-      if (type === 'delivery') {
-        // Style Buttons
-        delBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border-2 border-brand-obsidian bg-brand-obsidian text-white flex flex-col items-center justify-center gap-1.5";
-        pickBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-stone-200 text-stone-600 hover:bg-brand-canvas flex flex-col items-center justify-center gap-1.5";
-        
-        // Toggle Sections
-        zipSection.classList.remove('hidden');
-        pickupSection.classList.add('hidden');
-        addressFields.classList.remove('hidden');
-      } else {
-        // Style Buttons
-        delBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border border-stone-200 text-stone-600 hover:bg-brand-canvas flex flex-col items-center justify-center gap-1.5";
-        pickBtn.className = "py-3 px-4 rounded-xl text-xs font-bold uppercase tracking-wider transition-all duration-300 border-2 border-brand-obsidian bg-brand-obsidian text-white flex flex-col items-center justify-center gap-1.5";
-        
-        // Toggle Sections
-        zipSection.classList.add('hidden');
-        pickupSection.classList.remove('hidden');
-        addressFields.classList.add('hidden');
-        
-        // Reset shipping values
-        calculatedShippingValue = 0;
-      }
-
-      updateCartStateView();
-    }
-
-    // --- Regional US ZIP Shipping Calculation Engine ---
-    function calculateShippingCost(subtotal, zip) {
-      if (activeFulfillment === 'pickup') {
-        computedShippingRegionName = "Store Pickup (Free)";
-        return 0;
-      }
-
-      // Rule: Free Shipping above $75
-      if (subtotal >= 75) {
-        computedShippingRegionName = "Free Insured Shipping";
-        return 0;
-      }
-
-      const cleanZip = zip.trim();
-      if (!/^\d{5}$/.test(cleanZip)) {
-        computedShippingRegionName = "Local Northeast";
-        return 9.50; // default local base rate
-      }
-
-      // Read the first digit of the ZIP to establish US shipping zones
-      const firstDigit = cleanZip.charAt(0);
-      const firstThree = parseInt(cleanZip.substring(0, 3));
-
-      // Check special express locations (Alaska: 995-999 / Hawaii: 967-968)
-      if (firstThree >= 995 && firstThree <= 999) {
-        computedShippingRegionName = "Alaska Premium Express";
-        return 35.00;
-      }
-      if (firstThree >= 967 && firstThree <= 968) {
-        computedShippingRegionName = "Hawaii Premium Express";
-        return 35.00;
-      }
-
-      switch (firstDigit) {
-        case '0':
-        case '1':
-          computedShippingRegionName = "Local Northeast Zone";
-          return 9.50;
-        case '2':
-        case '3':
-          computedShippingRegionName = "Southeast Secure Zone";
-          return 12.50;
-        case '4':
-        case '5':
-        case '6':
-          computedShippingRegionName = "Midwest Secure Zone";
-          return 14.50;
-        case '7':
-        case '8':
-          computedShippingRegionName = "Southwest & Mountain Zone";
-          return 16.50;
-        case '9':
-          computedShippingRegionName = "Pacific Coast Zone";
-          return 19.00;
-        default:
-          computedShippingRegionName = "Local Northeast Zone";
-          return 9.50;
-      }
-    }
-
-    // Recalculates shipping when users click the "Calculate" button
-    function recalculateShippingFromInput() {
-      const inputEl = document.getElementById('cart-zip-input');
-      const errEl = document.getElementById('shipping-calc-error');
-      const val = inputEl.value.trim();
-
-      if (/^\d{5}$/.test(val)) {
-        errEl.classList.add('hidden');
-        enteredZipCode = val;
-        // Also populate the shipping address ZIP field automatically
-        document.getElementById('buyer-zip').value = val;
-        updateCartStateView();
-        triggerToast("Shipping Applied", `${computedShippingRegionName} set!`, "success");
-      } else {
-        errEl.classList.remove('hidden');
-      }
-    }
-
-    // Navigation Cart Modal Drawer Controllers
-    function toggleCartDrawer(openState) {
-      const overlay = document.getElementById('cart-overlay');
-      const backdrop = document.getElementById('cart-backdrop');
-      const drawer = document.getElementById('cart-drawer');
-
-      if (openState) {
-        overlay.classList.remove('invisible');
-        setTimeout(() => {
-          backdrop.classList.add('opacity-100');
-          drawer.classList.remove('translate-x-full');
-        }, 10);
-      } else {
-        backdrop.classList.remove('opacity-100');
-        drawer.classList.add('translate-x-full');
-        setTimeout(() => overlay.classList.add('invisible'), 300);
-      }
-    }
-
-    function toggleFallbackModal(openState) {
-      const overlay = document.getElementById('fallback-modal');
-      const backdrop = document.getElementById('modal-backdrop');
-      const content = document.getElementById('modal-content');
-
-      if (openState) {
-        overlay.classList.remove('invisible');
-        setTimeout(() => {
-          backdrop.classList.add('opacity-100');
-          content.classList.remove('scale-95', 'opacity-0');
-        }, 10);
-      } else {
-        backdrop.classList.remove('opacity-100');
-        content.classList.add('scale-95', 'opacity-0');
-        setTimeout(() => overlay.classList.add('invisible'), 300);
-      }
-    }
 
     function toggleCustomDialog(openState, message = "") {
       const overlay = document.getElementById('custom-dialog-overlay');
@@ -1173,438 +829,7 @@
     document.getElementById('confirm-cancel-btn').addEventListener('click', () => handleConfirmSelection(false));
     document.getElementById('confirm-accept-btn').addEventListener('click', () => handleConfirmSelection(true));
 
-    function copyFallbackText(elementId) {
-      const inputElement = document.getElementById(elementId);
-      inputElement.select();
-      inputElement.setSelectionRange(0, 99999); 
-      document.execCommand('copy');
-      
-      const copyButton = event.target;
-      const initialText = copyButton.textContent;
-      copyButton.textContent = "Copied!";
-      copyButton.classList.replace('bg-brand-obsidian', 'bg-emerald-600');
-      setTimeout(() => {
-        copyButton.textContent = initialText;
-        copyButton.classList.replace('bg-emerald-600', 'bg-brand-obsidian');
-      }, 1500);
-    }
 
-    // Reactive Cart Actions Pipeline Implementation
-    function addToCartPortfolio(productNameEncoded) {
-      const targetName = decodeURIComponent(productNameEncoded);
-      const matchedProduct = localProductsDataset.find(p => p.name === targetName);
-
-      if (matchedProduct) {
-        const itemExists = activeCartInventory.find(item => item.product.name === targetName);
-        if (itemExists) {
-          if (itemExists.quantity >= matchedProduct.quantity) {
-            toggleCustomDialog(true, `Apologies, only ${matchedProduct.quantity} units of this curated selection are currently available in our vault.`);
-            return;
-          }
-          itemExists.quantity += 1;
-        } else {
-          activeCartInventory.push({ product: matchedProduct, quantity: 1 });
-        }
-        updateCartStateView();
-        toggleCartDrawer(true);
-      }
-    }
-
-    function changeQuantity(nameEncoded, delta) {
-      const targetName = decodeURIComponent(nameEncoded);
-      const cartItem = activeCartInventory.find(item => item.product.name === targetName);
-      const matchedProduct = localProductsDataset.find(p => p.name === targetName);
-
-      if (cartItem && matchedProduct) {
-        if (delta > 0 && cartItem.quantity >= matchedProduct.quantity) {
-          toggleCustomDialog(true, `Maximum available inventory vault allocation reached.`);
-          return;
-        }
-        cartItem.quantity += delta;
-        if (cartItem.quantity <= 0) {
-          activeCartInventory = activeCartInventory.filter(item => item.product.name !== targetName);
-        }
-        updateCartStateView();
-      }
-    }
-
-    function updateCartStateView() {
-      const itemsContainer = document.getElementById('cart-items');
-      const counterBadge = document.getElementById('cart-counter');
-      const subtotalLabel = document.getElementById('cart-subtotal');
-      const shippingLabel = document.getElementById('cart-shipping');
-      const taxLabel = document.getElementById('cart-tax');
-      const totalLabel = document.getElementById('cart-total');
-      const zoneBadge = document.getElementById('shipping-zone-badge');
-
-      itemsContainer.innerHTML = "";
-      let trackingSubtotalValue = 0;
-      let totalItemUnits = 0;
-
-      activeCartInventory.forEach(item => {
-        trackingSubtotalValue += item.product.price * item.quantity;
-        totalItemUnits += item.quantity;
-
-        const images = item.product.image ? item.product.image.split('|').map(u => u.trim()).filter(Boolean) : [];
-        const singleDisplayImg = images[0] || 'https://placehold.co/100x120/161b21/d4af37?text=Product';
-
-        const cartCardHtml = `
-          <div class="flex items-center gap-4 pt-4 first:pt-0 text-left">
-            <img src="${singleDisplayImg}" class="w-16 h-20 object-cover rounded-xl bg-stone-100 flex-shrink-0" onerror="this.src='https://placehold.co/100x120/161b21/d4af37?text=Product';">
-            <div class="flex-grow">
-              <h4 class="font-serif text-sm font-bold text-brand-obsidian leading-tight">${item.product.name}</h4>
-              <p class="text-xs text-stone-500 font-semibold mt-1">$${item.product.price.toLocaleString()}</p>
-              <div class="flex items-center gap-2.5 mt-2">
-                <button onclick="changeQuantity('${encodeURIComponent(item.product.name)}', -1)" class="w-6 h-6 border border-stone-200 text-stone-500 flex items-center justify-center rounded-md hover:bg-stone-50">-</button>
-                <span class="text-xs font-semibold text-brand-obsidian w-4 text-center">${item.quantity}</span>
-                <button onclick="changeQuantity('${encodeURIComponent(item.product.name)}', 1)" class="w-6 h-6 border border-stone-200 text-stone-500 flex items-center justify-center rounded-md hover:bg-stone-50">+</button>
-              </div>
-            </div>
-          </div>
-        `;
-        itemsContainer.insertAdjacentHTML('beforeend', cartCardHtml);
-      });
-
-      // Calculate dynamic zone-based shipping cost
-      calculatedShippingValue = calculateShippingCost(trackingSubtotalValue, enteredZipCode);
-      
-      // Calculate CT Sales Tax (Applied to subtotal + shipping in CT)
-      const taxableAmount = trackingSubtotalValue + calculatedShippingValue;
-      const calculatedTaxValue = taxableAmount * CT_TAX_RATE;
-
-      const finalGrandTotal = trackingSubtotalValue + calculatedShippingValue + calculatedTaxValue;
-
-      // Update UI displays
-      counterBadge.textContent = totalItemUnits;
-      subtotalLabel.textContent = `$${trackingSubtotalValue.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-      
-      if (activeFulfillment === 'pickup') {
-        shippingLabel.innerHTML = `<span class="text-emerald-600 font-semibold uppercase text-[10px] tracking-wider">Free Pickup</span>`;
-      } else if (calculatedShippingValue === 0 && trackingSubtotalValue >= 75) {
-        shippingLabel.innerHTML = `<span class="text-brand-gold font-semibold uppercase text-[10px] tracking-wider">Free (Promo)</span>`;
-      } else {
-        shippingLabel.textContent = `+$${calculatedShippingValue.toFixed(2)}`;
-      }
-
-      taxLabel.textContent = `+$${calculatedTaxValue.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-
-      if (enteredZipCode && activeFulfillment === 'delivery') {
-        zoneBadge.textContent = computedShippingRegionName;
-        zoneBadge.classList.remove('hidden');
-      } else {
-        zoneBadge.classList.add('hidden');
-      }
-
-      totalLabel.textContent = `$${finalGrandTotal.toLocaleString(undefined, {minimumFractionDigits: 2})}`;
-
-      if (activeCartInventory.length === 0) {
-        itemsContainer.innerHTML = `
-          <div class="text-center py-16 space-y-2">
-            <p class="font-serif text-sm italic text-stone-400">Your collection portfolio is empty.</p>
-            <p class="text-[11px] uppercase tracking-wider text-stone-400">Discover premium items now.</p>
-          </div>`;
-      }
-    }
-
-    // Helper: Validates contact details in form fields before checking out
-    function validateBuyerIntake() {
-      const name = document.getElementById('buyer-name').value.trim();
-      const email = document.getElementById('buyer-email').value.trim();
-      const phone = document.getElementById('buyer-phone').value.trim();
-
-      if (!name || !email || !phone) {
-        toggleCustomDialog(true, "Please complete all buyer contact fields (Name, Email, Phone) to secure your reservation.");
-        return null;
-      }
-
-      if (activeFulfillment === 'delivery') {
-        const street = document.getElementById('buyer-street').value.trim();
-        const city = document.getElementById('buyer-city').value.trim();
-        const state = document.getElementById('buyer-state').value.trim();
-        const zip = document.getElementById('buyer-zip').value.trim();
-
-        if (!street || !city || !state || !zip) {
-          toggleCustomDialog(true, "Delivery is selected. Please complete your physical shipping address details.");
-          return null;
-        }
-        return { name, email, phone, street, city, state, zip };
-      }
-
-      return { name, email, phone, pickup: true };
-    }
-
-    // Unified Mobile Messaging (WhatsApp / SMS) reservation routing system
-    function processLuxuryMessagingReservation(mode) {
-      if (activeCartInventory.length === 0) {
-        toggleCustomDialog(true, "Your portfolio selection is currently empty!");
-        return;
-      }
-
-      // Gather whatever buyer info is present, otherwise default to chat fallback details
-      const rawName = document.getElementById('buyer-name').value.trim();
-      const rawEmail = document.getElementById('buyer-email').value.trim();
-      const rawPhone = document.getElementById('buyer-phone').value.trim();
-      const street = document.getElementById('buyer-street').value.trim();
-      const city = document.getElementById('buyer-city').value.trim();
-      const state = document.getElementById('buyer-state').value.trim();
-      const zip = document.getElementById('buyer-zip').value.trim();
-
-      const buyerName = rawName || (mode === 'whatsapp' ? "WhatsApp Client" : "SMS Client");
-      const buyerEmail = rawEmail || "Not specified (In-chat request)";
-      const buyerPhone = rawPhone || "Not specified (In-chat request)";
-
-      const addressDetailsString = activeFulfillment === 'delivery' 
-        ? (street || city || state || zip ? `${street}, ${city}, ${state} ${zip}` : "Delivery (Address to be provided in chat)")
-        : "Store Pickup - 1014 Campbell Ave Unit #23, West Haven, CT";
-
-      const actionBtn = event.currentTarget;
-      const originalBtnText = actionBtn.innerHTML;
-      actionBtn.disabled = true;
-      actionBtn.textContent = "Logging Reservation...";
-
-      let calculatedSubtotal = 0;
-      let orderedItemsListArray = [];
-      activeCartInventory.forEach(item => {
-        calculatedSubtotal += item.product.price * item.quantity;
-        orderedItemsListArray.push(`${item.quantity}x ${item.product.name} ($${item.product.price.toLocaleString()})`);
-      });
-
-      const shippingCost = calculatedShippingValue;
-      const taxCost = (calculatedSubtotal + shippingCost) * CT_TAX_RATE;
-      const grandTotal = calculatedSubtotal + shippingCost + taxCost;
-
-      // 1. Build a structured cloud record packet for Google Sheets sync
-      const reservationPayload = {
-        action: "createReservation",
-        buyerName: buyerName,
-        buyerEmail: buyerEmail,
-        buyerPhone: buyerPhone,
-        fulfillmentType: activeFulfillment,
-        addressDetails: addressDetailsString,
-        subtotal: calculatedSubtotal,
-        shippingCost: shippingCost,
-        tax: taxCost,
-        grandTotal: grandTotal,
-        itemsList: orderedItemsListArray.join('\n')
-      };
-
-      // Send to server in background to write row to your Reservations sheet
-      fetch(GOOGLE_SHEET_API, {
-        method: 'POST',
-        body: JSON.stringify(reservationPayload)
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === 'success') {
-          console.log("Reservation recorded in Google Sheets database.");
-        }
-      })
-      .catch(err => console.warn("Google Sheets auto-log offline: ", err))
-      .finally(() => {
-        // 2. Format a gorgeous messaging layout for WhatsApp & SMS
-        let messageText = `✨ OMNI BY V RESERVATION REQUEST ✨\n\n`;
-        messageText += `👤 CLIENT DETAILS:\n`;
-        messageText += `• Name: ${buyerName}\n`;
-        if (rawPhone) messageText += `• Phone: ${buyerPhone}\n`;
-        if (rawEmail) messageText += `• Email: ${buyerEmail}\n`;
-        messageText += `\n`;
-
-        messageText += `📦 REQUESTED ITEMS:\n`;
-        activeCartInventory.forEach((item, index) => {
-          messageText += `[${index + 1}] ${item.quantity}x ${item.product.name} ($${item.product.price.toLocaleString()})\n`;
-        });
-        messageText += `\n`;
-
-        messageText += `📍 FULFILLMENT:\n`;
-        if (activeFulfillment === 'delivery') {
-          messageText += `• Luxury Delivery to:\n  ${addressDetailsString}\n\n`;
-        } else {
-          messageText += `• In-Showroom Collection\n  (West Haven Boutique)\n\n`;
-        }
-
-        messageText += `💳 PAYMENT ESTIMATES:\n`;
-        messageText += `• Subtotal: $${calculatedSubtotal.toFixed(2)}\n`;
-        messageText += `• Shipping: $${shippingCost.toFixed(2)}\n`;
-        messageText += `• CT Sales Tax (6.35%): $${taxCost.toFixed(2)}\n`;
-        messageText += `• Estimated Grand Total: $${grandTotal.toFixed(2)}\n\n`;
-        messageText += `Please coordinate my secure vault consultation details!`;
-
-        const targetPhone = "12039436789"; // Concierge direct number
-
-        // Route dynamically to WhatsApp or SMS
-        if (mode === 'whatsapp') {
-          const waUrl = `https://wa.me/${targetPhone}?text=${encodeURIComponent(messageText)}`;
-          window.open(waUrl, '_blank');
-        } else {
-          // Cross-platform device compatible SMS markup
-          const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
-          const smsUrl = `sms:+${targetPhone}${isIOS ? '&' : '?'}body=${encodeURIComponent(messageText)}`;
-          
-          let appSwitchConfirmed = false;
-          window.addEventListener('blur', () => appSwitchConfirmed = true);
-          window.location.href = smsUrl;
-
-          // If the page doesn't blur (meaning the native SMS app didn't open), display fallback
-          setTimeout(() => {
-            if (!appSwitchConfirmed) {
-              document.getElementById('fallback-body-textarea').value = messageText;
-              toggleCartDrawer(false);
-              toggleFallbackModal(true);
-            }
-          }, 800);
-        }
-
-        // Clean up UI & refresh
-        actionBtn.disabled = false;
-        actionBtn.innerHTML = originalBtnText;
-        activeCartInventory = [];
-        updateCartStateView();
-        toggleCartDrawer(false);
-      });
-    }
-
-    function payViaVenmoDeepLink() {
-      if (activeCartInventory.length === 0) {
-        toggleCustomDialog(true, "Your portfolio selection is currently empty!");
-        return;
-      }
-
-      const buyer = validateBuyerIntake();
-      if (!buyer) return;
-
-      let subtotal = 0;
-      let orderSummaryList = [];
-
-      activeCartInventory.forEach(item => {
-        subtotal += item.product.price * item.quantity;
-        orderSummaryList.push(`${item.quantity}x ${item.product.name}`);
-      });
-
-      // Include CT sales tax and shipping calculation in grand total
-      const shippingCost = calculatedShippingValue;
-      const taxCost = (subtotal + shippingCost) * CT_TAX_RATE;
-      const finalTotal = subtotal + shippingCost + taxCost;
-
-      const fulfillmentLabel = activeFulfillment === 'pickup' ? "Boutique Pickup" : `Delivering to ${buyer.zip}`;
-      const sanitizedNote = `Omni: ${orderSummaryList.join(', ')} | For ${buyer.name} (${buyer.phone}) | ${fulfillmentLabel} | Tot: $${finalTotal.toFixed(2)} (inc 6.35% Tax)`.substring(0, 270);
-      
-      const venmoAppUri = `venmo://paycharge?txn=pay&recipients=${encodeURIComponent(VENMO_USERNAME)}&amount=${finalTotal.toFixed(2)}&note=${encodeURIComponent(sanitizedNote)}`;
-      const venmoWebFallback = `https://venmo.com/${encodeURIComponent(VENMO_USERNAME)}?txn=pay&amount=${finalTotal.toFixed(2)}&note=${encodeURIComponent(sanitizedNote)}`;
-
-      let appSwitchConfirmed = false;
-      window.addEventListener('blur', () => appSwitchConfirmed = true);
-      
-      window.location.href = venmoAppUri;
-      
-      setTimeout(() => {
-        if (!appSwitchConfirmed) {
-          window.open(venmoWebFallback, '_blank');
-        }
-      }, 750);
-    }
-
-    function sendEmailReservationRequest() {
-      if (activeCartInventory.length === 0) {
-        toggleCustomDialog(true, "Your portfolio selection is currently empty!");
-        return;
-      }
-
-      const buyer = validateBuyerIntake();
-      if (!buyer) return;
-
-      // Track active interaction element and transition state
-      const reserveBtn = event.target;
-      const originalBtnText = reserveBtn.textContent;
-      reserveBtn.disabled = true;
-      reserveBtn.textContent = "Dispatched to Cloud Vault...";
-
-      let calculatedSubtotal = 0;
-      let orderedItemsListArray = [];
-      activeCartInventory.forEach(item => {
-        calculatedSubtotal += item.product.price * item.quantity;
-        orderedItemsListArray.push(`${item.quantity}x ${item.product.name} ($${item.product.price.toLocaleString()})`);
-      });
-
-      const shippingCost = calculatedShippingValue;
-      const taxCost = (calculatedSubtotal + shippingCost) * CT_TAX_RATE;
-      const grandTotal = calculatedSubtotal + shippingCost + taxCost;
-      const addressDetailsString = activeFulfillment === 'delivery' 
-        ? `${buyer.street}, ${buyer.city}, ${buyer.state} ${buyer.zip}` 
-        : "Store Pickup - 1014 Campbell Ave Unit#23, West Haven, CT";
-
-      // Build structured cloud reservation payload packet
-      const reservationPayload = {
-        action: "createReservation",
-        buyerName: buyer.name,
-        buyerEmail: buyer.email,
-        buyerPhone: buyer.phone,
-        fulfillmentType: activeFulfillment,
-        addressDetails: addressDetailsString,
-        subtotal: calculatedSubtotal,
-        shippingCost: shippingCost,
-        tax: taxCost,
-        grandTotal: grandTotal,
-        itemsList: orderedItemsListArray.join('\n')
-      };
-
-      // 1. Primary Solution: Server-side cloud email process
-      fetch(GOOGLE_SHEET_API, {
-        method: 'POST',
-        body: JSON.stringify(reservationPayload)
-      })
-      .then(res => res.json())
-      .then(data => {
-        if (data.status === 'success') {
-          toggleCartDrawer(false);
-          toggleCustomDialog(true, `Consultation Secured!\n\nYour portfolio reservation has been compiled and emailed directly to our West Haven showroom concierge. A confirmation copy has been sent to ${buyer.email}.`);
-          activeCartInventory = [];
-          updateCartStateView();
-        } else {
-          throw new Error(data.message || "Endpoint rejected packet.");
-        }
-      })
-      .catch(err => {
-        console.warn("Direct cloud mail pipeline failed. Falling back to native mailto:", err);
-        
-        // 2. Secondary Solution: Fallback to native Mailto protocol
-        const businessEmail = "vibhuti@omnibyv.com"; 
-        const subjectLine = `Omni Reservation: ${buyer.name} - ${activeFulfillment.toUpperCase()}`;
-        
-        let emailBodyText = `Hello Omni By V,\n\nI would like to place a secure reservation request for the following pieces:\n\n`;
-        activeCartInventory.forEach((item, index) => {
-          const itemTotal = item.product.price * item.quantity;
-          emailBodyText += `${index + 1}. ${item.product.name}\n   Quantity: ${item.quantity}\n   Unit Price: $${item.product.price.toLocaleString()}\n   Total: $${itemTotal.toLocaleString()}\n\n`;
-        });
-
-        emailBodyText += `----------------------------------------\n`;
-        emailBodyText += `💎 SUBTOTAL: $${calculatedSubtotal.toLocaleString()}\n`;
-        emailBodyText += `🚚 FULFILLMENT: ${activeFulfillment.toUpperCase()} (Shipping: $${shippingCost.toFixed(2)})\n`;
-        emailBodyText += `🏛️ CT TAX (6.35%): $${taxCost.toLocaleString()}\n`;
-        emailBodyText += `✨ ESTIMATED TOTAL: $${grandTotal.toLocaleString()}\n`;
-        emailBodyText += `----------------------------------------\n\n`;
-        emailBodyText += `👤 CONTACT:\n   Name: ${buyer.name}\n   Email: ${buyer.email}\n   Phone: ${buyer.phone}\n\n`;
-        emailBodyText += `📍 ADDRESS DETAILS:\n   ${addressDetailsString}\n\n`;
-        emailBodyText += `Please contact me to finalize payment and showroom collection arrangements. Thank you!`;
-
-        document.getElementById('fallback-body-textarea').value = emailBodyText;
-        const mailtoUriLink = `mailto:${businessEmail}?subject=${encodeURIComponent(subjectLine)}&body=${encodeURIComponent(emailBodyText)}`;
-        
-        let appSwitchConfirmed = false;
-        window.addEventListener('blur', () => appSwitchConfirmed = true);
-        window.location.href = mailtoUriLink;
-        
-        setTimeout(() => {
-          if (!appSwitchConfirmed) {
-            toggleCartDrawer(false);
-            toggleFallbackModal(true);
-          }
-        }, 500);
-      })
-      .finally(() => {
-        reserveBtn.disabled = false;
-        reserveBtn.textContent = originalBtnText;
-      });
-    }
 
     // --- ADMIN / POS PORTAL OPERATIONS ---
     function togglePasscodeScreen(openState) {
